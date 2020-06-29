@@ -2,22 +2,13 @@ import Head from 'next/head'
 
 import utilStyles from '../styles/utils.module.css'
 import styles from '../components/layout.module.css';
-import { getSortedPostsData } from '../lib/posts'
 import { DownloadButton } from '../components/download-button'
 import useModDatabase from '../hooks/useModDatabase';
 
-type Props = {
-  allPostsData: any;
-}
-
-const Home: React.FunctionComponent<Props> = ({ allPostsData }) => {
+const Home: React.FunctionComponent = () => {
   const modDatabase = useModDatabase();
 
   const isDatabaseLoaded = modDatabase !== undefined;
-
-  const handleDownloadClick = () => {
-
-  }
 
   return (
     <div className={styles.container}>
@@ -44,12 +35,3 @@ const Home: React.FunctionComponent<Props> = ({ allPostsData }) => {
 }
 
 export default Home;
-
-export async function getStaticProps() {
-  const allPostsData = getSortedPostsData()
-  return {
-    props: {
-      allPostsData
-    }
-  }
-}
