@@ -58,6 +58,9 @@ const Home: React.FunctionComponent = () => {
               <a href="https://www.epicgames.com/store/en-US/product/outerwilds/">
                 Outer Wilds on Epic
               </a>
+              <a href="https://www.mobiusdigitalgames.com/outer-wilds.html">
+                Official website
+              </a>
             </div>
           </div>
           <div className={styles.sectionImageWrapper}>
