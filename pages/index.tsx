@@ -8,7 +8,7 @@ const Home: React.FunctionComponent = () => {
   const modDatabase = useModDatabase();
 
   const modManagerDefaultDownloadUrl = 'https://github.com/Raicuparta/ow-mod-manager/releases/latest';
-  const modManagerDownloadUrl = modDatabase?.modManager?.downloadUrl ?? modManagerDefaultDownloadUrl;
+  const modManagerDownloadUrl = modDatabase?.modManager?.downloadUrl;
 
   return (
     <div className={styles.container}>
@@ -33,7 +33,11 @@ const Home: React.FunctionComponent = () => {
             </a>
           </div>
         </div>
-        <DownloadButton href={modManagerDownloadUrl}>
+        <DownloadButton
+          href={modManagerDownloadUrl ?? modManagerDefaultDownloadUrl}
+          target={modManagerDownloadUrl ? undefined : '_blank' }
+          rel="noopener noreferrer"
+        >
           Download Outer Wilds Mod Manager
         </DownloadButton>
       </section>
