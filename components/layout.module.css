@@ -1,25 +1,37 @@
 .container {
   max-width: 36rem;
   padding: 0 1rem;
-  margin: 3rem auto 6rem;
+  margin: 1rem auto 6rem;
 }
 
 .header {
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-bottom: 1px solid rgb(124, 124, 124);
+  padding-bottom: 1.2rem;
+  margin-bottom: 2rem;
 }
 
-.headerImage {
-  width: 6rem;
-  height: 6rem;
+.modManagerSection {
+  display: flex;
+  margin: 1rem 0;
 }
 
-.headerHomeImage {
-  width: 8rem;
-  height: 8rem;
+.modManagerImageWrapper {
+  flex: 1;
+  margin-right: 1rem;
 }
 
-.backToHome {
-  margin: 3rem 0 0;
+.modManagerImage {
+  border-radius: 10px;
+  border: 1px solid rgb(124, 124, 124);
+}
+
+.modManagerDescriptionWrapper {
+  flex: 1;
+}
+
+.modManagerDescription {
+  margin-top: 0;
 }
