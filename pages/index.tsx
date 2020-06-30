@@ -7,7 +7,8 @@ import useModDatabase from '../hooks/useModDatabase';
 const Home: React.FunctionComponent = () => {
   const modDatabase = useModDatabase();
 
-  const isDatabaseLoaded = modDatabase !== undefined;
+  const modManagerDefaultDownloadUrl = 'https://github.com/Raicuparta/ow-mod-manager/releases/latest';
+  const modManagerDownloadUrl = modDatabase?.modManager?.downloadUrl ?? modManagerDefaultDownloadUrl;
 
   return (
     <div className={styles.container}>
@@ -32,15 +33,8 @@ const Home: React.FunctionComponent = () => {
             </a>
           </div>
         </div>
-        <DownloadButton
-          href={isDatabaseLoaded ? modDatabase?.modManager.downloadUrl : '#'}
-          disabled={!isDatabaseLoaded}
-        >
-          {isDatabaseLoaded ? (
-            'Download Outer Wilds Mod Manager'
-          ) : (
-            'Getting latest version of Mod Manager...'
-          )}
+        <DownloadButton href={modManagerDownloadUrl}>
+          Download Outer Wilds Mod Manager
         </DownloadButton>
       </section>
       <section className={styles.pageSection}>

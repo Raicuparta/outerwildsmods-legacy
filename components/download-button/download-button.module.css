@@ -10,7 +10,8 @@
   cursor: pointer;
   text-align: center;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
-  transition: 0.2s;
+  transition-property: background, box-shadow;
+  transition-duration: 0.2s;
   outline: none;
   text-decoration: unset !important;
   margin-top: 1rem;
@@ -24,9 +25,4 @@
 .downloadButton:hover:not(.disabled):not(:active) {
   background-color: rgb(240, 152, 71);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6);
-}
-
-.disabled {
-  cursor: default;
-  background-color: rgb(146, 146, 146);;
 }
