@@ -8,6 +8,7 @@ body {
   font-size: 18px;
   background-color: rgb(39, 39, 39);
   color: white;
+  font-weight: lighter;
 }
 
 * {
@@ -17,6 +18,7 @@ body {
 a {
   color: rgb(224, 131, 43);;
   text-decoration: none;
+  font-weight: normal;
 }
 
 a:hover {

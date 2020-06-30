@@ -24,11 +24,12 @@
   font-size: 1.5rem;
   line-height: 1.4;
   margin-top: 0;
+  font-weight: normal;
 }
 
 .pageSection {
   border-bottom: 1px solid rgb(124, 124, 124);
-  padding: 2rem 0;
+  padding: 1.5rem 0 2rem 0;
 }
 
 .verticalList {
@@ -56,4 +57,9 @@
 
 .sectionDescription {
   margin-top: 0;
+}
+
+.footer {
+  margin-top: 2rem;
+  color: rgb(124, 124, 124);
 }

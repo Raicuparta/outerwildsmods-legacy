@@ -64,6 +64,29 @@ const Home: React.FunctionComponent = () => {
           </div>
         </div>
       </section>
+      <section className={styles.pageSection}>
+        <h2 className={styles.sectionTitle}>Community</h2>
+        <div className={styles.sectionColumns}>
+          <div className={styles.sectionDescriptionWrapper}>
+            <p className={styles.sectionDescription}>
+              Here is where you can find the people responsible for all these mods and tools.
+            </p>
+            <div className={styles.verticalList}>
+              <a href="https://reddit.com/r/outerwilds">
+                Outer Wilds on Reddit
+              </a>
+              <a href="https://discord.gg/qd3Zu5">
+                Outer Wilds Discord
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer className={styles.footer}>
+        <p>
+          This page isn't official, nor affiliated with Mobius Digital, or anyone really.
+        </p>
+      </footer>
     </div>
   )
 }
