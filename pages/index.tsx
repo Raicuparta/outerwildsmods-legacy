@@ -1,6 +1,5 @@
 import Head from 'next/head'
 
-import utilStyles from '../styles/utils.module.css'
 import styles from '../components/layout.module.css';
 import { DownloadButton } from '../components/download-button'
 import useModDatabase from '../hooks/useModDatabase';
@@ -16,9 +15,9 @@ const Home: React.FunctionComponent = () => {
         <title>Outer Wilds Mods</title>
       </Head>
       <header className={styles.header}>
-        <h1 className={utilStyles.heading2Xl}>Outer Wilds Mods</h1>
+        <h1 className={styles.pageTitle}>Outer Wilds Mods</h1>
       </header>
-      <h2 className={utilStyles.headingLg}>Outer Wilds Mod Manager</h2>
+      <h2 className={styles.sectionTitle}>Outer Wilds Mod Manager</h2>
       <section className={styles.modManagerSection}>
         <div className={styles.modManagerImageWrapper}>
           <img className={styles.modManagerImage} src="images/mod-manager.png" />
