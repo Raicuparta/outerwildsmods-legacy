@@ -13,6 +13,7 @@
   transition: 0.2s;
   outline: none;
   text-decoration: unset !important;
+  margin-top: 1rem;
 }
 
 .downloadButton:active {

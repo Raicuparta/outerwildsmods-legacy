@@ -10,7 +10,6 @@
   align-items: center;
   border-bottom: 1px solid rgb(124, 124, 124);
   padding-bottom: 1.2rem;
-  margin-bottom: 2rem;
 }
 
 .pageTitle {
@@ -24,28 +23,32 @@
 .sectionTitle {
   font-size: 1.5rem;
   line-height: 1.4;
-  margin: 1rem 0 0 0;
+  margin-top: 0;
 }
 
-.modManagerSection {
+.pageSection {
+  border-bottom: 1px solid rgb(124, 124, 124);
+  padding: 2rem 0;
+}
+
+.sectionColumns {
   display: flex;
-  margin: 1rem 0;
 }
 
-.modManagerImageWrapper {
+.sectionImageWrapper {
   flex: 1;
   margin-right: 1rem;
 }
 
-.modManagerImage {
+.sectionImage {
   border-radius: 10px;
   border: 1px solid rgb(124, 124, 124);
 }
 
-.modManagerDescriptionWrapper {
+.sectionDescriptionWrapper {
   flex: 1;
 }
 
-.modManagerDescription {
+.sectionDescription {
   margin-top: 0;
 }
