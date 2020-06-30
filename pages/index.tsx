@@ -43,6 +43,27 @@ const Home: React.FunctionComponent = () => {
           )}
         </DownloadButton>
       </section>
+      <section className={styles.pageSection}>
+        <h2 className={styles.sectionTitle}>Outer Wilds?</h2>
+        <div className={styles.sectionColumns}>
+          <div className={styles.sectionImageWrapper}>
+            <img className={styles.sectionImage} src="images/outer-wilds.jpg" />
+          </div>
+          <div className={styles.sectionDescriptionWrapper}>
+            <p className={styles.sectionDescription}>
+              Outer Wilds is a neat game. Check it out and buy it or whatever.
+            </p>
+            <div className={styles.verticalList}>
+              <a href="https://store.steampowered.com/app/753640/Outer_Wilds/">
+                Outer Wilds on Steam
+              </a>
+              <a href="https://www.epicgames.com/store/en-US/product/outerwilds/">
+                Outer Wilds on Epic
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }
