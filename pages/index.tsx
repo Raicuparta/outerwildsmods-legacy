@@ -46,9 +46,7 @@ const Home: React.FunctionComponent = () => {
       <section className={styles.pageSection}>
         <h2 className={styles.sectionTitle}>Outer Wilds?</h2>
         <div className={styles.sectionColumns}>
-          <div className={styles.sectionImageWrapper}>
-            <img className={styles.sectionImage} src="images/outer-wilds.jpg" />
-          </div>
+
           <div className={styles.sectionDescriptionWrapper}>
             <p className={styles.sectionDescription}>
               Outer Wilds is a neat game. Check it out and buy it or whatever.
@@ -61,6 +59,9 @@ const Home: React.FunctionComponent = () => {
                 Outer Wilds on Epic
               </a>
             </div>
+          </div>
+          <div className={styles.sectionImageWrapper}>
+            <img className={styles.sectionImage} src="images/outer-wilds.jpg" />
           </div>
         </div>
       </section>

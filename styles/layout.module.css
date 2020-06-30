@@ -43,7 +43,14 @@
 
 .sectionImageWrapper {
   flex: 1;
+}
+
+.sectionImageWrapper:first-child {
   margin-right: 1rem;
+}
+
+.sectionImageWrapper:not(:first-child) {
+  margin-left: 1rem;
 }
 
 .sectionImage {
