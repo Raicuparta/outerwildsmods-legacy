@@ -5,11 +5,9 @@
 }
 
 .header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   border-bottom: 1px solid rgb(124, 124, 124);
   padding-bottom: 1.2rem;
+  text-align: center;
 }
 
 .pageTitle {

@@ -8,7 +8,6 @@ import { Analytics } from '../components/analytics';
 const Home: React.FunctionComponent = () => {
   const modDatabase = useModDatabase();
 
-
   const modManagerDefaultDownloadUrl = 'https://github.com/Raicuparta/ow-mod-manager/releases/latest';
   const modManagerDownloadUrl = modDatabase?.modManager?.downloadUrl;
 
@@ -32,7 +31,7 @@ const Home: React.FunctionComponent = () => {
               Use the Outer Wilds Mod Manager for downloading, installing, and managing mods.
             </p>
             <a href="https://github.com/Raicuparta/ow-mod-manager">
-              Source code on GitHub
+              Source code
             </a>
           </div>
         </div>
@@ -54,10 +53,10 @@ const Home: React.FunctionComponent = () => {
             </p>
             <div className={styles.verticalList}>
               <a href="https://store.steampowered.com/app/753640/Outer_Wilds/">
-                Outer Wilds on Steam
+                Steam
               </a>
               <a href="https://www.epicgames.com/store/en-US/product/outerwilds/">
-                Outer Wilds on Epic
+                Epic
               </a>
               <a href="https://www.mobiusdigitalgames.com/outer-wilds.html">
                 Official website
@@ -78,10 +77,10 @@ const Home: React.FunctionComponent = () => {
             </p>
             <div className={styles.verticalList}>
               <a href="https://reddit.com/r/outerwilds">
-                Outer Wilds on Reddit
+                Reddit
               </a>
               <a href="https://discord.gg/qd3Zu5">
-                Outer Wilds Discord
+                Discord
               </a>
             </div>
           </div>
