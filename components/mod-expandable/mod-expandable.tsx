@@ -21,6 +21,9 @@ export const ModExpandable: React.FunctionComponent<Props> = ({
   <div className={styles.expandable} >
     <button className={styles.expandableButton} onClick={onClick}>
       {mod.title} <small className={styles.modAuthor}>by {mod.author}</small>
+      <span className={`${styles.expandableCaret} ${isExpanded ? styles.expanded : ''}`}>
+        {'>'}
+      </span>
     </button>
     {isExpanded && (
       <div className={styles.expandableContent}>
