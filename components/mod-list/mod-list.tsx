@@ -25,7 +25,7 @@ const mods: Mod[] = [
     repo: 'https://github.com/TAImatem/OW_TAIcheat',
   },
   {
-    title: 'Masrhmallow',
+    title: 'Marshmallow',
     description: 'Planet creator. Users can create planets from JSON files, and share them with others.',
     author: 'misternebula',
     repo: 'https://github.com/misternebula/Marshmallow',
