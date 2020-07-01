@@ -80,7 +80,7 @@ const Home: React.FunctionComponent = () => {
         <div className={styles.sectionColumns}>
           <div className={styles.sectionDescriptionWrapper}>
             <p className={styles.sectionDescription}>
-              Here is where you can find the people responsible for all these mods and tools.
+              If you need support, or just wanna interact with other fans of the game, this is where you can find us:
             </p>
             <div className={styles.verticalList}>
               <a href="https://reddit.com/r/outerwilds">
@@ -90,6 +90,20 @@ const Home: React.FunctionComponent = () => {
                 Discord
               </a>
             </div>
+          </div>
+        </div>
+      </section>
+      <section className={styles.pageSection}>
+        <h2 className={styles.sectionTitle}>Become a modder</h2>
+        <div className={styles.sectionColumns}>
+          <div className={styles.sectionDescriptionWrapper}>
+            <p className={styles.sectionDescription}>
+              If you want to make your own mods, the OWML documentation has most of the info you need to get started.
+              The aforementioned Discord server also has a <code>#modding</code> channel.
+            </p>
+              <a href="https://github.com/amazingalek/owml/wiki/For-modders">
+                Info for modders in OWML docs
+              </a>
           </div>
         </div>
       </section>
