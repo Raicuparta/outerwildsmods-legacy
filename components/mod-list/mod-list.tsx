@@ -1,11 +1,17 @@
 import { useState } from "react";
 
 import { ModExpandable } from "../mod-expandable";
-import { Props as Mod } from '../mod-expandable';
+import { Mod } from '../mod-expandable';
 import styles from './mod-list.module.scss';
 
 
 const mods: Mod[] = [
+  {
+    title: 'OWML',
+    description: 'Mod loader / framework. All available mods use this to interact and modify the game.',
+    author: 'AmazingAlek',
+    repo: 'https://github.com/amazingalek/owml',
+  },
   {
     title: 'NomaiVR',
     description: 'VR Mod. Compatible with pretty much any VR headset. Most interactions have been modified for VR gesture controls.',
@@ -13,10 +19,16 @@ const mods: Mod[] = [
     repo: 'https://github.com/Raicuparta/nomai-vr',
   },
   {
-    title: 'NomaiVR2',
-    description: 'VR Mod. Compatible with pretty much any VR headset. Most interactions have been modified for VR gesture controls.',
-    author: 'Raicuparta',
-    repo: 'https://github.com/Raicuparta/nomai-vr',
+    title: 'TAICheat',
+    description: 'Collection of cheats that can be mapped to button / key combinations.',
+    author: 'TAImatem',
+    repo: 'https://github.com/TAImatem/OW_TAIcheat',
+  },
+  {
+    title: 'Masrhmallow',
+    description: 'Allows for creating new planets from JSON files.',
+    author: 'TAImatem',
+    repo: 'https://github.com/TAImatem/OW_TAIcheat',
   },
 ];
 
