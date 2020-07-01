@@ -14,19 +14,19 @@ const mods: Mod[] = [
   },
   {
     title: 'NomaiVR',
-    description: 'VR Mod. Compatible with pretty much any VR headset. Most interactions have been modified for VR gesture controls.',
+    description: 'VR Mod. Compatible with pretty much any VR headset. Most interactions have been modified for VR motion controls.',
     author: 'Raicuparta',
     repo: 'https://github.com/Raicuparta/nomai-vr',
   },
   {
     title: 'TAICheat',
-    description: 'Collection of cheats that can be mapped to button / key combinations.',
+    description: 'Collection of cheats that can be mapped to button / key combinations. Cheats include super jetpack, invincibility, and a lot more.',
     author: 'TAImatem',
     repo: 'https://github.com/TAImatem/OW_TAIcheat',
   },
   {
     title: 'Masrhmallow',
-    description: 'Allows for creating new planets from JSON files.',
+    description: 'Planet creator. Users can create planets from JSON files, and share them with others.',
     author: 'TAImatem',
     repo: 'https://github.com/TAImatem/OW_TAIcheat',
   },

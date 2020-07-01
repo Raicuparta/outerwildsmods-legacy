@@ -28,7 +28,7 @@ export const ModExpandable: React.FunctionComponent<Props> = ({
     {isExpanded && (
       <div className={styles.expandableContent}>
         <p className={styles.modDescription}>{mod.description}</p>
-        <a href={mod.repo}>Source code</a>
+        <a href={mod.repo}>More info on GitHub</a>
       </div>
     )}
   </div>

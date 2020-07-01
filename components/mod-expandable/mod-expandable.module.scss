@@ -27,7 +27,7 @@
 
 .expandableCaret {
   float: right;
-  transition: 0.2s;
+  color: $light;
   &.expanded {
     transform: rotate(90deg)
   }
