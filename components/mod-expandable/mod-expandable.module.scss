@@ -23,6 +23,10 @@
   border: none;
   font-size: large;
   font-weight: 100;
+  transition: background 0.2s;
+  &:hover {
+    background: rgb(59, 53, 45);
+  }
 }
 
 .expandableCaret {
