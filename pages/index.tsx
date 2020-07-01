@@ -3,9 +3,11 @@ import Head from 'next/head'
 import styles from '../styles/layout.module.css';
 import { DownloadButton } from '../components/download-button'
 import useModDatabase from '../hooks/useModDatabase';
+import { Analytics } from '../components/analytics';
 
 const Home: React.FunctionComponent = () => {
   const modDatabase = useModDatabase();
+
 
   const modManagerDefaultDownloadUrl = 'https://github.com/Raicuparta/ow-mod-manager/releases/latest';
   const modManagerDownloadUrl = modDatabase?.modManager?.downloadUrl;
@@ -13,6 +15,7 @@ const Home: React.FunctionComponent = () => {
   return (
     <div className={styles.container}>
       <Head>
+        <Analytics id="UA-171434021-1" />
         <title>Outer Wilds Mods</title>
       </Head>
       <header className={styles.header}>
