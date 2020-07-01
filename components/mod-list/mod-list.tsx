@@ -35,12 +35,16 @@ const mods: Mod[] = [
 export const ModList: React.FunctionComponent = () => {
   const [expanded, setExpanded] = useState<string | null>(null);
 
+  const handleModClick = (modTitle: string) => () => {
+    setExpanded(modTitle === expanded ? null : modTitle);
+  }
+
   return (
     <div className={styles.modList}>
       {mods.map(mod => (
         <ModExpandable
           mod={mod}
-          onClick={() => setExpanded(mod.title)}
+          onClick={handleModClick(mod.title)}
           isExpanded={expanded === mod.title}
         />
       ))}
