@@ -20,7 +20,10 @@ const Home: React.FunctionComponent = () => {
         <title>Outer Wilds Mods</title>
       </Head>
       <header className={styles.header}>
-        <h1 className={styles.pageTitle}>Outer Wilds Mods</h1>
+        <img className={styles.titleIcon} src="favicon.ico" />
+        <h1 className={styles.pageTitle}>
+          Outer Wilds Mods
+        </h1>
       </header>
       <section className={styles.pageSection}>
         <h2 className={styles.sectionTitle}>Outer Wilds Mod Manager</h2>
