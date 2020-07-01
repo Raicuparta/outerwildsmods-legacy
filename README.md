@@ -1,1 +1,3 @@
-This is a starter template for [Learn Next.js](https://nextjs.org/learn).
+# [Outer Wilds Mods](https://outerwildsmods.com/)
+
+Simple page for aggregating info related to mods for the game Outer Wilds.
