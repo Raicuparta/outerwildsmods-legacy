@@ -1,6 +1,8 @@
+@import '../../styles/variables.scss';
+
 .downloadButton {
   display: block;
-  border-radius: 5px;
+  border-radius: $border-radius;
   border: none;
   padding: 10px;
   width: 100%;

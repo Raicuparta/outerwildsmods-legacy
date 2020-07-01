@@ -1,4 +1,4 @@
-import styles from './download-button.module.css';
+import styles from './download-button.module.scss';
 import { DetailedHTMLProps, AnchorHTMLAttributes } from 'react';
 
 type Props = DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>

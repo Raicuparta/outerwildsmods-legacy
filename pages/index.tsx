@@ -1,9 +1,11 @@
 import Head from 'next/head'
 
-import styles from '../styles/layout.module.css';
+import styles from '../styles/layout.module.scss';
 import { DownloadButton } from '../components/download-button'
 import useModDatabase from '../hooks/useModDatabase';
 import { Analytics } from '../components/analytics';
+import { ModExpandable } from '../components/mod-expandable';
+import { ModList } from '../components/mod-list';
 
 const Home: React.FunctionComponent = () => {
   const modDatabase = useModDatabase();
@@ -44,9 +46,14 @@ const Home: React.FunctionComponent = () => {
         </DownloadButton>
       </section>
       <section className={styles.pageSection}>
+        <h2 className={styles.sectionTitle}>Some of the available mods</h2>
+        <div className={styles.sectionColumns}>
+          <ModList />
+        </div>
+      </section>
+      <section className={styles.pageSection}>
         <h2 className={styles.sectionTitle}>Outer Wilds?</h2>
         <div className={styles.sectionColumns}>
-
           <div className={styles.sectionDescriptionWrapper}>
             <p className={styles.sectionDescription}>
               Outer Wilds is a neat game. Check it out and buy it or whatever.
