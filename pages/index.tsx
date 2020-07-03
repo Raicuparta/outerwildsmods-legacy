@@ -4,7 +4,7 @@ import styles from '../styles/layout.module.scss';
 import { DownloadButton } from '../components/download-button'
 import useModDatabase from '../hooks/useModDatabase';
 import { Analytics } from '../components/analytics';
-import { ModExpandable } from '../components/mod-expandable';
+import { ModTile } from '../components/mod-expandable';
 import { ModList } from '../components/mod-list';
 
 const Home: React.FunctionComponent = () => {

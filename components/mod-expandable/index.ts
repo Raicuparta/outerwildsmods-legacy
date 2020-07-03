@@ -1,1 +1,1 @@
-export * from './mod-expandable';
+export * from './mod-tile';
