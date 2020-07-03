@@ -37,7 +37,7 @@ const mods: Mod[] = [
 export const ModList: React.FunctionComponent = () => (
   <div className={styles.modList}>
     {mods.map(mod => (
-      <ModTile mod={mod} />
+      <ModTile key={mod.title} mod={mod} />
     ))}
   </div>
 );
