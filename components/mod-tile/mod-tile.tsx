@@ -16,7 +16,11 @@ export const ModTile: React.FunctionComponent<Props> = ({
   mod,
 }) => (
   <div className={styles.modTile}>
-    <img className={styles.modImage} src={mod.image} />
+    <img
+      className={styles.modImage}
+      src={mod.image}
+      alt={mod.title}
+    />
     <strong>{mod.title}</strong>
     <small className={styles.modAuthor}>by {mod.author}</small>
     <div className={styles.modContent}>

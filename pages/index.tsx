@@ -20,7 +20,11 @@ const Home: React.FunctionComponent = () => {
         <meta name="Description" content="Find all the tools needed to mod Outer Wilds Mods. Download and install mods with the outer Wilds Mod Manager"></meta>
       </Head>
       <header className={styles.header}>
-        <img className={styles.titleIcon} src="favicon.ico" />
+        <img
+          className={styles.titleIcon}
+          src="favicon.ico"
+          alt="Outer Wilds Mods"
+        />
         <h1 className={styles.pageTitle}>
           Outer Wilds Mods
         </h1>
@@ -29,7 +33,11 @@ const Home: React.FunctionComponent = () => {
         <h2 className={styles.sectionTitle}>Outer Wilds Mod Manager</h2>
         <div className={styles.sectionColumns}>
           <div className={styles.sectionImageWrapper}>
-            <img className={styles.sectionImage} src="images/mod-manager.png" />
+            <img
+              className={styles.sectionImage}
+              src="images/mod-manager.png"
+              alt="Outer Wilds Mod Manager"
+            />
           </div>
           <div className={styles.sectionDescriptionWrapper}>
             <p className={styles.sectionDescription}>
@@ -74,7 +82,11 @@ const Home: React.FunctionComponent = () => {
             </div>
           </div>
           <div className={styles.sectionImageWrapper}>
-            <img className={styles.sectionImage} src="images/outer-wilds.jpg" />
+            <img
+              className={styles.sectionImage}
+              src="images/outer-wilds.jpg"
+              alt="Outer Wilds"
+            />
           </div>
         </div>
       </section>
