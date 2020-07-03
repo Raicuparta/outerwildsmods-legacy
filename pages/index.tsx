@@ -4,7 +4,6 @@ import styles from '../styles/layout.module.scss';
 import { DownloadButton } from '../components/download-button'
 import useModDatabase from '../hooks/useModDatabase';
 import { Analytics } from '../components/analytics';
-import { ModTile } from '../components/mod-expandable';
 import { ModList } from '../components/mod-list';
 
 const Home: React.FunctionComponent = () => {
@@ -18,6 +17,7 @@ const Home: React.FunctionComponent = () => {
       <Head>
         <Analytics id="UA-171434021-1" />
         <title>Outer Wilds Mods</title>
+        <meta name="Description" content="Find all the tools needed to mod Outer Wilds Mods. Download and install mods with the outer Wilds Mod Manager"></meta>
       </Head>
       <header className={styles.header}>
         <img className={styles.titleIcon} src="favicon.ico" />

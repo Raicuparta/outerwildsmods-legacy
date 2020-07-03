@@ -1,5 +1,5 @@
-import { ModTile } from "../mod-expandable";
-import { Mod } from '../mod-expandable';
+import { ModTile } from "../mod-tile";
+import { Mod } from '../mod-tile';
 import styles from './mod-list.module.scss';
 
 
