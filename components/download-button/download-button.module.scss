@@ -6,12 +6,12 @@
   border: none;
   padding: 10px;
   width: 100%;
-  background-color: rgb(224, 131, 43);
+  background-color: #4f8235;
   color: white;
   font-size: large;
   cursor: pointer;
   text-align: center;
-  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+  font-weight: bold;
   transition-property: background, box-shadow;
   transition-duration: 0.2s;
   outline: none;
@@ -20,11 +20,11 @@
 }
 
 .downloadButton:active {
-  background-color: rgb(189, 111, 38);
+  background-color: #406b2c;
   box-shadow: none;
 }
 
 .downloadButton:hover:not(.disabled):not(:active) {
-  background-color: rgb(240, 152, 71);
+  background-color: #5f9b41;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6);
 }
