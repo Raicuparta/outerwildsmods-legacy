@@ -18,6 +18,7 @@ const Home: React.FunctionComponent = () => {
         <Analytics id="UA-171434021-1" />
         <title>Outer Wilds Mods</title>
         <meta name="Description" content="Find all the tools needed to mod Outer Wilds. Download and install mods with the Outer Wilds Mod Manager"></meta>
+        <link rel="canonical" href="https://outerwildsmods.com" />
       </Head>
       <header className={styles.header}>
         <img
