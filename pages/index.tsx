@@ -3,7 +3,6 @@ import Head from 'next/head'
 import styles from '../styles/layout.module.scss';
 import { DownloadButton } from '../components/download-button'
 import useModDatabase from '../hooks/useModDatabase';
-import { Analytics } from '../components/analytics';
 import { ModList } from '../components/mod-list';
 
 const Home: React.FunctionComponent = () => {
@@ -15,7 +14,6 @@ const Home: React.FunctionComponent = () => {
   return (
     <div className={styles.container}>
       <Head>
-        <Analytics id="UA-171434021-1" />
         <title>Outer Wilds Mods</title>
         <meta name="Description" content="Find all the tools needed to mod Outer Wilds. Download and install mods with the Outer Wilds Mod Manager"></meta>
         <link rel="canonical" href="https://outerwildsmods.com" />
