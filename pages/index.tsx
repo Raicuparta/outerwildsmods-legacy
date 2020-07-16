@@ -5,6 +5,7 @@ import { DownloadButton } from '../components/download-button'
 import useModDatabase from '../hooks/useModDatabase';
 import { Analytics } from '../components/analytics';
 import { ModList } from '../components/mod-list';
+import { AuthorList } from '../components/author-list/author-list';
 
 const Home: React.FunctionComponent = () => {
   const modDatabase = useModDatabase();
@@ -121,6 +122,12 @@ const Home: React.FunctionComponent = () => {
                 Info for modders in OWML docs
               </a>
           </div>
+        </div>
+      </section>
+      <section className={styles.pageSection}>
+        <h2 className={styles.sectionTitle}>Authors</h2>
+        <div className={styles.sectionColumns}>
+          <AuthorList />
         </div>
       </section>
       <footer className={styles.footer}>
