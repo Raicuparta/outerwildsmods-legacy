@@ -30,6 +30,13 @@ const authors: Mod[] = [
     repo: 'https://github.com/misternebula',
     image: 'https://avatars2.githubusercontent.com/u/41904486?s=400&u=05bf53d0ac9a57c456fbd64f103a0eb3e0f40252&v=4',
   },
+  {
+    title: 'alexey05',
+    author: 'alexey05',
+    description: 'The mascot of the Outer Wilds community.',
+    repo: '',
+    image: 'https://cdn.discordapp.com/avatars/168094466249457665/ef0bf5857e6b3410aafc09f69b7a35a9.png?size=256',
+  },
 ];
 
 export const AuthorList: React.FunctionComponent = () => (
