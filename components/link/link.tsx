@@ -11,7 +11,7 @@ export const Link: React.FunctionComponent<Props> = ({
   <a
     className={styles.link}
     href={to}
-    //target='_blank'
+    target='_blank'
     rel="noopener noreferrer"
   >
     {children}

@@ -104,7 +104,7 @@ const Home: React.FunctionComponent = () => {
               <Link to="https://reddit.com/r/outerwilds">
                 Reddit
               </Link>
-              <Link to="https://discord.gg/qd3Zu5">
+              <Link to="https://discord.gg/RaSjRbm">
                 Discord
               </Link>
             </div>
