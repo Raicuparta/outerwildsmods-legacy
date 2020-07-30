@@ -23,18 +23,6 @@
   padding-bottom: 1.2rem;
 }
 
-.sectionTitle {
-  font-size: 1.5rem;
-  line-height: 1.4;
-  margin-top: 0;
-  font-weight: normal;
-}
-
-.pageSection {
-  border-bottom: 1px solid $light;
-  padding: 1.5rem 0 2rem 0;
-}
-
 .verticalList {
   display: flex;
   flex-direction: column;
@@ -44,51 +32,8 @@
   }
 }
 
-.sectionColumns {
-  display: flex;
-}
-
-.sectionImageWrapper {
-  flex: 1;
-}
-
-.sectionImageWrapper:first-child {
-  margin-right: 1rem;
-}
-
-.sectionImageWrapper:not(:first-child) {
-  margin-left: 1rem;
-}
-
-.sectionImage {
-  border-radius: $border-radius;
-  border: 1px solid $light;
-}
-
-.sectionDescriptionWrapper {
-  flex: 1;
-}
-
-.sectionDescription {
-  margin-top: 0;
-}
-
 .footer {
   margin-top: 2rem;
   color: $light;
   font-size: 0.8rem;
-}
-
-@media (max-width: 575.98px) {
-  .sectionColumns {
-    flex-direction: column;
-  }
-  .sectionImageWrapper:first-child {
-    margin-right: 0;
-    margin-bottom: 1rem;
-  }
-  .sectionImageWrapper:not(:first-child) {
-    margin-left: 0;
-    margin-top: 1rem;
-  }
 }
