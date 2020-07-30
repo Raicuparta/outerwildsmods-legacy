@@ -10,9 +10,25 @@ import { TextLink } from '../../components/smart-link/text-link';
 
 const gitHubUrlBase = 'github';
 const rawContentUrlBase = 'raw.githubusercontent';
-const readmePath = 'master/README.md';
+const readmeNames = ['README.md', 'readme.md', 'Readme.md'];
 
- //className={styles.markdown}
+const getRawContentUrl = (repo: string) => (
+  `${repo.replace(gitHubUrlBase, rawContentUrlBase)}/master`
+);
+
+const multipleFetchAttempts = async (urls: string[]): Promise<Response | null> => {
+  const response = await fetch(urls[0]);
+  if (response.status !== 200) {
+    console.warn('Response not OK, status:', response.status, response.statusText);
+    if (urls.length > 1) {
+      return multipleFetchAttempts(urls.slice(1, urls.length));
+    } else {
+      console.error('Could not find readme for this mod');
+      return null;
+    }
+  }
+  return response;
+}
 
 const ModPage: React.FunctionComponent = () => {
   const { query } = useRouter();
@@ -23,13 +39,13 @@ const ModPage: React.FunctionComponent = () => {
 
   useEffect(() => {
     async function getReadme (repo: string) {
-      const readmeUrl = `${repo.replace(gitHubUrlBase, rawContentUrlBase)}/${readmePath}`;
-      const response = await fetch(readmeUrl);
-      if (response.status !== 200) {
-        console.error('Response not OK, status:', response.status, response.statusText);
+      const rawContentUrl = getRawContentUrl(repo);
+      const response = await multipleFetchAttempts(readmeNames.map(readmeName => `${rawContentUrl}/${readmeName}`));
+      
+      if (!response) {
         return;
       }
-      
+
       const modReadme = await response.text();
       setReadme(modReadme);
     }
@@ -46,16 +62,21 @@ const ModPage: React.FunctionComponent = () => {
 
   if (!readme) {
     return (
-      <div>No readme (yet?)</div>
+      <div className={styles.modPage}>No readme (yet?)</div>
     )
   }
 
   return (
-    <div className={styles.markdown}>
+    <div className={styles.modPage}>
       <TextLink href="/mods">
         {'< All mods'}
       </TextLink>
-      <ReactMarkdown skipHtml >
+      <ReactMarkdown
+        skipHtml
+        transformImageUri={uri =>
+          uri.startsWith("http") ? uri : `${getRawContentUrl(mod.repo)}/${uri}`
+        }
+      >
         {readme}
       </ReactMarkdown>
     </div>
