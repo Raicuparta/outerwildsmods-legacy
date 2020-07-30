@@ -37,7 +37,7 @@ export const AuthorList: React.FunctionComponent = () => (
       <ListItemCard
         key={author.userName}
         title={author.userName}
-        descriptionLines={author.description}
+        description={author.description}
         imageUrl={getImageUrl(author.userName, 100)}
         linkUrl={getGitHubUrl(author.userName)}
       />

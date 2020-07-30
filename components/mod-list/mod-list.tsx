@@ -12,7 +12,7 @@ export type Mod = {
 const mods: Mod[] = [
   {
     title: 'NomaiVR',
-    description: ['Adds support for most VR devices.', 'Full motion control support.'],
+    description: ['Adds support for VR devices.', 'Full motion control support.'],
     author: 'Raicuparta',
     repo: 'https://github.com/Raicuparta/nomai-vr',
     image: 'images/nomai-vr.png',
@@ -46,7 +46,7 @@ export const ModList: React.FunctionComponent = () => (
       <ListItemCard
         key={mod.repo}
         title={mod.title}
-        descriptionLines={mod.description}
+        description={mod.description}
         linkUrl={mod.repo}
         imageUrl={mod.image}
       />

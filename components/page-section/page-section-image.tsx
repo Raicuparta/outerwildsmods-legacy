@@ -2,7 +2,7 @@ import styles from './page-section.module.scss';
 
 type Props = {
   imageUrl: string;
-  title: string;
+  title?: string;
 }
 
 export const PageSectionImage: React.FunctionComponent<Props> = ({
