@@ -1,5 +1,4 @@
 import { AuthorCard, Author } from "../author-card";
-import styles from './author-list.module.scss';
 
 const authors: Author[] = [
   {
@@ -21,7 +20,7 @@ const authors: Author[] = [
 ];
 
 export const AuthorList: React.FunctionComponent = () => (
-  <div className={styles.authorList}>
+  <div>
     {authors.map((author) =>
       <AuthorCard {...author} />
     )}

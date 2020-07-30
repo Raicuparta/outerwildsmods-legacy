@@ -5,6 +5,7 @@ import { DownloadButton } from '../components/download-button'
 import useModDatabase from '../hooks/useModDatabase';
 import { ModList } from '../components/mod-list';
 import { AuthorList } from '../components/author-list';
+import { Link } from '../components/link';
 
 const Home: React.FunctionComponent = () => {
   const modDatabase = useModDatabase();
@@ -43,9 +44,9 @@ const Home: React.FunctionComponent = () => {
             <p className={styles.sectionDescription}>
               Use the Outer Wilds Mod Manager for downloading, installing, and managing mods.
             </p>
-            <a href="https://github.com/Raicuparta/ow-mod-manager">
+            <Link to="https://github.com/Raicuparta/ow-mod-manager">
               Source code
-            </a>
+            </Link>
           </div>
         </div>
         <DownloadButton
@@ -57,8 +58,10 @@ const Home: React.FunctionComponent = () => {
         </DownloadButton>
       </section>
       <section className={styles.pageSection}>
-        <h2 className={styles.sectionTitle}>Some of the available mods</h2>
-        <div className={styles.sectionColumns}>
+        <h2 className={styles.sectionTitle}>
+          Some of the available mods
+        </h2>
+        <div>
           <ModList />
         </div>
       </section>
@@ -70,15 +73,15 @@ const Home: React.FunctionComponent = () => {
               Outer Wilds is a neat game. Check it out and buy it or whatever.
             </p>
             <div className={styles.verticalList}>
-              <a href="https://store.steampowered.com/app/753640/Outer_Wilds/">
+              <Link to="https://store.steampowered.com/app/753640/Outer_Wilds/">
                 Steam
-              </a>
-              <a href="https://www.epicgames.com/store/en-US/product/outerwilds/">
+              </Link>
+              <Link to="https://www.epicgames.com/store/en-US/product/outerwilds/">
                 Epic
-              </a>
-              <a href="https://www.mobiusdigitalgames.com/outer-wilds.html">
+              </Link>
+              <Link to="https://www.mobiusdigitalgames.com/outer-wilds.html">
                 Official website
-              </a>
+              </Link>
             </div>
           </div>
           <div className={styles.sectionImageWrapper}>
@@ -98,12 +101,12 @@ const Home: React.FunctionComponent = () => {
               If you need support, or just wanna interact with other fans of the game, this is where you can find us:
             </p>
             <div className={styles.verticalList}>
-              <a href="https://reddit.com/r/outerwilds">
+              <Link to="https://reddit.com/r/outerwilds">
                 Reddit
-              </a>
-              <a href="https://discord.gg/qd3Zu5">
+              </Link>
+              <Link to="https://discord.gg/qd3Zu5">
                 Discord
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -116,9 +119,9 @@ const Home: React.FunctionComponent = () => {
               If you want to make your own mods, the OWML documentation has most of the info you need to get started.
               The aforementioned Discord server also has a <code>#modding</code> channel.
             </p>
-              <a href="https://github.com/amazingalek/owml/wiki/For-modders">
+              <Link to="https://github.com/amazingalek/owml/wiki/For-modders">
                 Info for modders in OWML docs
-              </a>
+              </Link>
           </div>
         </div>
       </section>

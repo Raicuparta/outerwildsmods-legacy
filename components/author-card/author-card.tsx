@@ -22,7 +22,7 @@ export const AuthorCard: React.FunctionComponent<Author> = ({
         className={styles.avatar}
         src={getImageUrl(userName, 100)}
       />
-      <span>
+      <span className={styles.userName}>
         {userName}
       </span>
     </div>
