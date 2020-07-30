@@ -21,11 +21,6 @@ const Home: React.FunctionComponent = () => {
         <link rel="canonical" href="https://outerwildsmods.com" />
       </Head>
       <header className={styles.header}>
-        <img
-          className={styles.titleIcon}
-          src="favicon.ico"
-          alt="Outer Wilds Mods"
-        />
         <h1 className={styles.pageTitle}>
           Outer Wilds Mods
         </h1>
