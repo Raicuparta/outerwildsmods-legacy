@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext, createContext } from "react";
 
 const DATABASE_URL = 'https://raw.githubusercontent.com/Raicuparta/ow-mod-db/master/database.json';
 
@@ -26,8 +26,20 @@ type ModDatabase = {
   releases: Mod[];
 };
 
-const useModDatabase = () => {
-  const [modDatabase, setModDatabase] = useState<ModDatabase>();
+const defaultDatabase = {
+  modManager: {
+    version: '',
+    downloadUrl: '',
+  },
+  releases: [],
+};
+
+const Database = createContext<ModDatabase>(defaultDatabase);
+
+export const useModDatabase = () => useContext(Database);
+
+export const ModDatabaseProvider: React.FunctionComponent = ({ children }) => {
+  const [database, setDatabase] = useState<ModDatabase>(defaultDatabase);
 
   useEffect(() => {
     async function getModDatabase () {
@@ -38,12 +50,16 @@ const useModDatabase = () => {
       }
       
       const database = await response.json() as ModDatabase;
-      setModDatabase(database);
+      setDatabase(database);
     }
     getModDatabase();
   }, []);
 
-  return modDatabase;
+  return (
+    <Database.Provider value={database}>
+      {children}
+    </Database.Provider>
+  );
 }
 
 export default useModDatabase;
