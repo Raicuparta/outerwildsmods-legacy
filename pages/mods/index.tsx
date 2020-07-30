@@ -1,9 +1,9 @@
-import styles from '../styles/layout.module.scss';
-import useModDatabase from '../hooks/useModDatabase';
-import { ListItemCard } from '../components/list-item-card';
-import { Link } from '../components/link';
-import { DownloadButton } from '../components/download-button';
-import { PageSection } from '../components/page-section';
+import styles from '../../styles/layout.module.scss';
+import useModDatabase from '../../hooks/useModDatabase';
+import { ListItemCard } from '../../components/list-item-card';
+import { Link } from '../../components/link';
+import { DownloadButton } from '../../components/download-button';
+import { PageSection } from '../../components/page-section';
 
 const modManagerDefaultDownloadUrl = 'https://github.com/Raicuparta/ow-mod-manager/releases/latest';
 
