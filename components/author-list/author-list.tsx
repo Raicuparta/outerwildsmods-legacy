@@ -1,4 +1,9 @@
-import { AuthorCard, Author } from "../author-card";
+import { ListItemCard } from "../list-item-card";
+
+type Author = {
+  userName: string;
+  description: string[];
+};
 
 const authors: Author[] = [
   {
@@ -19,10 +24,22 @@ const authors: Author[] = [
   },
 ];
 
+const URL_BASE = 'http://github.com';
+
+const getGitHubUrl = (userName: string) => `${URL_BASE}/${userName}`;
+
+const getImageUrl = (userName: string, size: number) =>
+  `${getGitHubUrl(userName)}.png?size=${size}`;
+
 export const AuthorList: React.FunctionComponent = () => (
   <div>
     {authors.map((author) =>
-      <AuthorCard {...author} />
+      <ListItemCard
+        title={author.userName}
+        descriptionLines={author.description}
+        imageUrl={getImageUrl(author.userName, 100)}
+        linkUrl={getGitHubUrl(author.userName)}
+      />
     )}
   </div>
 );
