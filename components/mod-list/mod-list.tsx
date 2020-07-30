@@ -52,7 +52,6 @@ export const ModList: React.FunctionComponent = () => (
         <ListItemCard
           title={mod.title}
           description={mod.description}
-          linkUrl={mod.repo}
           imageUrl={mod.image}
         />
       </SmartLink>

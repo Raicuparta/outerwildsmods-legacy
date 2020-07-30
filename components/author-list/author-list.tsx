@@ -35,13 +35,15 @@ const getImageUrl = (userName: string, size: number) =>
 export const AuthorList: React.FunctionComponent = () => (
   <>
     {authors.map((author) => (
-      <SmartLink href={getGitHubUrl(author.userName)} isExternal>
+      <SmartLink
+        key={author.userName}
+        href={getGitHubUrl(author.userName)}
+        isExternal
+      >
         <ListItemCard
-          key={author.userName}
           title={author.userName}
           description={author.description}
           imageUrl={getImageUrl(author.userName, 100)}
-          linkUrl={getGitHubUrl(author.userName)}
         />
       </SmartLink>
     ))}

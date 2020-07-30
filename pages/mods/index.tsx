@@ -8,6 +8,13 @@ import { TextLink } from '../../components/smart-link/text-link';
 
 const modManagerDefaultDownloadUrl = 'https://github.com/Raicuparta/ow-mod-manager/releases/latest';
 
+export const getModPathName = (modName: string) => (
+  modName.replace(/ /g, '').toLowerCase()
+);
+
+const getModPath = (modName: string) => (
+  `mods/${getModPathName(modName)}`
+);
 
 const Mods: React.FunctionComponent = () => {
   const modDatabase = useModDatabase();
@@ -31,13 +38,14 @@ const Mods: React.FunctionComponent = () => {
       </PageSection>
       <PageSection title="Available mods" id="mods">
         {mods?.map(mod => (
-          <SmartLink as={`/mods/${mod.manifest.uniqueName}`} href="/mods/[mod]">
+          <SmartLink
+            key={mod.repo}
+            href="/mods/[mod]"
+            as={getModPath(mod.manifest.name)}
+          >
             <ListItemCard
-              key={mod.repo}
               title={mod.manifest.name}
               description={mod.manifest.description}
-              linkAs={`/mods/${mod.manifest.uniqueName}`}
-              linkUrl="/mods/[mod]"
             />
           </SmartLink>
         ))}

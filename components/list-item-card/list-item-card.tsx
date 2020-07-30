@@ -4,10 +4,8 @@ import styles from './list-item-card.module.scss';
 
 export type Props = {
   title: string;
-  linkUrl: string;
   description: string[] | string;
   imageUrl?: string;
-  linkAs?: string;
 };
 
 const ItemDescription: React.FunctionComponent = ({ children }) => (
@@ -21,8 +19,6 @@ const ItemDescription: React.FunctionComponent = ({ children }) => (
 export const ListItemCard: React.FunctionComponent<Props> = ({
   title,
   imageUrl,
-  linkUrl,
-  linkAs,
   description,
 }) => (
   <span className={styles.listItemCard}>
