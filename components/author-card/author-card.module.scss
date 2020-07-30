@@ -1,0 +1,36 @@
+@import '../../styles/variables.scss';
+
+.author {
+  display: flex;
+  align-items: center;
+  border-radius: $border-radius;
+  &:hover {
+    background-color: $dark;
+  }
+  &:not(:last-child) {
+    margin-bottom: $spacing-1;
+  }
+}
+
+.nameImageWrapper {
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  margin: $spacing-1;
+}
+
+.descriptionWrapper {
+  flex: 2;
+}
+
+.description {
+  color: $light;
+  margin-left: 20px;
+  line-height: normal;
+}

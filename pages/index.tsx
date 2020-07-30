@@ -4,6 +4,7 @@ import styles from '../styles/layout.module.scss';
 import { DownloadButton } from '../components/download-button'
 import useModDatabase from '../hooks/useModDatabase';
 import { ModList } from '../components/mod-list';
+import { AuthorList } from '../components/author-list';
 
 const Home: React.FunctionComponent = () => {
   const modDatabase = useModDatabase();
@@ -120,6 +121,10 @@ const Home: React.FunctionComponent = () => {
               </a>
           </div>
         </div>
+      </section>
+      <section className={styles.pageSection}>
+        <h2 className={styles.sectionTitle}>Authors</h2>
+        <AuthorList />
       </section>
       <footer className={styles.footer}>
         <p>
