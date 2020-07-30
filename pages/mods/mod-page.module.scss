@@ -1,0 +1,11 @@
+@import '../../styles/variables';
+
+.markdown {
+  max-width: map-get($breakpoints, "medium");
+  padding: 0 1rem;
+  margin: 1rem auto 2rem;
+  padding-left: calc(100vw - 100%);
+  a {
+    color: $accent;
+  }
+}
