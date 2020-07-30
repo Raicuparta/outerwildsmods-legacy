@@ -11,8 +11,8 @@ export type Mod = {
 
 const mods: Mod[] = [
   {
-    title: 'OWML',
-    description: ['Mod loader / framework. All available mods use this to interact and modify the game.'],
+    title: 'Light Bramble',
+    description: ['Makes the Dark Bramble less scary.', 'Options to remove scary elements individually.'],
     author: 'AmazingAlek',
     repo: 'https://github.com/amazingalek/owml',
     image: 'images/owml.jpg',

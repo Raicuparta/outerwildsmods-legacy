@@ -7,3 +7,9 @@ $spacing-1: 10px;
 $spacing-2: 20px;
 
 $border-radius: 0.3rem;
+
+$breakpoints: (
+  'small': 575.98px,
+  'medium': 992px,
+  'large':  1200px
+) !default;
