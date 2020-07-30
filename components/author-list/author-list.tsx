@@ -24,7 +24,7 @@ const authors: Author[] = [
   },
 ];
 
-const URL_BASE = 'http://github.com';
+const URL_BASE = 'https://github.com';
 
 const getGitHubUrl = (userName: string) => `${URL_BASE}/${userName}`;
 
