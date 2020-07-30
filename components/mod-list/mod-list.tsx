@@ -11,29 +11,29 @@ export type Mod = {
 
 const mods: Mod[] = [
   {
-    title: 'Light Bramble',
-    description: ['Makes the Dark Bramble less scary.', 'Options to remove scary elements individually.'],
-    author: 'AmazingAlek',
-    repo: 'https://github.com/amazingalek/owml',
-    image: 'images/owml.jpg',
-  },
-  {
     title: 'NomaiVR',
-    description: ['VR Mod. Compatible with pretty much any VR headset. Most interactions have been modified for VR motion controls.'],
+    description: ['Adds support for most VR devices.', 'Full motion control support.'],
     author: 'Raicuparta',
     repo: 'https://github.com/Raicuparta/nomai-vr',
     image: 'images/nomai-vr.jpg',
   },
   {
+    title: 'Light Bramble',
+    description: ['Makes the Dark Bramble less scary.', 'Options to remove scary elements individually.'],
+    author: 'AmazingAlek',
+    repo: 'https://github.com/amazingalek/owml-light-bramble',
+    image: 'images/owml.jpg',
+  },
+  {
     title: 'TAICheat',
-    description: ['Collection of cheats that can be mapped to button / key combinations. Cheats include super jetpack, invincibility, and a lot more.'],
+    description: ['Collection of cheats.', 'Super jetpack, invincibility, and a lot more.'],
     author: 'TAImatem',
     repo: 'https://github.com/TAImatem/OW_TAIcheat',
     image: 'images/tai-cheat.png',
   },
   {
     title: 'Marshmallow',
-    description: ['Planet creator. Users can create planets from JSON files, and share them with others.'],
+    description: ['Planet creator.', 'Create planets and share them with others.'],
     author: 'misternebula',
     repo: 'https://github.com/misternebula/Marshmallow',
     image: 'images/marshmallow.jpg',
