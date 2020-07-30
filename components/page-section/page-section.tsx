@@ -1,12 +1,16 @@
 import styles from './page-section.module.scss';
 import { PageSectionDescription } from './page-section-description';
 import { PageSectionImage } from './page-section-image';
+import { SmartLink } from '../smart-link';
+import { TextLink } from '../smart-link/text-link';
 
 type Props = {
   id: string;
   title?: string;
   description?: string;
   imageUrl?: string;
+  titleLinkUrl?: string;
+  titleLinkText?: string;
 };
 
 export const PageSectionColumns: React.FunctionComponent = ({ children }) => (
@@ -21,14 +25,23 @@ export const PageSection: React.FunctionComponent<Props> = ({
   id,
   description,
   imageUrl,
-  }) => (
+  titleLinkUrl,
+  titleLinkText,
+}) => (
   <section id={id} className={styles.pageSection}>
     {title && (
-      <h2 className={styles.sectionTitle}>
-        <a href={`#${id}`}>
-          {title}
-        </a>
-      </h2>
+      <div className={styles.titleWrapper}>
+        <h2 className={styles.sectionTitle}>
+          <a href={`#${id}`}>
+            {title}
+          </a>
+        </h2>
+        {titleLinkUrl && (
+          <TextLink href={titleLinkUrl}>
+            {titleLinkText}
+          </TextLink>
+        )}
+      </div>
     )}
     {(imageUrl || description) ? (
       <PageSectionColumns>

@@ -48,6 +48,8 @@ const Home: React.FunctionComponent = () => {
       <PageSection
         title="Some of the available mods"
         id="mods"
+        titleLinkText="All mods >"
+        titleLinkUrl="/mods"
       >
         <ModList />
       </PageSection>

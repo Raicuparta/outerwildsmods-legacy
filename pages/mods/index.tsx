@@ -4,6 +4,7 @@ import { ListItemCard } from '../../components/list-item-card';
 import { DownloadButton } from '../../components/download-button';
 import { PageSection } from '../../components/page-section';
 import { SmartLink } from '../../components/smart-link';
+import { TextLink } from '../../components/smart-link/text-link';
 
 const modManagerDefaultDownloadUrl = 'https://github.com/Raicuparta/ow-mod-manager/releases/latest';
 
@@ -16,6 +17,9 @@ const Mods: React.FunctionComponent = () => {
 
   return (
     <div className={styles.container}>
+      <TextLink href="/">
+        {'< Home page'}
+      </TextLink>
       <PageSection id="mod-manager" description="All of the following mods can be downloaded and installed using the Outer Wilds Mod Manager.">
         <DownloadButton
           href={modManagerDownloadUrl ?? modManagerDefaultDownloadUrl}
