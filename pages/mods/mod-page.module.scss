@@ -8,4 +8,20 @@
   a {
     color: $accent;
   }
+  pre, code {
+    background: $dark;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  table, th, td {
+    border: 1px solid $light;
+  }
+
+  td {
+    padding: $spacing-1;
+  }
 }

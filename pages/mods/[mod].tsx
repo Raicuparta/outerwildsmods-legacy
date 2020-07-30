@@ -60,25 +60,26 @@ const ModPage: React.FunctionComponent = () => {
     );
   }
 
-  if (!readme) {
-    return (
-      <div className={styles.modPage}>No readme (yet?)</div>
-    )
-  }
-
   return (
     <div className={styles.modPage}>
       <TextLink href="/mods">
         {'< All mods'}
       </TextLink>
-      <ReactMarkdown
-        skipHtml
-        transformImageUri={uri =>
-          uri.startsWith("http") ? uri : `${getRawContentUrl(mod.repo)}/${uri}`
-        }
-      >
-        {readme}
-      </ReactMarkdown>
+      {readme ? (
+        <ReactMarkdown
+          skipHtml
+          transformImageUri={uri =>
+            uri.startsWith("http") ? uri : `${getRawContentUrl(mod.repo)}/${uri}`
+          }
+        >
+          {readme}
+        </ReactMarkdown>
+      ) : (
+        <h4>
+          Loading readme... (or it already failed)
+        </h4>
+      )}
+
     </div>
   )
 

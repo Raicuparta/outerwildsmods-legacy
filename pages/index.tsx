@@ -49,7 +49,7 @@ const Home: React.FunctionComponent = () => {
         title="Some of the available mods"
         id="mods"
         titleLinkText="All mods >"
-        titleLinkUrl="/mods"
+        // titleLinkUrl="/mods"
       >
         <ModList />
       </PageSection>
