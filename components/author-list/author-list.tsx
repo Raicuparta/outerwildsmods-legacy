@@ -35,6 +35,7 @@ export const AuthorList: React.FunctionComponent = () => (
   <div>
     {authors.map((author) =>
       <ListItemCard
+        key={author.userName}
         title={author.userName}
         descriptionLines={author.description}
         imageUrl={getImageUrl(author.userName, 100)}

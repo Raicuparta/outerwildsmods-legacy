@@ -25,7 +25,7 @@ export const ListItemCard: React.FunctionComponent<Props> = ({
     </div>
     <div className={styles.descriptionWrapper}>
       {descriptionLines.map(line => (
-        <div className={styles.description}>
+        <div key={line} className={styles.description}>
           <small>
             {line}
           </small>

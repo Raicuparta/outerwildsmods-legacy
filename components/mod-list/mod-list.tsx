@@ -44,6 +44,7 @@ export const ModList: React.FunctionComponent = () => (
   <div>
     {mods.map(mod => (
       <ListItemCard
+        key={mod.repo}
         title={mod.title}
         descriptionLines={mod.description}
         linkUrl={mod.repo}
