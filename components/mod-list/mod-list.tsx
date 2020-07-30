@@ -1,5 +1,6 @@
 import styles from './mod-list.module.scss';
 import { ListItemCard } from "../list-item-card";
+import { SmartLink } from '../smart-link';
 
 export type Mod = {
   title: string;
@@ -43,13 +44,18 @@ const mods: Mod[] = [
 export const ModList: React.FunctionComponent = () => (
   <div>
     {mods.map(mod => (
-      <ListItemCard
+      <SmartLink
         key={mod.repo}
-        title={mod.title}
-        description={mod.description}
-        linkUrl={mod.repo}
-        imageUrl={mod.image}
-      />
+        href={mod.repo}
+        isExternal
+      >
+        <ListItemCard
+          title={mod.title}
+          description={mod.description}
+          linkUrl={mod.repo}
+          imageUrl={mod.image}
+        />
+      </SmartLink>
     ))}
   </div>
 );

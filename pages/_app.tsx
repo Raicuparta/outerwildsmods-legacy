@@ -6,6 +6,7 @@ import '../styles/global.css'
 import styles from '../styles/layout.module.scss';
 import { useEffect } from 'react';
 import { ModDatabaseProvider } from '../hooks/useModDatabase';
+import Link from 'next/link';
 
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -17,9 +18,11 @@ export default function App({ Component, pageProps }: AppProps) {
   return <>
     <header className={styles.header}>
       <h1 className={styles.pageTitle}>
-        <a href="/">
-          Outer Wilds Mods
-        </a>
+        <Link href="/">
+          <a>
+            Outer Wilds Mods
+          </a>
+        </Link>
       </h1>
     </header>
     <ModDatabaseProvider>

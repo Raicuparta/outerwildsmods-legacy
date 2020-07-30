@@ -1,3 +1,5 @@
+import Link  from 'next/link';
+
 import styles from './list-item-card.module.scss';
 
 export type Props = {
@@ -5,6 +7,7 @@ export type Props = {
   linkUrl: string;
   description: string[] | string;
   imageUrl?: string;
+  linkAs?: string;
 };
 
 const ItemDescription: React.FunctionComponent = ({ children }) => (
@@ -19,9 +22,10 @@ export const ListItemCard: React.FunctionComponent<Props> = ({
   title,
   imageUrl,
   linkUrl,
+  linkAs,
   description,
 }) => (
-  <a href={linkUrl} className={styles.listItemCard}>
+  <span className={styles.listItemCard}>
     <div className={styles.nameImageWrapper}>
       {imageUrl && (
         <img
@@ -34,18 +38,19 @@ export const ListItemCard: React.FunctionComponent<Props> = ({
         {title}
       </span>
     </div>
-    <div className={styles.descriptionWrapper}>
-      {typeof(description) === 'string' && (
-        <ItemDescription>
-          {description}
-        </ItemDescription>
-      )}
-      {typeof(description) === 'object' && (description.map(line => (
-        <ItemDescription>
-        {line}
-        </ItemDescription>
-      )))}
-
-    </div>
-  </a>
+    {description && (
+      <div className={styles.descriptionWrapper}>
+        {typeof(description) === 'string' && (
+          <ItemDescription>
+            {description}
+          </ItemDescription>
+        )}
+        {typeof(description) === 'object' && (description.map(line => (
+          <ItemDescription key={line}>
+            {line}
+          </ItemDescription>
+        )))}
+      </div>
+    )}
+  </span>
 );

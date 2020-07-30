@@ -5,8 +5,9 @@ import { DownloadButton } from '../components/download-button'
 import useModDatabase from '../hooks/useModDatabase';
 import { ModList } from '../components/mod-list';
 import { AuthorList } from '../components/author-list';
-import { Link } from '../components/link';
+import { SmartLink } from '../components/smart-link';
 import { PageSection, PageSectionDescription, PageSectionImage, PageSectionColumns } from '../components/page-section';
+import { TextLink } from '../components/smart-link/text-link';
 
 const modManagerDefaultDownloadUrl = 'https://github.com/Raicuparta/ow-mod-manager/releases/latest';
 
@@ -31,9 +32,9 @@ const Home: React.FunctionComponent = () => {
           <PageSectionDescription
             description="Use the Outer Wilds Mod Manager for downloading, installing, and managing mods."
           >
-            <Link to="https://github.com/Raicuparta/ow-mod-manager">
+            <TextLink href="https://github.com/Raicuparta/ow-mod-manager" isExternal>
               Source code
-            </Link>
+            </TextLink>
           </PageSectionDescription>
         </PageSectionColumns>
         <DownloadButton
@@ -57,15 +58,15 @@ const Home: React.FunctionComponent = () => {
         imageUrl="images/outer-wilds.jpg"
       >
         <div className={styles.verticalList}>
-          <Link to="https://store.steampowered.com/app/753640/Outer_Wilds/">
+          <TextLink href="https://store.steampowered.com/app/753640/Outer_Wilds/" isExternal>
             Steam
-          </Link>
-          <Link to="https://www.epicgames.com/store/en-US/product/outerwilds/">
+          </TextLink>
+          <TextLink href="https://www.epicgames.com/store/en-US/product/outerwilds/" isExternal>
             Epic
-          </Link>
-          <Link to="https://www.mobiusdigitalgames.com/outer-wilds.html">
+          </TextLink>
+          <TextLink href="https://www.mobiusdigitalgames.com/outer-wilds.html" isExternal>
             Official website
-          </Link>
+          </TextLink>
         </div>
       </PageSection>
       <PageSection
@@ -74,12 +75,12 @@ const Home: React.FunctionComponent = () => {
         description="If you need support, or just wanna interact with other fans of the game, this is where you can find us:"
       >
         <div className={styles.verticalList}>
-          <Link to="https://reddit.com/r/outerwilds">
+          <TextLink href="https://reddit.com/r/outerwilds" isExternal>
             Reddit
-          </Link>
-          <Link to="https://discord.gg/RaSjRbm">
+          </TextLink>
+          <TextLink href="https://discord.gg/RaSjRbm" isExternal>
             Discord
-          </Link>
+          </TextLink>
         </div>
       </PageSection>
       <PageSection
@@ -87,9 +88,9 @@ const Home: React.FunctionComponent = () => {
         id="become-a-modder"
         description="If you want to make your own mods, the OWML documentation has most of the info you need to get started. The aforementioned Discord server also has a modding channel."
       >
-        <Link to="https://github.com/amazingalek/owml/wiki/For-modders">
+        <TextLink href="https://github.com/amazingalek/owml/wiki/For-modders" isExternal>
           Info for modders in OWML docs
-        </Link>
+        </TextLink>
       </PageSection>
       <PageSection
         title="Authors"

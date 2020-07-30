@@ -1,9 +1,9 @@
 import styles from '../../styles/layout.module.scss';
 import useModDatabase from '../../hooks/useModDatabase';
 import { ListItemCard } from '../../components/list-item-card';
-import { Link } from '../../components/link';
 import { DownloadButton } from '../../components/download-button';
 import { PageSection } from '../../components/page-section';
+import { SmartLink } from '../../components/smart-link';
 
 const modManagerDefaultDownloadUrl = 'https://github.com/Raicuparta/ow-mod-manager/releases/latest';
 
@@ -27,44 +27,16 @@ const Mods: React.FunctionComponent = () => {
       </PageSection>
       <PageSection title="Available mods" id="mods">
         {mods?.map(mod => (
-          <ListItemCard
-            title={mod.manifest.name}
-            description={[mod.manifest.description]}
-            linkUrl={`/mods/${mod.manifest.uniqueName}`}
-          />
+          <SmartLink as={`/mods/${mod.manifest.uniqueName}`} href="/mods/[mod]">
+            <ListItemCard
+              key={mod.repo}
+              title={mod.manifest.name}
+              description={mod.manifest.description}
+              linkAs={`/mods/${mod.manifest.uniqueName}`}
+              linkUrl="/mods/[mod]"
+            />
+          </SmartLink>
         ))}
-        {/* <table>
-          <thead>
-            <tr>
-              <td>
-                Name
-              </td>
-              <td>
-                Author
-              </td>
-              <td>
-                Downloads
-              </td>
-            </tr>
-          </thead>
-          <tbody>
-            {mods?.map(mod => (
-              <tr key={mod.repo}>
-                <td>
-                  <Link to={mod.downloadUrl}>
-                    {mod.manifest.name}
-                  </Link>
-                </td>
-                <td>
-                  {mod.manifest.author}
-                </td>
-                <td>
-                  {mod.downloadCount}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table> */}
       </PageSection>
     </div>
   )

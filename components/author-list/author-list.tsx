@@ -1,4 +1,5 @@
 import { ListItemCard } from "../list-item-card";
+import { SmartLink } from "../smart-link";
 
 type Author = {
   userName: string;
@@ -32,15 +33,17 @@ const getImageUrl = (userName: string, size: number) =>
   `${getGitHubUrl(userName)}.png?size=${size}`;
 
 export const AuthorList: React.FunctionComponent = () => (
-  <div>
-    {authors.map((author) =>
-      <ListItemCard
-        key={author.userName}
-        title={author.userName}
-        description={author.description}
-        imageUrl={getImageUrl(author.userName, 100)}
-        linkUrl={getGitHubUrl(author.userName)}
-      />
-    )}
-  </div>
+  <>
+    {authors.map((author) => (
+      <SmartLink href={getGitHubUrl(author.userName)} isExternal>
+        <ListItemCard
+          key={author.userName}
+          title={author.userName}
+          description={author.description}
+          imageUrl={getImageUrl(author.userName, 100)}
+          linkUrl={getGitHubUrl(author.userName)}
+        />
+      </SmartLink>
+    ))}
+  </>
 );

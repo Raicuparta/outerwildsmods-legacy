@@ -43,6 +43,7 @@ export const ModDatabaseProvider: React.FunctionComponent = ({ children }) => {
 
   useEffect(() => {
     async function getModDatabase () {
+      console.log('fetching mods')
       const response = await fetch(DATABASE_URL);
       if (response.status !== 200) {
         console.error('Response not OK, status:', response.status, response.statusText);
