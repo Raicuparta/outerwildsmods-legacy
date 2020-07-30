@@ -15,14 +15,14 @@ const mods: Mod[] = [
     description: ['Adds support for most VR devices.', 'Full motion control support.'],
     author: 'Raicuparta',
     repo: 'https://github.com/Raicuparta/nomai-vr',
-    image: 'images/nomai-vr.jpg',
+    image: 'images/nomai-vr.png',
   },
   {
     title: 'Light Bramble',
     description: ['Makes the Dark Bramble less scary.', 'Options to remove scary elements individually.'],
     author: 'AmazingAlek',
     repo: 'https://github.com/amazingalek/owml-light-bramble',
-    image: 'images/owml.jpg',
+    image: 'images/light-bramble.jpg',
   },
   {
     title: 'TAICheat',
@@ -36,7 +36,7 @@ const mods: Mod[] = [
     description: ['Planet creator.', 'Create planets and share them with others.'],
     author: 'misternebula',
     repo: 'https://github.com/misternebula/Marshmallow',
-    image: 'images/marshmallow.jpg',
+    image: 'images/marshmallow.png',
   },
 ];
 
