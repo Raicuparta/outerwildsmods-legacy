@@ -22,11 +22,6 @@ const Home: React.FunctionComponent = () => {
         <meta name="Description" content="Find all the tools needed to mod Outer Wilds. Download and install mods with the Outer Wilds Mod Manager"></meta>
         <link rel="canonical" href="https://outerwildsmods.com" />
       </Head>
-      <header className={styles.header}>
-        <h1 className={styles.pageTitle}>
-          Outer Wilds Mods
-        </h1>
-      </header>
       <PageSection
         title="Outer Wilds Mod Manager"
         id="mod-manager"
@@ -102,11 +97,6 @@ const Home: React.FunctionComponent = () => {
       >
         <AuthorList />
       </PageSection>
-      <footer className={styles.footer}>
-        <p>
-          This page isn't official, nor affiliated with Mobius Digital, or anyone really.
-        </p>
-      </footer>
     </div>
   )
 }

@@ -34,6 +34,8 @@
 
 .descriptionWrapper {
   flex: 1.6;
+  border-left: 1px solid $light;
+  padding-left: $spacing-1;
 }
 
 .description {

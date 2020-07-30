@@ -4,6 +4,7 @@
   max-width: 36rem;
   padding: 0 1rem;
   margin: 1rem auto 2rem;
+  padding-left: calc(100vw - 100%);
 }
 
 .header {
@@ -12,15 +13,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-left: calc(100vw - 100%);
 }
 
-.pageTitle {
+.pageTitle a {
   font-size: 3rem;
   line-height: 1.2;
-  font-weight: 100;
   letter-spacing: -0.05rem;
   margin: 1rem 0 0 0;
   padding-bottom: 1.2rem;
+  color: $white;
+  font-weight: 100;
 }
 
 .verticalList {

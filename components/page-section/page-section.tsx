@@ -3,8 +3,8 @@ import { PageSectionDescription } from './page-section-description';
 import { PageSectionImage } from './page-section-image';
 
 type Props = {
-  title: string;
   id: string;
+  title?: string;
   description?: string;
   imageUrl?: string;
 };
@@ -23,11 +23,13 @@ export const PageSection: React.FunctionComponent<Props> = ({
   imageUrl,
   }) => (
   <section id={id} className={styles.pageSection}>
-    <h2 className={styles.sectionTitle}>
-      <a href={`#${id}`}>
-        {title}
-      </a>
-    </h2>
+    {title && (
+      <h2 className={styles.sectionTitle}>
+        <a href={`#${id}`}>
+          {title}
+        </a>
+      </h2>
+    )}
     {(imageUrl || description) ? (
       <PageSectionColumns>
         {description && (
