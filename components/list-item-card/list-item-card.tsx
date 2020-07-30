@@ -16,6 +16,7 @@ export const ListItemCard: React.FunctionComponent<Props> = ({
   <a href={linkUrl} className={styles.listItemCard}>
     <div className={styles.nameImageWrapper}>
       <img
+        alt={title}
         className={styles.avatar}
         src={imageUrl}
       />
