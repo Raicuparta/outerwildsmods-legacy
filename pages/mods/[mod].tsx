@@ -85,14 +85,14 @@ const ModPage: React.FunctionComponent<Props> = ({ readme, mod }) => {
                 Manual download
               </TextLink>
             </li>
-            <li>Author: {mod.manifest.author}</li>
-            <li>Current version: {mod.manifest.version}</li>
-            <li>{mod.downloadCount} downloads</li>
             <li>
               <TextLink isExternal href={mod.repo}>
                 Source code
               </TextLink>
             </li>
+            <li>Author: {mod.manifest.author}</li>
+            <li>Current version: {mod.manifest.version}</li>
+            <li>{mod.downloadCount} downloads</li>
           </ul>
         </div>
       </div>
@@ -144,10 +144,6 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
     (readmeName) => `${rawContentUrl}/${readmeName}`
   );
   const readme = await getModReadme(readmePaths);
-
-  if (!readme) {
-    return { props: {} };
-  }
 
   return {
     props: { readme, mod },

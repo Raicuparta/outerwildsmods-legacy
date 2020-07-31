@@ -36,7 +36,9 @@
 }
 
 .footer {
-  margin-top: 2rem;
+  margin-top: $spacing-2;
   color: $light;
   font-size: 0.8rem;
+  padding: 0 $spacing-2;
+  text-align: center;
 }

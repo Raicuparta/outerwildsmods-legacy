@@ -34,7 +34,7 @@ export default function App({ Component, pageProps }: AppProps) {
         </h1>
       </header>
       <Component {...pageProps} />
-      <footer className={[styles.footer, styles.container].join(' ')}>
+      <footer className={styles.footer}>
         <p>
           This page isn't official, nor affiliated with Mobius Digital, or
           anyone really.

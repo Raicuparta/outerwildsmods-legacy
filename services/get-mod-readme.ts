@@ -1,6 +1,8 @@
 import axios, { AxiosResponse } from 'axios';
 
-export const getModReadme = async (urls: string[]): Promise<string | null> => {
+export const getModReadme = async (
+  urls: string[]
+): Promise<string | undefined> => {
   let response: AxiosResponse<string>;
 
   try {
@@ -15,7 +17,7 @@ export const getModReadme = async (urls: string[]): Promise<string | null> => {
       return getModReadme(urls.slice(1, urls.length));
     } else {
       console.error('Could not find readme for this mod');
-      return null;
+      return undefined;
     }
   }
 
