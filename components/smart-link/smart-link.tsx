@@ -1,13 +1,13 @@
 import Link from 'next/link';
 
-export type Props = {
+export type SmartLinkProps = {
   href: string;
   as?: string;
   isExternal?: boolean;
   className?: string;
 };
 
-const LinkWrapper: React.FunctionComponent<Props> = ({
+const LinkWrapper: React.FunctionComponent<SmartLinkProps> = ({
   children,
   href,
   as,
@@ -21,7 +21,7 @@ const LinkWrapper: React.FunctionComponent<Props> = ({
     </Link>
   );
 
-export const SmartLink: React.FunctionComponent<Props> = ({
+export const SmartLink: React.FunctionComponent<SmartLinkProps> = ({
   children,
   href,
   as,

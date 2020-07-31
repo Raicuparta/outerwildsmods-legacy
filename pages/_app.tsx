@@ -1,12 +1,11 @@
 import { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
-
+import Link from 'next/link';
+import { useEffect } from 'react';
 import ReactGA from 'react-ga';
 
 import '../styles/global.css';
 import styles from '../styles/layout.module.scss';
-import { useEffect } from 'react';
-import Link from 'next/link';
 
 export default function App({ Component, pageProps }: AppProps) {
   const { asPath } = useRouter();

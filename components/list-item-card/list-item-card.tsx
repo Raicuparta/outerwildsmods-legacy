@@ -1,8 +1,6 @@
-import Link from 'next/link';
-
 import styles from './list-item-card.module.scss';
 
-export type Props = {
+export type ListItemCardProps = {
   title: string;
   description: string[] | string;
   imageUrl?: string;
@@ -14,7 +12,7 @@ const ItemDescription: React.FunctionComponent = ({ children }) => (
   </div>
 );
 
-export const ListItemCard: React.FunctionComponent<Props> = ({
+export const ListItemCard: React.FunctionComponent<ListItemCardProps> = ({
   title,
   imageUrl,
   description,

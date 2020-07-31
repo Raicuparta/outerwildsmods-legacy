@@ -1,8 +1,7 @@
+import { TextLink } from '..';
+
 import styles from './page-section.module.scss';
-import { PageSectionDescription } from './page-section-description';
-import { PageSectionImage } from './page-section-image';
-import { SmartLink } from '../smart-link';
-import { TextLink } from '../smart-link/text-link';
+import { PageSectionDescription, PageSectionImage } from '..';
 
 type Props = {
   id: string;

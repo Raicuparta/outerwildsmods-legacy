@@ -1,5 +1,4 @@
-import { ListItemCard } from '../list-item-card';
-import { SmartLink } from '../smart-link';
+import { ListItemCard, SmartLink } from '..';
 
 type Author = {
   userName: string;

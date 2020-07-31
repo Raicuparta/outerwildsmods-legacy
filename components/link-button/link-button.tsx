@@ -1,17 +1,17 @@
 import { DetailedHTMLProps, AnchorHTMLAttributes } from 'react';
 
-import styles from './download-button.module.scss';
+import styles from './link-button.module.scss';
 
 type Props = DetailedHTMLProps<
   AnchorHTMLAttributes<HTMLAnchorElement>,
   HTMLAnchorElement
 >;
 
-export const DownloadButton: React.FunctionComponent<Props> = ({
+export const LinkButton: React.FunctionComponent<Props> = ({
   children,
   ...props
 }) => (
-  <a className={styles.downloadButton} {...props}>
+  <a className={styles.linkButton} {...props}>
     {children}
   </a>
 );

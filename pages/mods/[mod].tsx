@@ -1,12 +1,11 @@
 import ReactMarkdown from 'react-markdown';
-
-import { TextLink } from '../../components/smart-link/text-link';
-
-import { getModPathName } from '.';
-import styles from './mod-page.module.scss';
-
 import { GetStaticPaths, GetStaticProps } from 'next';
+
+import { TextLink } from '../../components';
 import { getModDatabase, Mod, getModReadme } from '../../services';
+
+import styles from './mod-page.module.scss';
+import { getModPathName } from '.';
 
 const gitHubUrlBase = 'github';
 const rawContentUrlBase = 'raw.githubusercontent';
@@ -44,6 +43,7 @@ const ModPage: React.FunctionComponent<Props> = ({ readme, mod }) => {
   return (
     <div className={styles.modPage}>
       <TextLink href="/mods">{'< All mods'}</TextLink>
+      <div></div>
       {readme && mod ? (
         <ReactMarkdown
           skipHtml

@@ -1,6 +1,6 @@
+import { ListItemCard, SmartLink } from '..';
+
 import styles from './mod-list.module.scss';
-import { ListItemCard } from '../list-item-card';
-import { SmartLink } from '../smart-link';
 
 export type Mod = {
   title: string;

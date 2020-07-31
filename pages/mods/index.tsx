@@ -1,10 +1,13 @@
-import styles from '../../styles/layout.module.scss';
-import { ListItemCard } from '../../components/list-item-card';
-import { DownloadButton } from '../../components/download-button';
-import { PageSection } from '../../components/page-section';
-import { SmartLink } from '../../components/smart-link';
-import { TextLink } from '../../components/smart-link/text-link';
 import { GetStaticProps } from 'next';
+
+import styles from '../../styles/layout.module.scss';
+import {
+  ListItemCard,
+  DownloadButton,
+  PageSection,
+  SmartLink,
+  TextLink,
+} from '../../components';
 import { ModDatabase, getModDatabase } from '../../services';
 
 const modManagerDefaultDownloadUrl =

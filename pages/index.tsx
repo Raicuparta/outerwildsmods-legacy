@@ -1,17 +1,17 @@
 import Head from 'next/head';
+import { GetStaticProps } from 'next';
 
 import styles from '../styles/layout.module.scss';
-import { DownloadButton } from '../components/download-button';
-import { ModList } from '../components/mod-list';
-import { AuthorList } from '../components/author-list';
 import {
+  DownloadButton,
+  ModList,
+  AuthorList,
   PageSection,
   PageSectionDescription,
   PageSectionImage,
   PageSectionColumns,
-} from '../components/page-section';
-import { TextLink } from '../components/smart-link/text-link';
-import { GetStaticProps } from 'next';
+  TextLink,
+} from '../components';
 import { getModDatabase } from '../services';
 
 const modManagerDefaultDownloadUrl =
