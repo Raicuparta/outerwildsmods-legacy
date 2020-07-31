@@ -1,0 +1,41 @@
+@import '../../styles/variables';
+
+.linkButton {
+  display: block;
+  border-radius: $border-radius;
+  border: none;
+  width: 100%;
+  background-color: $light;
+  color: white;
+  font-size: large;
+  cursor: pointer;
+  text-align: center;
+  font-weight: bold;
+  outline: none;
+  overflow: hidden;
+}
+
+.content {
+  padding: 10px;
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
+}
+
+.linkButton:active {
+  box-shadow: none;
+  .content {
+    backdrop-filter: brightness(75%);
+  }
+}
+
+.linkButton:hover:not(.disabled):not(:active) {
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6);
+  .content {
+    backdrop-filter: brightness(120%);
+  }
+}
+
+.primary {
+  background-color: $cta;
+}

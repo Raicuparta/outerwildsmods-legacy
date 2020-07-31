@@ -1,43 +1,68 @@
-import { ModTile } from "../mod-tile";
-import { Mod } from '../mod-tile';
+import { ListItemCard, SmartLink } from '..';
+
 import styles from './mod-list.module.scss';
 
+export type Mod = {
+  title: string;
+  description: string[];
+  path: string;
+  author: string;
+  image: string;
+};
 
 const mods: Mod[] = [
   {
-    title: 'OWML',
-    description: 'Mod loader / framework. All available mods use this to interact and modify the game.',
-    author: 'AmazingAlek',
-    repo: 'https://github.com/amazingalek/owml',
-    image: 'images/owml.jpg',
+    title: 'NomaiVR',
+    description: [
+      'Adds support for VR devices.',
+      'Full motion control support.',
+    ],
+    author: 'Raicuparta',
+    path: 'nomaivr',
+    image: 'images/nomai-vr.png',
   },
   {
-    title: 'NomaiVR',
-    description: 'VR Mod. Compatible with pretty much any VR headset. Most interactions have been modified for VR motion controls.',
-    author: 'Raicuparta',
-    repo: 'https://github.com/Raicuparta/nomai-vr',
-    image: 'images/nomai-vr.jpg',
+    title: 'Light Bramble',
+    description: [
+      'Makes the Dark Bramble less scary.',
+      'Options to remove scary elements individually.',
+    ],
+    author: 'AmazingAlek',
+    path: 'lightbramble',
+    image: 'images/light-bramble.jpg',
   },
   {
     title: 'TAICheat',
-    description: 'Collection of cheats that can be mapped to button / key combinations. Cheats include super jetpack, invincibility, and a lot more.',
+    description: [
+      'Collection of cheats.',
+      'Super jetpack, invincibility, and a lot more.',
+    ],
     author: 'TAImatem',
-    repo: 'https://github.com/TAImatem/OW_TAIcheat',
+    path: 'taicheat',
     image: 'images/tai-cheat.png',
   },
   {
     title: 'Marshmallow',
-    description: 'Planet creator. Users can create planets from JSON files, and share them with others.',
+    description: [
+      'Planet creator.',
+      'Create planets and share them with others.',
+    ],
     author: 'misternebula',
-    repo: 'https://github.com/misternebula/Marshmallow',
-    image: 'images/marshmallow.jpg',
+    path: 'marshmallow',
+    image: 'images/marshmallow.png',
   },
 ];
 
 export const ModList: React.FunctionComponent = () => (
-  <div className={styles.modList}>
-    {mods.map(mod => (
-      <ModTile key={mod.title} mod={mod} />
+  <div>
+    {mods.map((mod) => (
+      <SmartLink key={mod.path} href={`/mods/${mod.path}`}>
+        <ListItemCard
+          title={mod.title}
+          description={mod.description}
+          imageUrl={mod.image}
+        />
+      </SmartLink>
     ))}
   </div>
 );

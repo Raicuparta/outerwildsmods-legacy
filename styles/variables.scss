@@ -2,8 +2,15 @@ $white: white;
 $light: rgb(143, 143, 143);
 $dark: rgb(32, 32, 32);
 $accent: #de874a;
+$cta: #4f8235;
 
 $spacing-1: 10px;
 $spacing-2: 20px;
 
 $border-radius: 0.3rem;
+
+$breakpoints: (
+  'small': 600.98px,
+  'medium': 1101.98px,
+  'large': 1999.98px,
+) !default;

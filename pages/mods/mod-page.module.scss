@@ -1,0 +1,95 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.modPage {
+  max-width: map-get($breakpoints, 'medium');
+  padding: $spacing-2;
+  margin: 0 auto;
+
+  h1 {
+    margin-top: 0;
+  }
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  min-width: 250px;
+  flex: 0;
+  margin-left: $spacing-2;
+  padding: $spacing-2;
+  background-color: $dark;
+}
+
+.actionsContent {
+  position: sticky;
+  top: $spacing-2;
+}
+
+.markdownWrapper {
+  flex: 1;
+}
+
+.contentWrapper {
+  display: flex;
+  margin-top: $spacing-1;
+}
+
+.markdown {
+  background: $dark;
+  padding: $spacing-2;
+  font-size: 1rem;
+
+  a {
+    color: $accent;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  pre {
+    padding: $spacing-1;
+    border: 1px solid $light;
+    overflow: auto;
+  }
+
+  pre,
+  code {
+    background: #333333;
+    padding: 2px;
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  table,
+  th,
+  td {
+    border: 1px solid $light;
+  }
+
+  td {
+    padding: $spacing-1;
+  }
+}
+
+.box {
+  background-color: $dark;
+  padding: $spacing-2;
+  margin-bottom: $spacing-2;
+}
+
+@include media-breakpoint-down('medium') {
+  .contentWrapper {
+    flex-direction: column-reverse;
+  }
+  .actions {
+    margin-left: 0;
+    margin-bottom: $spacing-2;
+  }
+}
