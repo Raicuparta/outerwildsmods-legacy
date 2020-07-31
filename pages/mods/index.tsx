@@ -1,4 +1,5 @@
 import { GetStaticProps } from 'next';
+import Head from 'next/head';
 
 import styles from '../../styles/layout.module.scss';
 import {
@@ -28,6 +29,10 @@ const Mods: React.FunctionComponent<Props> = ({ modDatabase }) => {
 
   return (
     <div className={styles.container}>
+      <Head>
+        <title>Outer Wilds Mods</title>
+        <meta name="Description" content="Full list of mods for Outer Wilds" />
+      </Head>
       <TextLink href="/">{'< Home page'}</TextLink>
       <PageSection
         id="mod-manager"

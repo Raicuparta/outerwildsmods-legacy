@@ -1,5 +1,6 @@
 import ReactMarkdown from 'react-markdown';
 import { GetStaticPaths, GetStaticProps } from 'next';
+import Head from 'next/head';
 
 import {
   TextLink,
@@ -51,6 +52,10 @@ const ModPage: React.FunctionComponent<Props> = ({ readme, mod }) => {
 
   return (
     <div className={styles.modPage}>
+      <Head>
+        <title>{mod.manifest.name} - Outer Wilds Mods</title>
+        <meta name="Description" content={mod.manifest.description} />
+      </Head>
       <TextLink href="/mods">{'< All mods'}</TextLink>
       <div className={styles.contentWrapper}>
         <div className={styles.markdownWrapper}>
