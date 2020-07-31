@@ -80,7 +80,8 @@ const ModPage: React.FunctionComponent<Props> = ({
         <div className={styles.actions}>
           <div className={styles.actionsContent}>
             <LinkButton href={modManagerDownloadUrl} variant="primary">
-              Install mod using Mod Manager
+              <div>Download mod using</div>
+              <div>Mod Manager</div>
             </LinkButton>
             <ul>
               <li>
@@ -92,7 +93,7 @@ const ModPage: React.FunctionComponent<Props> = ({
               <li>{mod.downloadCount} downloads</li>
               <li>Version {mod.manifest.version}</li>
             </ul>
-            <LinkButton href={mod.downloadUrl}>Manual download</LinkButton>
+            <LinkButton href={mod.downloadUrl}>Download mod files</LinkButton>
           </div>
         </div>
       </div>
