@@ -5,7 +5,7 @@ import styles from './mod-list.module.scss';
 export type Mod = {
   title: string;
   description: string[];
-  repo: string;
+  path: string;
   author: string;
   image: string;
 };
@@ -18,7 +18,7 @@ const mods: Mod[] = [
       'Full motion control support.',
     ],
     author: 'Raicuparta',
-    repo: 'https://github.com/Raicuparta/nomai-vr',
+    path: 'nomaivr',
     image: 'images/nomai-vr.png',
   },
   {
@@ -28,7 +28,7 @@ const mods: Mod[] = [
       'Options to remove scary elements individually.',
     ],
     author: 'AmazingAlek',
-    repo: 'https://github.com/amazingalek/owml-light-bramble',
+    path: 'lightbramble',
     image: 'images/light-bramble.jpg',
   },
   {
@@ -38,7 +38,7 @@ const mods: Mod[] = [
       'Super jetpack, invincibility, and a lot more.',
     ],
     author: 'TAImatem',
-    repo: 'https://github.com/TAImatem/OW_TAIcheat',
+    path: 'taicheat',
     image: 'images/tai-cheat.png',
   },
   {
@@ -48,7 +48,7 @@ const mods: Mod[] = [
       'Create planets and share them with others.',
     ],
     author: 'misternebula',
-    repo: 'https://github.com/misternebula/Marshmallow',
+    path: 'marshmallow',
     image: 'images/marshmallow.png',
   },
 ];
@@ -56,7 +56,7 @@ const mods: Mod[] = [
 export const ModList: React.FunctionComponent = () => (
   <div>
     {mods.map((mod) => (
-      <SmartLink key={mod.repo} href={mod.repo} isExternal>
+      <SmartLink key={mod.path} href={`/mods/${mod.path}`}>
         <ListItemCard
           title={mod.title}
           description={mod.description}
