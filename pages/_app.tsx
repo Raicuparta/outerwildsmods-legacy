@@ -7,16 +7,21 @@ import ReactGA from 'react-ga';
 import '../styles/global.css';
 import styles from '../styles/layout.module.scss';
 
+const googleAnalyticsId = process.env.analyticsId;
+
 export default function App({ Component, pageProps }: AppProps) {
   const { asPath } = useRouter();
 
   useEffect(() => {
-    ReactGA.initialize('UA-171434021-1');
+    if (googleAnalyticsId) {
+      ReactGA.initialize(googleAnalyticsId);
+    }
   }, []);
 
   useEffect(() => {
-    console.log('this is happening');
-    ReactGA.pageview(asPath);
+    if (googleAnalyticsId) {
+      ReactGA.pageview(asPath);
+    }
   }, [asPath]);
 
   return (
