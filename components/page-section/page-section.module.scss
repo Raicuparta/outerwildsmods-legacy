@@ -71,4 +71,11 @@
     margin-left: 0;
     margin-top: 1rem;
   }
+  .titleWrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    a {
+      margin-top: $spacing-1;
+    }
+  }
 }
