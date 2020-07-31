@@ -21,7 +21,7 @@ type Props = {
 export const getModPathName = (modName: string) =>
   modName.replace(/ /g, '').toLowerCase();
 
-const getModPath = (modName: string) => `mods/${getModPathName(modName)}`;
+const getModPath = (modName: string) => `/mods/${getModPathName(modName)}`;
 
 const Mods: React.FunctionComponent<Props> = ({ modDatabase }) => {
   const mods = modDatabase?.releases;

@@ -2,12 +2,7 @@ import ReactMarkdown from 'react-markdown';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
 
-import {
-  TextLink,
-  LinkButton,
-  SmartLink,
-  ListItemCard,
-} from '../../components';
+import { TextLink, LinkButton } from '../../components';
 import { getModDatabase, Mod, getModReadme } from '../../services';
 
 import styles from './mod-page.module.scss';
