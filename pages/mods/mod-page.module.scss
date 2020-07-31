@@ -51,7 +51,6 @@
   pre {
     padding: $spacing-1;
     border: 1px solid $light;
-    white-space: pre-wrap;
     overflow: auto;
   }
 
@@ -59,6 +58,8 @@
   code {
     background: #333333;
     padding: 2px;
+    white-space: pre-wrap;
+    word-break: break-all;
   }
 
   table {
