@@ -3,7 +3,6 @@ import { GetStaticProps } from 'next';
 
 import styles from '../styles/layout.module.scss';
 import {
-  DownloadButton,
   ModList,
   AuthorList,
   PageSection,
