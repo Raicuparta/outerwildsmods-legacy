@@ -42,9 +42,18 @@
   a {
     color: $accent;
   }
-  pre,
-  code {
-    background: $dark;
+
+  pre {
+    padding: $spacing-1;
+    border: 1px solid $light;
+    white-space: pre-wrap;
+    overflow: auto;
+  }
+
+  :not(pre) code {
+    border: 1px;
+    border: 1px solid $light;
+    padding: 2px;
   }
 
   table {
