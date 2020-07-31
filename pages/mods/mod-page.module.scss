@@ -14,7 +14,6 @@
   min-width: 250px;
   flex: 0;
   margin-left: $spacing-2;
-  margin-bottom: $spacing-2;
   padding: 0 $spacing-2;
   background-color: $dark;
 }
@@ -67,5 +66,6 @@
   }
   .actions {
     margin-left: 0;
+    margin-bottom: $spacing-2;
   }
 }
