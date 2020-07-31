@@ -14,10 +14,8 @@ type Props = {
 };
 
 export const PageSectionColumns: React.FunctionComponent = ({ children }) => (
-  <div className={styles.sectionColumns}>
-    {children}
-  </div>
-)
+  <div className={styles.sectionColumns}>{children}</div>
+);
 
 export const PageSection: React.FunctionComponent<Props> = ({
   children,
@@ -32,30 +30,21 @@ export const PageSection: React.FunctionComponent<Props> = ({
     {title && (
       <div className={styles.titleWrapper}>
         <h2 className={styles.sectionTitle}>
-          <a href={`#${id}`}>
-            {title}
-          </a>
+          <a href={`#${id}`}>{title}</a>
         </h2>
         {titleLinkUrl && (
-          <TextLink href={titleLinkUrl}>
-            {titleLinkText}
-          </TextLink>
+          <TextLink href={titleLinkUrl}>{titleLinkText}</TextLink>
         )}
       </div>
     )}
-    {(imageUrl || description) ? (
+    {imageUrl || description ? (
       <PageSectionColumns>
         {description && (
           <PageSectionDescription description={description}>
             {children}
           </PageSectionDescription>
         )}
-        {imageUrl && (
-          <PageSectionImage
-            imageUrl={imageUrl}
-            title={title}
-          />
-        )}
+        {imageUrl && <PageSectionImage imageUrl={imageUrl} title={title} />}
       </PageSectionColumns>
     ) : (
       children

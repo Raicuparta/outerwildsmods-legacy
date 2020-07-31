@@ -17,14 +17,19 @@ type Props = {
   mod?: Mod;
 };
 
-const getRawContentUrl = (repo: string) => (
-  `${repo.replace(gitHubUrlBase, rawContentUrlBase)}/master`
-);
+const getRawContentUrl = (repo: string) =>
+  `${repo.replace(gitHubUrlBase, rawContentUrlBase)}/master`;
 
-const multipleFetchAttempts = async (urls: string[]): Promise<Response | null> => {
+const multipleFetchAttempts = async (
+  urls: string[]
+): Promise<Response | null> => {
   const response = await fetch(urls[0]);
   if (response.status !== 200) {
-    console.warn('Response not OK, status:', response.status, response.statusText);
+    console.warn(
+      'Response not OK, status:',
+      response.status,
+      response.statusText
+    );
     if (urls.length > 1) {
       return multipleFetchAttempts(urls.slice(1, urls.length));
     } else {
@@ -33,34 +38,28 @@ const multipleFetchAttempts = async (urls: string[]): Promise<Response | null> =
     }
   }
   return response;
-}
+};
 
-const ModPage: React.FunctionComponent<Props> = ({
-  readme,
-  mod,
-}) => {
+const ModPage: React.FunctionComponent<Props> = ({ readme, mod }) => {
   return (
     <div className={styles.modPage}>
-      <TextLink href="/mods">
-        {'< All mods'}
-      </TextLink>
-      {(readme && mod) ? (
+      <TextLink href="/mods">{'< All mods'}</TextLink>
+      {readme && mod ? (
         <ReactMarkdown
           skipHtml
-          transformImageUri={uri =>
-            uri.startsWith("http") ? uri : `${getRawContentUrl(mod.repo)}/${uri}`
+          transformImageUri={(uri) =>
+            uri.startsWith('http')
+              ? uri
+              : `${getRawContentUrl(mod.repo)}/${uri}`
           }
         >
           {readme}
         </ReactMarkdown>
       ) : (
-        <h4>
-          Readme not found
-        </h4>
+        <h4>Readme not found</h4>
       )}
-
     </div>
-  )
+  );
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -74,14 +73,14 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 
   const paths = modDatabase.releases.map(({ manifest }) => ({
-    params: { mod: getModPathName(manifest.name) }
-  }))
-  
+    params: { mod: getModPathName(manifest.name) },
+  }));
+
   return {
     paths,
     fallback: false,
   };
-}
+};
 
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   const modDatabase = await getModDatabase();
@@ -94,16 +93,20 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
     return { props: {} };
   }
 
-  const mod = modDatabase.releases.find(mod => getModPathName(mod.manifest.name) === params.mod);
+  const mod = modDatabase.releases.find(
+    (mod) => getModPathName(mod.manifest.name) === params.mod
+  );
 
   if (!mod) {
     return { props: {} };
-  };
+  }
 
   const rawContentUrl = getRawContentUrl(mod.repo);
-  const readmePaths = readmeNames.map(readmeName => `${rawContentUrl}/${readmeName}`);
+  const readmePaths = readmeNames.map(
+    (readmeName) => `${rawContentUrl}/${readmeName}`
+  );
   const readme = await getModReadme(readmePaths);
-  
+
   if (!readme) {
     return { props: {} };
   }
@@ -111,6 +114,6 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   return {
     props: { readme, mod },
   };
-}
+};
 
 export default ModPage;

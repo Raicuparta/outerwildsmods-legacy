@@ -6,7 +6,9 @@ export const getModReadme = async (urls: string[]): Promise<string | null> => {
   try {
     response = await axios.get<string>(urls[0]);
     if (response.status !== 200) {
-      throw new Error(`Response not OK, status: ${response.status, response.statusText}`);
+      throw new Error(
+        `Response not OK, status: ${(response.status, response.statusText)}`
+      );
     }
   } catch {
     if (urls.length > 1) {

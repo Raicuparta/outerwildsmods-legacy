@@ -1,14 +1,15 @@
 @import '../../styles/variables';
 
 .modPage {
-  max-width: map-get($breakpoints, "medium");
+  max-width: map-get($breakpoints, 'medium');
   padding: 0 1rem;
   margin: 1rem auto 2rem;
   padding-left: calc(100vw - 100%);
   a {
     color: $accent;
   }
-  pre, code {
+  pre,
+  code {
     background: $dark;
   }
 
@@ -16,8 +17,10 @@
     border-collapse: collapse;
     width: 100%;
   }
-  
-  table, th, td {
+
+  table,
+  th,
+  td {
     border: 1px solid $light;
   }
 

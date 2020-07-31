@@ -7,19 +7,17 @@ import { TextLink } from '../../components/smart-link/text-link';
 import { GetStaticProps } from 'next';
 import { ModDatabase, getModDatabase } from '../../services';
 
-const modManagerDefaultDownloadUrl = 'https://github.com/Raicuparta/ow-mod-manager/releases/latest';
+const modManagerDefaultDownloadUrl =
+  'https://github.com/Raicuparta/ow-mod-manager/releases/latest';
 
 type Props = {
   modDatabase?: ModDatabase;
 };
 
-export const getModPathName = (modName: string) => (
-  modName.replace(/ /g, '').toLowerCase()
-);
+export const getModPathName = (modName: string) =>
+  modName.replace(/ /g, '').toLowerCase();
 
-const getModPath = (modName: string) => (
-  `mods/${getModPathName(modName)}`
-);
+const getModPath = (modName: string) => `mods/${getModPathName(modName)}`;
 
 const Mods: React.FunctionComponent<Props> = ({ modDatabase }) => {
   const mods = modDatabase?.releases;
@@ -27,20 +25,21 @@ const Mods: React.FunctionComponent<Props> = ({ modDatabase }) => {
 
   return (
     <div className={styles.container}>
-      <TextLink href="/">
-        {'< Home page'}
-      </TextLink>
-      <PageSection id="mod-manager" description="All of the following mods can be downloaded and installed using the Outer Wilds Mod Manager.">
+      <TextLink href="/">{'< Home page'}</TextLink>
+      <PageSection
+        id="mod-manager"
+        description="All of the following mods can be downloaded and installed using the Outer Wilds Mod Manager."
+      >
         <DownloadButton
           href={modManagerDownloadUrl ?? modManagerDefaultDownloadUrl}
-          target={modManagerDownloadUrl ? undefined : '_blank' }
+          target={modManagerDownloadUrl ? undefined : '_blank'}
           rel="noopener noreferrer"
         >
           Download Outer Wilds Mod Manager
         </DownloadButton>
       </PageSection>
       <PageSection title="Available mods" id="mods">
-        {mods?.map(mod => (
+        {mods?.map((mod) => (
           <SmartLink
             key={mod.repo}
             href="/mods/[mod]"
@@ -54,8 +53,8 @@ const Mods: React.FunctionComponent<Props> = ({ modDatabase }) => {
         ))}
       </PageSection>
     </div>
-  )
-}
+  );
+};
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const modDatabase = await getModDatabase();
@@ -63,6 +62,6 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   return {
     props: { modDatabase },
   };
-}
+};
 
 export default Mods;

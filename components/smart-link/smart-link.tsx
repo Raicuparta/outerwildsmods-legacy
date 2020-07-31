@@ -5,20 +5,21 @@ export type Props = {
   as?: string;
   isExternal?: boolean;
   className?: string;
-}
+};
 
 const LinkWrapper: React.FunctionComponent<Props> = ({
   children,
   href,
   as,
   isExternal,
-}) => isExternal ? (
-  <>{children}</>
-) :(
-  <Link href={href} as={as}>
-    {children}
-  </Link>
-);
+}) =>
+  isExternal ? (
+    <>{children}</>
+  ) : (
+    <Link href={href} as={as}>
+      {children}
+    </Link>
+  );
 
 export const SmartLink: React.FunctionComponent<Props> = ({
   children,
@@ -28,7 +29,7 @@ export const SmartLink: React.FunctionComponent<Props> = ({
   className,
 }) => {
   return (
-    <LinkWrapper href={href} as={as} isExternal={isExternal} >
+    <LinkWrapper href={href} as={as} isExternal={isExternal}>
       <a
         href={as || href}
         className={className}
@@ -38,5 +39,5 @@ export const SmartLink: React.FunctionComponent<Props> = ({
         {children}
       </a>
     </LinkWrapper>
-  )
-}
+  );
+};

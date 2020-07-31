@@ -1,15 +1,21 @@
-import Head from 'next/head'
+import Head from 'next/head';
 
 import styles from '../styles/layout.module.scss';
-import { DownloadButton } from '../components/download-button'
+import { DownloadButton } from '../components/download-button';
 import { ModList } from '../components/mod-list';
 import { AuthorList } from '../components/author-list';
-import { PageSection, PageSectionDescription, PageSectionImage, PageSectionColumns } from '../components/page-section';
+import {
+  PageSection,
+  PageSectionDescription,
+  PageSectionImage,
+  PageSectionColumns,
+} from '../components/page-section';
 import { TextLink } from '../components/smart-link/text-link';
 import { GetStaticProps } from 'next';
 import { getModDatabase } from '../services';
 
-const modManagerDefaultDownloadUrl = 'https://github.com/Raicuparta/ow-mod-manager/releases/latest';
+const modManagerDefaultDownloadUrl =
+  'https://github.com/Raicuparta/ow-mod-manager/releases/latest';
 
 type Props = {
   modManagerDownloadUrl?: string;
@@ -19,26 +25,30 @@ const Home: React.FunctionComponent<Props> = ({ modManagerDownloadUrl }) => (
   <div className={styles.container}>
     <Head>
       <title>Outer Wilds Mods</title>
-      <meta name="Description" content="Find all the tools needed to mod Outer Wilds. Download and install mods with the Outer Wilds Mod Manager"></meta>
+      <meta
+        name="Description"
+        content="Find all the tools needed to mod Outer Wilds. Download and install mods with the Outer Wilds Mod Manager"
+      ></meta>
       <link rel="canonical" href="https://outerwildsmods.com" />
     </Head>
-    <PageSection
-      title="Outer Wilds Mod Manager"
-      id="mod-manager"
-    >
+    <PageSection title="Outer Wilds Mod Manager" id="mod-manager">
       <PageSectionColumns>
-        <PageSectionImage imageUrl="images/mod-manager.png" title="Outer Wilds Mod Manager" />
-        <PageSectionDescription
-          description="Use the Outer Wilds Mod Manager for downloading, installing, and managing mods."
-        >
-          <TextLink href="https://github.com/Raicuparta/ow-mod-manager" isExternal>
+        <PageSectionImage
+          imageUrl="images/mod-manager.png"
+          title="Outer Wilds Mod Manager"
+        />
+        <PageSectionDescription description="Use the Outer Wilds Mod Manager for downloading, installing, and managing mods.">
+          <TextLink
+            href="https://github.com/Raicuparta/ow-mod-manager"
+            isExternal
+          >
             Source code
           </TextLink>
         </PageSectionDescription>
       </PageSectionColumns>
       <DownloadButton
         href={modManagerDownloadUrl ?? modManagerDefaultDownloadUrl}
-        target={modManagerDownloadUrl ? undefined : '_blank' }
+        target={modManagerDownloadUrl ? undefined : '_blank'}
         rel="noopener noreferrer"
       >
         Download Outer Wilds Mod Manager
@@ -58,13 +68,22 @@ const Home: React.FunctionComponent<Props> = ({ modManagerDownloadUrl }) => (
       imageUrl="images/outer-wilds.jpg"
     >
       <div className={styles.verticalList}>
-        <TextLink href="https://store.steampowered.com/app/753640/Outer_Wilds/" isExternal>
+        <TextLink
+          href="https://store.steampowered.com/app/753640/Outer_Wilds/"
+          isExternal
+        >
           Steam
         </TextLink>
-        <TextLink href="https://www.epicgames.com/store/en-US/product/outerwilds/" isExternal>
+        <TextLink
+          href="https://www.epicgames.com/store/en-US/product/outerwilds/"
+          isExternal
+        >
           Epic
         </TextLink>
-        <TextLink href="https://www.mobiusdigitalgames.com/outer-wilds.html" isExternal>
+        <TextLink
+          href="https://www.mobiusdigitalgames.com/outer-wilds.html"
+          isExternal
+        >
           Official website
         </TextLink>
       </div>
@@ -88,14 +107,14 @@ const Home: React.FunctionComponent<Props> = ({ modManagerDownloadUrl }) => (
       id="become-a-modder"
       description="If you want to make your own mods, the OWML documentation has most of the info you need to get started. The aforementioned Discord server also has a modding channel."
     >
-      <TextLink href="https://github.com/amazingalek/owml/wiki/For-modders" isExternal>
+      <TextLink
+        href="https://github.com/amazingalek/owml/wiki/For-modders"
+        isExternal
+      >
         Info for modders in OWML docs
       </TextLink>
     </PageSection>
-    <PageSection
-      title="Authors"
-      id="authors"
-    >
+    <PageSection title="Authors" id="authors">
       <AuthorList />
     </PageSection>
   </div>
@@ -107,6 +126,6 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   return {
     props: { modManagerDownloadUrl: modDatabase?.modManager.downloadUrl },
   };
-}
+};
 
 export default Home;
