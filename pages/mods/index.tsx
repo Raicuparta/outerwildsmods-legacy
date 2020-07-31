@@ -1,12 +1,17 @@
 import styles from '../../styles/layout.module.scss';
-import useModDatabase from '../../hooks/useModDatabase';
 import { ListItemCard } from '../../components/list-item-card';
 import { DownloadButton } from '../../components/download-button';
 import { PageSection } from '../../components/page-section';
 import { SmartLink } from '../../components/smart-link';
 import { TextLink } from '../../components/smart-link/text-link';
+import { GetStaticProps } from 'next';
+import { ModDatabase, getModDatabase } from '../../services';
 
 const modManagerDefaultDownloadUrl = 'https://github.com/Raicuparta/ow-mod-manager/releases/latest';
+
+type Props = {
+  modDatabase?: ModDatabase;
+};
 
 export const getModPathName = (modName: string) => (
   modName.replace(/ /g, '').toLowerCase()
@@ -16,9 +21,7 @@ const getModPath = (modName: string) => (
   `mods/${getModPathName(modName)}`
 );
 
-const Mods: React.FunctionComponent = () => {
-  const modDatabase = useModDatabase();
-
+const Mods: React.FunctionComponent<Props> = ({ modDatabase }) => {
   const mods = modDatabase?.releases;
   const modManagerDownloadUrl = modDatabase?.modManager?.downloadUrl;
 
@@ -52,6 +55,14 @@ const Mods: React.FunctionComponent = () => {
       </PageSection>
     </div>
   )
+}
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const modDatabase = await getModDatabase();
+
+  return {
+    props: { modDatabase },
+  };
 }
 
 export default Mods;
