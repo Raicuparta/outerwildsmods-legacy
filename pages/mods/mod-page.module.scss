@@ -21,6 +21,11 @@
   background-color: $dark;
 }
 
+.actionsContent {
+  position: sticky;
+  top: 0;
+}
+
 .markdownWrapper {
   flex: 1;
 }

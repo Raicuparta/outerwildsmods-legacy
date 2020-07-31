@@ -83,20 +83,22 @@ const ModPage: React.FunctionComponent<Props> = ({
           )}
         </div>
         <div className={styles.actions}>
-          <LinkButton href={modManagerDownloadUrl} variant="primary">
-            Install mod using Mod Manager
-          </LinkButton>
-          <ul>
-            <li>
-              <TextLink isExternal href={mod.repo}>
-                Source code
-              </TextLink>
-            </li>
-            <li>By {mod.manifest.author}</li>
-            <li>{mod.downloadCount} downloads</li>
-            <li>Version {mod.manifest.version}</li>
-          </ul>
-          <LinkButton href={mod.downloadUrl}>Manual download</LinkButton>
+          <div className={styles.actionsContent}>
+            <LinkButton href={modManagerDownloadUrl} variant="primary">
+              Install mod using Mod Manager
+            </LinkButton>
+            <ul>
+              <li>
+                <TextLink isExternal href={mod.repo}>
+                  Source code
+                </TextLink>
+              </li>
+              <li>By {mod.manifest.author}</li>
+              <li>{mod.downloadCount} downloads</li>
+              <li>Version {mod.manifest.version}</li>
+            </ul>
+            <LinkButton href={mod.downloadUrl}>Manual download</LinkButton>
+          </div>
         </div>
       </div>
     </div>
