@@ -20,6 +20,7 @@ const readmeNames = ['README.md', 'readme.md', 'Readme.md'];
 type Props = {
   readme?: string;
   mod?: Mod;
+  modManagerDownloadUrl?: string;
 };
 
 const getRawContentUrl = (repo: string) =>
@@ -45,7 +46,11 @@ const multipleFetchAttempts = async (
   return response;
 };
 
-const ModPage: React.FunctionComponent<Props> = ({ readme, mod }) => {
+const ModPage: React.FunctionComponent<Props> = ({
+  readme,
+  mod,
+  modManagerDownloadUrl,
+}) => {
   if (!mod) {
     return <div className={styles.modPage}>Mod not found</div>;
   }
@@ -78,22 +83,20 @@ const ModPage: React.FunctionComponent<Props> = ({ readme, mod }) => {
           )}
         </div>
         <div className={styles.actions}>
-          <LinkButton variant="primary">Install using Mod Manager</LinkButton>
+          <LinkButton href={modManagerDownloadUrl} variant="primary">
+            Install mod using Mod Manager
+          </LinkButton>
           <ul>
-            <li>
-              <TextLink isExternal href={mod.downloadUrl}>
-                Manual download
-              </TextLink>
-            </li>
             <li>
               <TextLink isExternal href={mod.repo}>
                 Source code
               </TextLink>
             </li>
-            <li>Author: {mod.manifest.author}</li>
-            <li>Current version: {mod.manifest.version}</li>
+            <li>By {mod.manifest.author}</li>
             <li>{mod.downloadCount} downloads</li>
+            <li>Version {mod.manifest.version}</li>
           </ul>
+          <LinkButton href={mod.downloadUrl}>Manual download</LinkButton>
         </div>
       </div>
     </div>
@@ -145,8 +148,16 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   );
   const readme = await getModReadme(readmePaths);
 
+  if (!readme) {
+    return { props: {} };
+  }
+
   return {
-    props: { readme, mod },
+    props: {
+      readme,
+      mod,
+      modManagerDownloadUrl: modDatabase.modManager.downloadUrl,
+    },
   };
 };
 
