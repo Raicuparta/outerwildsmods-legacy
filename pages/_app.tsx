@@ -1,4 +1,5 @@
 import { AppProps } from 'next/app'
+import { useRouter } from 'next/router';
 
 import ReactGA from 'react-ga';
 
@@ -9,10 +10,16 @@ import Link from 'next/link';
 
 
 export default function App({ Component, pageProps }: AppProps) {
+  const { asPath } = useRouter();
+
   useEffect(() => {
     ReactGA.initialize('UA-171434021-1');
-    ReactGA.pageview(window.location.pathname + window.location.search);
   }, []);
+
+  useEffect(() => {
+    console.log('this is happening');
+    ReactGA.pageview(asPath);
+  }, [asPath]);
 
   return <>
     <header className={styles.header}>
