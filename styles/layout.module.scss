@@ -4,7 +4,6 @@
   max-width: map-get($breakpoints, 'small');
   padding: $spacing-2;
   margin: 0 auto;
-  padding-left: calc(100vw - 100%);
 }
 
 .header {
