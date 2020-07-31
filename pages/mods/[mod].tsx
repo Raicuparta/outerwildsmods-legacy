@@ -1,7 +1,12 @@
 import ReactMarkdown from 'react-markdown';
 import { GetStaticPaths, GetStaticProps } from 'next';
 
-import { TextLink, LinkButton } from '../../components';
+import {
+  TextLink,
+  LinkButton,
+  SmartLink,
+  ListItemCard,
+} from '../../components';
 import { getModDatabase, Mod, getModReadme } from '../../services';
 
 import styles from './mod-page.module.scss';
@@ -40,34 +45,52 @@ const multipleFetchAttempts = async (
 };
 
 const ModPage: React.FunctionComponent<Props> = ({ readme, mod }) => {
+  if (!mod) {
+    return <div className={styles.modPage}>Mod not found</div>;
+  }
+
   return (
     <div className={styles.modPage}>
       <TextLink href="/mods">{'< All mods'}</TextLink>
-      <div className={styles.actions}>
-        <div className={styles.column}>
-          <LinkButton variant="primary">
-            Install this mod using the Mod Manager
-          </LinkButton>
+      <div className={styles.contentWrapper}>
+        <div className={styles.markdownWrapper}>
+          <div className={styles.box}>
+            <h1>{mod.manifest.name}</h1>
+            <p>{mod.manifest.description}</p>
+          </div>
+          {readme && mod && (
+            <ReactMarkdown
+              className={styles.markdown}
+              skipHtml
+              transformImageUri={(uri) =>
+                uri.startsWith('http')
+                  ? uri
+                  : `${getRawContentUrl(mod.repo)}/${uri}`
+              }
+            >
+              {readme}
+            </ReactMarkdown>
+          )}
         </div>
-        <div className={styles.column}>
-          <LinkButton>Download zip (manual install)</LinkButton>
+        <div className={styles.actions}>
+          <LinkButton variant="primary">Install using Mod Manager</LinkButton>
+          <ul>
+            <li>Author: {mod.manifest.author}</li>
+            <li>Current version: {mod.manifest.version}</li>
+            <li>{mod.downloadCount} downloads</li>
+            <li>
+              <TextLink isExternal href={mod.repo}>
+                Source code
+              </TextLink>
+            </li>
+            <li>
+              <TextLink isExternal href={mod.downloadUrl}>
+                Direct download
+              </TextLink>
+            </li>
+          </ul>
         </div>
       </div>
-      {readme && mod ? (
-        <ReactMarkdown
-          className={styles.markdown}
-          skipHtml
-          transformImageUri={(uri) =>
-            uri.startsWith('http')
-              ? uri
-              : `${getRawContentUrl(mod.repo)}/${uri}`
-          }
-        >
-          {readme}
-        </ReactMarkdown>
-      ) : (
-        <h4>Readme not found</h4>
-      )}
     </div>
   );
 };
