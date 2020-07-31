@@ -5,6 +5,20 @@
   padding: 0 1rem;
   margin: 1rem auto 2rem;
   padding-left: calc(100vw - 100%);
+}
+
+.actions {
+  display: flex;
+}
+
+.column {
+  flex: 1;
+  &:not(:last-child) {
+    margin-right: $spacing-2;
+  }
+}
+
+.markdown {
   a {
     color: $accent;
   }
@@ -27,8 +41,4 @@
   td {
     padding: $spacing-1;
   }
-}
-
-.contentWrapper {
-  display: flex;
 }

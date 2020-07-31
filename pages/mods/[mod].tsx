@@ -1,7 +1,7 @@
 import ReactMarkdown from 'react-markdown';
 import { GetStaticPaths, GetStaticProps } from 'next';
 
-import { TextLink } from '../../components';
+import { TextLink, LinkButton } from '../../components';
 import { getModDatabase, Mod, getModReadme } from '../../services';
 
 import styles from './mod-page.module.scss';
@@ -43,9 +43,19 @@ const ModPage: React.FunctionComponent<Props> = ({ readme, mod }) => {
   return (
     <div className={styles.modPage}>
       <TextLink href="/mods">{'< All mods'}</TextLink>
-      <div></div>
+      <div className={styles.actions}>
+        <div className={styles.column}>
+          <LinkButton variant="primary">
+            Install this mod using the Mod Manager
+          </LinkButton>
+        </div>
+        <div className={styles.column}>
+          <LinkButton>Download zip (manual install)</LinkButton>
+        </div>
+      </div>
       {readme && mod ? (
         <ReactMarkdown
+          className={styles.markdown}
           skipHtml
           transformImageUri={(uri) =>
             uri.startsWith('http')

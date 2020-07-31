@@ -11,6 +11,7 @@ import {
   PageSectionImage,
   PageSectionColumns,
   TextLink,
+  LinkButton,
 } from '../components';
 import { getModDatabase } from '../services';
 
@@ -46,13 +47,14 @@ const Home: React.FunctionComponent<Props> = ({ modManagerDownloadUrl }) => (
           </TextLink>
         </PageSectionDescription>
       </PageSectionColumns>
-      <DownloadButton
+      <LinkButton
         href={modManagerDownloadUrl ?? modManagerDefaultDownloadUrl}
         target={modManagerDownloadUrl ? undefined : '_blank'}
         rel="noopener noreferrer"
+        variant="primary"
       >
         Download Outer Wilds Mod Manager
-      </DownloadButton>
+      </LinkButton>
     </PageSection>
     <PageSection
       title="Some of the available mods"
