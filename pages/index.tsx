@@ -60,6 +60,7 @@ const Home: React.FunctionComponent<Props> = ({ modManagerDownloadUrl }) => (
       title="Some of the available mods"
       id="mods"
       titleLinkText="All mods >"
+      titleLinkUrl="/mods"
     >
       <ModList />
     </PageSection>
