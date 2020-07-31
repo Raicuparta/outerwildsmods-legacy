@@ -13,9 +13,13 @@ interface Props
 export const LinkButton: React.FunctionComponent<Props> = ({
   children,
   variant = 'secondary',
+  className,
   ...props
 }) => (
-  <a className={`${styles.linkButton} ${styles[variant]}`} {...props}>
+  <a
+    className={`${className} ${styles.linkButton} ${styles[variant]}`}
+    {...props}
+  >
     <div className={styles.content}>{children}</div>
   </a>
 );

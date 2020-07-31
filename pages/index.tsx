@@ -48,6 +48,7 @@ const Home: React.FunctionComponent<Props> = ({ modManagerDownloadUrl }) => (
         </PageSectionDescription>
       </PageSectionColumns>
       <LinkButton
+        className={styles.downloadButton}
         href={modManagerDownloadUrl ?? modManagerDefaultDownloadUrl}
         target={modManagerDownloadUrl ? undefined : '_blank'}
         rel="noopener noreferrer"

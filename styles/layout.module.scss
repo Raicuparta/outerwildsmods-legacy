@@ -1,7 +1,7 @@
 @import 'variables';
 
 .container {
-  max-width: 36rem;
+  max-width: map-get($breakpoints, 'small');
   padding: $spacing-2;
   margin: 0 auto;
   padding-left: calc(100vw - 100%);
@@ -33,6 +33,10 @@
   a {
     margin-top: 8px;
   }
+}
+
+.downloadButton {
+  margin-top: $spacing-2;
 }
 
 .footer {
