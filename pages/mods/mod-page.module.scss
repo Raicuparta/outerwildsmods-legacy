@@ -55,9 +55,9 @@
     overflow: auto;
   }
 
-  :not(pre) code {
-    border: 1px;
-    border: 1px solid $light;
+  pre,
+  code {
+    background: #333333;
     padding: 2px;
   }
 
