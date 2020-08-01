@@ -16,7 +16,7 @@ const LinkWrapper: React.FunctionComponent<SmartLinkProps> = ({
   isExternal ? (
     <>{children}</>
   ) : (
-    <Link href={href} as={as}>
+    <Link prefetch={false} href={href} as={as}>
       {children}
     </Link>
   );
