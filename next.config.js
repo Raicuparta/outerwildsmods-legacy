@@ -5,6 +5,7 @@ module.exports = (phase) => {
 
   const env = {
     analyticsId: isProd ? 'UA-171434021-1' : undefined,
+    isProd,
   };
 
   return {

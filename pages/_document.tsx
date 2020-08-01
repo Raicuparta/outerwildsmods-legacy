@@ -54,6 +54,7 @@ class MyDocument extends Document {
         <CustomHead />
         <body>
           <Main />
+          {!process.env.isProd && <NextScript />}
         </body>
       </Html>
     );
