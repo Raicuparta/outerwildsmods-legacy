@@ -42,6 +42,25 @@ class CustomHead extends Head {
   }
 }
 
+const googleAnalyticsId = process.env.analyticsId;
+const isProd = process.env.isProd;
+
+const Analytics: React.FunctionComponent<{ id?: string }> = ({ id }) => (
+  <>
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${id}`} />
+    <script
+      dangerouslySetInnerHTML={{
+        __html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${id}');
+        `,
+      }}
+    />
+  </>
+);
+
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const initialProps = await Document.getInitialProps(ctx);
@@ -51,10 +70,12 @@ class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
-        <CustomHead />
+        <CustomHead>
+          <Analytics id={googleAnalyticsId} />
+        </CustomHead>
         <body>
           <Main />
-          {!process.env.isProd && <NextScript />}
+          {!isProd && <NextScript />}
         </body>
       </Html>
     );

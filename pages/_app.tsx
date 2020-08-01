@@ -7,28 +7,9 @@ import '../styles/global.css';
 import styles from '../styles/layout.module.scss';
 import { SmartLink } from '../components';
 
-const googleAnalyticsId = process.env.analyticsId;
-
-const Analytics: React.FunctionComponent<{ id?: string }> = ({ id }) => (
-  <>
-    <script async src={`https://www.googletagmanager.com/gtag/js?id=${id}`} />
-    <script
-      dangerouslySetInnerHTML={{
-        __html: `
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', '${id}');
-        `,
-      }}
-    />
-  </>
-);
-
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
-      <Analytics id={googleAnalyticsId} />
       <header className={styles.header}>
         <h1 className={styles.pageTitle}>
           <SmartLink href="/">
