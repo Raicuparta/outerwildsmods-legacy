@@ -41,5 +41,6 @@ const prettier = require('prettier');
     parser: 'html'
   });
 
+  fs.writeFileSync('public/sitemap.xml', formatted);
   fs.writeFileSync('out/sitemap.xml', formatted);
 })();
