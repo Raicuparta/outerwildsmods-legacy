@@ -1,46 +1,21 @@
 const fs = require('fs');
 
 const globby = require('globby');
-const prettier = require('prettier');
+
+const urlBase = 'https://outerwildsmods.com';
 
 (async () => {
-  const prettierConfig = await prettier.resolveConfig('./.prettierrc.js');
+  const pages = await globby(['out/**/*.html', '!out/404']);
 
-  // Ignore Next.js specific files (e.g., _app.js) and API routes.
-  const pages = await globby([
-    'out/**/*.html',
-    '!out/404'
-  ]);
+  const pageUrls = pages
+    .map((page) => {
+      const path = page.replace(/(\/index|.html|out)/gm, '');
+      return `\n  <url><loc>${urlBase}${path}</loc></url>`;
+    })
+    .join('');
 
-  console.log(pages)
+  const sitemap = `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${pageUrls}\n</urlset>`;
 
-  const sitemap = `
-    <?xml version="1.0" encoding="UTF-8"?>
-    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-      ${pages.map((page) => {
-    const path = page
-      .replace('out', '')
-      .replace('/index.html', '')
-      .replace('.html', '');
-
-    const route = path === '/index' ? '' : path;
-
-    return `
-          <url>
-            <loc>${`https://outerwildsmods.com${route}`}</loc>
-          </url>
-        `;
-  })
-      .join('')}
-      </urlset>
-  `;
-
-  // If you're not using Prettier, you can remove this.
-  const formatted = prettier.format(sitemap, {
-    ...prettierConfig,
-    parser: 'html'
-  });
-
-  fs.writeFileSync('public/sitemap.xml', formatted);
-  fs.writeFileSync('out/sitemap.xml', formatted);
+  fs.writeFileSync('public/sitemap.xml', sitemap);
+  fs.writeFileSync('out/sitemap.xml', sitemap);
 })();
