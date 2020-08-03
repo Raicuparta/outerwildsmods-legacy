@@ -1,7 +1,4 @@
 import { AppProps } from 'next/app';
-import { useRouter } from 'next/router';
-import { useEffect } from 'react';
-import ReactGA from 'react-ga';
 
 import '../styles/global.css';
 import styles from '../styles/layout.module.scss';
