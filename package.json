@@ -7,7 +7,8 @@
     "dev": "next dev",
     "run-build": "npm run build && next start",
     "deploy": "npm run build && gh-pages -t -d out",
-    "build": "next build && next export",
+    "build": "next build && next export && npm run generate-sitemap",
+    "generate-sitemap": "node generate-sitemap",
     "prettier": "prettier --write"
   },
   "dependencies": {
