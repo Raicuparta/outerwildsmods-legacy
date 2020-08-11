@@ -25,7 +25,7 @@ const getModPath = (modName: string) => `/mods/${getModPathName(modName)}`;
 
 const Mods: React.FunctionComponent<Props> = ({ modDatabase }) => {
   const mods = modDatabase?.releases;
-  const modManagerDownloadUrl = modDatabase?.modManager?.downloadUrl;
+  const modManagerDownloadUrl = modDatabase?.modManager?.installerDownloadUrl;
 
   return (
     <div className={styles.container}>

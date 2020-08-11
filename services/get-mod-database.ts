@@ -22,6 +22,8 @@ export type ModDatabase = {
   modManager: {
     version: string;
     downloadUrl: string;
+    installerDownloadUrl: string;
+    zipDownloadUrl: string;
   };
   releases: Mod[];
 };
