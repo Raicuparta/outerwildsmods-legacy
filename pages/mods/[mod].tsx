@@ -150,7 +150,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
     props: {
       ...(readme ? { readme } : undefined),
       mod,
-      modManagerDownloadUrl: modDatabase.modManager.downloadUrl,
+      modManagerDownloadUrl: modDatabase.modManager.installerDownloadUrl,
     },
   };
 };

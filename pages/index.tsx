@@ -126,8 +126,14 @@ const Home: React.FunctionComponent<Props> = ({ modManagerDownloadUrl }) => (
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const modDatabase = await getModDatabase();
 
+  const downloadUrl = modDatabase?.modManager?.installerDownloadUrl;
+
+  if (!downloadUrl) {
+    throw new Error(`Could not retrieve mod manager installer download URL from database. \n${JSON.stringify(modDatabase?.modManager)}\n`);
+  }
+
   return {
-    props: { modManagerDownloadUrl: modDatabase?.modManager.downloadUrl },
+    props: { modManagerDownloadUrl: modDatabase?.modManager.installerDownloadUrl },
   };
 };
 
