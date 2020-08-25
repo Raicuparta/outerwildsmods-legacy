@@ -6,7 +6,6 @@ export type Mod = {
   title: string;
   description: string[];
   path: string;
-  author: string;
   image: string;
 };
 
@@ -17,9 +16,17 @@ const mods: Mod[] = [
       'Adds support for VR devices.',
       'Full motion control support.',
     ],
-    author: 'Raicuparta',
     path: 'nomaivr',
     image: 'images/nomai-vr.png',
+  },
+  {
+    title: 'QSB',
+    description: [
+      'Quantum Space Buddies.',
+      'Adds online multiplayer to the game.',
+    ],
+    path: 'quantumspacebuddies',
+    image: 'images/qsb.jpg',
   },
   {
     title: 'Light Bramble',
@@ -27,7 +34,6 @@ const mods: Mod[] = [
       'Makes the Dark Bramble less scary.',
       'Options to remove scary elements individually.',
     ],
-    author: 'AmazingAlek',
     path: 'lightbramble',
     image: 'images/light-bramble.jpg',
   },
@@ -37,19 +43,8 @@ const mods: Mod[] = [
       'Collection of cheats.',
       'Super jetpack, invincibility, and a lot more.',
     ],
-    author: 'TAImatem',
     path: 'taicheat',
     image: 'images/tai-cheat.png',
-  },
-  {
-    title: 'Marshmallow',
-    description: [
-      'Planet creator.',
-      'Create planets and share them with others.',
-    ],
-    author: 'misternebula',
-    path: 'marshmallow',
-    image: 'images/marshmallow.png',
   },
 ];
 
