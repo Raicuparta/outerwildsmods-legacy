@@ -18,5 +18,11 @@ jobs:
       run: |
         git config user.name "Outer Wilds Mods Website"
         git config user.email "website@outerwildsmods.com"
+    - name: Build
+      run: npm run build
     - name: Deploy
-      run: npm run deploy
+      uses: JamesIves/github-pages-deploy-action@3.5.9
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BRANCH: gh-pages
+        FOLDER: out
