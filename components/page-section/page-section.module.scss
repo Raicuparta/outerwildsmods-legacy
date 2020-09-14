@@ -49,6 +49,8 @@
 .sectionImage {
   border-radius: $border-radius;
   border: 1px solid $light;
+  max-width: 100%;
+  display: block;
 }
 
 .sectionDescriptionWrapper {
