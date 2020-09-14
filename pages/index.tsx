@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import { GetStaticProps } from 'next';
 
-import styles from '../styles/layout.module.scss';
 import {
   ModList,
   AuthorList,
@@ -12,11 +11,32 @@ import {
   TextLink,
   LinkButton,
   PageLayout,
+  LinkList,
 } from '../components';
 import { getModDatabase } from '../services';
 
 const modManagerDefaultDownloadUrl =
   'https://github.com/Raicuparta/ow-mod-manager/releases/latest';
+
+const infoLinks = [
+  {
+    text: 'Steam',
+    href: 'https://store.steampowered.com/app/753640/Outer_Wilds',
+  },
+  {
+    text: 'Epic',
+    href: 'https://www.epicgames.com/store/en-US/product/outerwilds',
+  },
+  {
+    text: 'Official website',
+    href: 'https://www.mobiusdigitalgames.com/outer-wilds.html',
+  },
+];
+
+const communityLinks = [
+  { text: 'Reddit', href: 'https://reddit.com/r/outerwilds' },
+  { text: 'Discord', href: 'https://discord.gg/RaSjRbm' },
+];
 
 type Props = {
   modManagerDownloadUrl?: string;
@@ -48,11 +68,10 @@ const Home: React.FunctionComponent<Props> = ({ modManagerDownloadUrl }) => (
         </PageSectionDescription>
       </PageSectionColumns>
       <LinkButton
-        className={styles.downloadButton}
         href={modManagerDownloadUrl ?? modManagerDefaultDownloadUrl}
         target={modManagerDownloadUrl ? undefined : '_blank'}
         rel="noopener noreferrer"
-        variant="primary"
+        variant="main-download"
       >
         Download Outer Wilds Mod Manager
       </LinkButton>
@@ -71,40 +90,14 @@ const Home: React.FunctionComponent<Props> = ({ modManagerDownloadUrl }) => (
       description="Outer Wilds is a neat game. Check it out and buy it or whatever."
       imageUrl="images/outer-wilds.jpg"
     >
-      <div className={styles.verticalList}>
-        <TextLink
-          href="https://store.steampowered.com/app/753640/Outer_Wilds/"
-          isExternal
-        >
-          Steam
-        </TextLink>
-        <TextLink
-          href="https://www.epicgames.com/store/en-US/product/outerwilds/"
-          isExternal
-        >
-          Epic
-        </TextLink>
-        <TextLink
-          href="https://www.mobiusdigitalgames.com/outer-wilds.html"
-          isExternal
-        >
-          Official website
-        </TextLink>
-      </div>
+      <LinkList links={infoLinks} />
     </PageSection>
     <PageSection
       title="Community"
       id="community"
       description="If you need support, or just wanna interact with other fans of the game, this is where you can find us:"
     >
-      <div className={styles.verticalList}>
-        <TextLink href="https://reddit.com/r/outerwilds" isExternal>
-          Reddit
-        </TextLink>
-        <TextLink href="https://discord.gg/RaSjRbm" isExternal>
-          Discord
-        </TextLink>
-      </div>
+      <LinkList links={communityLinks} />
     </PageSection>
     <PageSection
       title="Become a modder"
