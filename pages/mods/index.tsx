@@ -3,11 +3,11 @@ import Head from 'next/head';
 
 import {
   ListItemCard,
-  DownloadButton,
   PageSection,
   SmartLink,
   TextLink,
   PageLayout,
+  LinkButton,
 } from '../../components';
 import { ModDatabase, getModDatabase } from '../../services';
 
@@ -38,13 +38,14 @@ const Mods: React.FunctionComponent<Props> = ({ modDatabase }) => {
         id="mod-manager"
         description="All of the following mods can be downloaded and installed using the Outer Wilds Mod Manager."
       >
-        <DownloadButton
+        <LinkButton
           href={modManagerDownloadUrl ?? modManagerDefaultDownloadUrl}
           target={modManagerDownloadUrl ? undefined : '_blank'}
           rel="noopener noreferrer"
+          variant="primary"
         >
           Download Outer Wilds Mod Manager
-        </DownloadButton>
+        </LinkButton>
       </PageSection>
       <PageSection title="Available mods" id="mods">
         {mods?.map((mod) => (
