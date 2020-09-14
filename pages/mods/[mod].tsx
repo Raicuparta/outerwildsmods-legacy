@@ -1,15 +1,14 @@
-import ReactMarkdown from 'react-markdown';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
 
-import { TextLink, LinkButton, ModActions } from '../../components';
+import { TextLink, ModActions } from '../../components';
 import { getModDatabase, Mod, getModReadme } from '../../services';
+import { getRawContentUrl } from '../../helpers';
 
 import styles from './mod-page.module.scss';
 import { getModPathName } from '.';
+import { ModDescription } from '../../components/mod-description';
 
-const gitHubUrlBase = 'github';
-const rawContentUrlBase = 'raw.githubusercontent';
 const readmeNames = ['README.md', 'readme.md', 'Readme.md'];
 
 type Props = {
@@ -17,9 +16,6 @@ type Props = {
   mod?: Mod;
   modManagerDownloadUrl?: string;
 };
-
-const getRawContentUrl = (repo: string) =>
-  `${repo.replace(gitHubUrlBase, rawContentUrlBase)}/master`;
 
 const multipleFetchAttempts = async (
   urls: string[]
@@ -58,29 +54,8 @@ const ModPage: React.FunctionComponent<Props> = ({
       </Head>
       <TextLink href="/mods">{'< All mods'}</TextLink>
       <div className={styles.contentWrapper}>
-        <div className={styles.markdownWrapper}>
-          <div className={styles.box}>
-            <h1>{mod.manifest.name}</h1>
-            <p>{mod.manifest.description}</p>
-          </div>
-          {readme && mod && (
-            <ReactMarkdown
-              className={styles.markdown}
-              skipHtml
-              transformImageUri={(uri) =>
-                uri.startsWith('http')
-                  ? uri
-                  : `${getRawContentUrl(mod.repo)}/${uri}`
-              }
-            >
-              {readme}
-            </ReactMarkdown>
-          )}
-        </div>
-        <ModActions
-          mod={mod}
-          modManagerDownloadUrl={modManagerDownloadUrl} 
-        />
+        <ModDescription mod={mod} readme={readme} />
+        <ModActions mod={mod} modManagerDownloadUrl={modManagerDownloadUrl} />
       </div>
     </div>
   );
