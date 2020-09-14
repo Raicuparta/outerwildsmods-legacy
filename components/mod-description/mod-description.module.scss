@@ -1,38 +1,7 @@
 @import '../../styles/variables';
-@import '../../styles/mixins';
 
-.modPage {
-  max-width: map-get($breakpoints, 'medium');
-  padding: $spacing-2;
-  margin: 0 auto;
-
-  h1 {
-    margin-top: 0;
-  }
-}
-
-.actions {
-  display: flex;
-  flex-direction: column;
-  min-width: 250px;
-  flex: 0;
-  margin-left: $spacing-2;
-  padding: $spacing-2;
-  background-color: $dark;
-}
-
-.actionsContent {
-  position: sticky;
-  top: $spacing-2;
-}
-
-.markdownWrapper {
+.modDescription {
   flex: 1;
-}
-
-.contentWrapper {
-  display: flex;
-  margin-top: $spacing-1;
 }
 
 .markdown {
@@ -76,20 +45,14 @@
   td {
     padding: $spacing-1;
   }
+
+  img {
+    max-width: 100%;
+  }
 }
 
 .box {
   background-color: $dark;
   padding: $spacing-2;
   margin-bottom: $spacing-2;
-}
-
-@include media-breakpoint-down('medium') {
-  .contentWrapper {
-    flex-direction: column-reverse;
-  }
-  .actions {
-    margin-left: 0;
-    margin-bottom: $spacing-2;
-  }
 }

@@ -1,15 +1,18 @@
-import ReactMarkdown from 'react-markdown';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
 
-import { TextLink, LinkButton } from '../../components';
+import {
+  TextLink,
+  ModActions,
+  ModDescription,
+  PageLayout,
+  PageLayoutColumns,
+} from '../../components';
 import { getModDatabase, Mod, getModReadme } from '../../services';
+import { getRawContentUrl } from '../../helpers';
 
-import styles from './mod-page.module.scss';
 import { getModPathName } from '.';
 
-const gitHubUrlBase = 'github';
-const rawContentUrlBase = 'raw.githubusercontent';
 const readmeNames = ['README.md', 'readme.md', 'Readme.md'];
 
 type Props = {
@@ -17,9 +20,6 @@ type Props = {
   mod?: Mod;
   modManagerDownloadUrl?: string;
 };
-
-const getRawContentUrl = (repo: string) =>
-  `${repo.replace(gitHubUrlBase, rawContentUrlBase)}/master`;
 
 const multipleFetchAttempts = async (
   urls: string[]
@@ -47,57 +47,25 @@ const ModPage: React.FunctionComponent<Props> = ({
   modManagerDownloadUrl,
 }) => {
   if (!mod) {
-    return <div className={styles.modPage}>Mod not found</div>;
+    return <h2>Mod not found</h2>;
   }
 
   return (
-    <div className={styles.modPage}>
+    <PageLayout size="medium">
       <Head>
         <title>{mod.manifest.name} - Outer Wilds Mods</title>
         <meta name="Description" content={mod.manifest.description} />
       </Head>
       <TextLink href="/mods">{'< All mods'}</TextLink>
-      <div className={styles.contentWrapper}>
-        <div className={styles.markdownWrapper}>
-          <div className={styles.box}>
-            <h1>{mod.manifest.name}</h1>
-            <p>{mod.manifest.description}</p>
-          </div>
-          {readme && mod && (
-            <ReactMarkdown
-              className={styles.markdown}
-              skipHtml
-              transformImageUri={(uri) =>
-                uri.startsWith('http')
-                  ? uri
-                  : `${getRawContentUrl(mod.repo)}/${uri}`
-              }
-            >
-              {readme}
-            </ReactMarkdown>
-          )}
-        </div>
-        <div className={styles.actions}>
-          <div className={styles.actionsContent}>
-            <LinkButton href={modManagerDownloadUrl} variant="primary">
-              <div>Download mod using</div>
-              <div>Mod Manager</div>
-            </LinkButton>
-            <ul>
-              <li>
-                <TextLink isExternal href={mod.repo}>
-                  Source code
-                </TextLink>
-              </li>
-              <li>By {mod.manifest.author}</li>
-              <li>{mod.downloadCount} downloads</li>
-              <li>Version {mod.manifest.version}</li>
-            </ul>
-            <LinkButton href={mod.downloadUrl}>Download mod files</LinkButton>
-          </div>
-        </div>
-      </div>
-    </div>
+      <PageLayoutColumns>
+        <ModDescription
+          manifest={mod.manifest}
+          readme={readme}
+          repo={mod.repo}
+        />
+        <ModActions mod={mod} modManagerDownloadUrl={modManagerDownloadUrl} />
+      </PageLayoutColumns>
+    </PageLayout>
   );
 };
 

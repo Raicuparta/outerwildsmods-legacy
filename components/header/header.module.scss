@@ -1,11 +1,5 @@
-@import 'variables';
-@import 'mixins';
-
-.container {
-  max-width: map-get($breakpoints, 'small');
-  padding: $spacing-2;
-  margin: 0 auto;
-}
+@import '../../styles/variables';
+@import '../../styles/mixins';
 
 .header {
   border-bottom: 1px solid $light;
@@ -24,32 +18,10 @@
   font-size: 3rem;
   line-height: 1.2;
   letter-spacing: -0.05rem;
-  //padding: $spacing-2;
   width: 100%;
   padding-bottom: 1.2rem;
   color: $white;
   font-weight: 100;
-}
-
-.verticalList {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  a {
-    margin-top: 8px;
-  }
-}
-
-.downloadButton {
-  margin-top: $spacing-2;
-}
-
-.footer {
-  margin-top: $spacing-2;
-  color: $light;
-  font-size: 0.8rem;
-  padding: 0 $spacing-2;
-  text-align: center;
 }
 
 @include media-breakpoint-down('small') {

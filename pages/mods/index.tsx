@@ -1,13 +1,13 @@
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 
-import styles from '../../styles/layout.module.scss';
 import {
   ListItemCard,
-  DownloadButton,
   PageSection,
   SmartLink,
   TextLink,
+  PageLayout,
+  LinkButton,
 } from '../../components';
 import { ModDatabase, getModDatabase } from '../../services';
 
@@ -28,7 +28,7 @@ const Mods: React.FunctionComponent<Props> = ({ modDatabase }) => {
   const modManagerDownloadUrl = modDatabase?.modManager?.installerDownloadUrl;
 
   return (
-    <div className={styles.container}>
+    <PageLayout>
       <Head>
         <title>Outer Wilds Mods</title>
         <meta name="Description" content="Full list of mods for Outer Wilds" />
@@ -38,13 +38,14 @@ const Mods: React.FunctionComponent<Props> = ({ modDatabase }) => {
         id="mod-manager"
         description="All of the following mods can be downloaded and installed using the Outer Wilds Mod Manager."
       >
-        <DownloadButton
+        <LinkButton
           href={modManagerDownloadUrl ?? modManagerDefaultDownloadUrl}
           target={modManagerDownloadUrl ? undefined : '_blank'}
           rel="noopener noreferrer"
+          variant="primary"
         >
           Download Outer Wilds Mod Manager
-        </DownloadButton>
+        </LinkButton>
       </PageSection>
       <PageSection title="Available mods" id="mods">
         {mods?.map((mod) => (
@@ -60,7 +61,7 @@ const Mods: React.FunctionComponent<Props> = ({ modDatabase }) => {
           </SmartLink>
         ))}
       </PageSection>
-    </div>
+    </PageLayout>
   );
 };
 

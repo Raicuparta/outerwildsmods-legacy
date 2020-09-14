@@ -7,7 +7,7 @@ interface Props
     AnchorHTMLAttributes<HTMLAnchorElement>,
     HTMLAnchorElement
   > {
-  variant?: 'primary' | 'secondary';
+  variant?: 'primary' | 'secondary' | 'main-download';
 }
 
 export const LinkButton: React.FunctionComponent<Props> = ({

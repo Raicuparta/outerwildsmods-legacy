@@ -2,7 +2,7 @@ const DATABASE_URL =
   'https://raw.githubusercontent.com/Raicuparta/ow-mod-db/master/database.json';
 import axios from 'axios';
 
-type Manifest = {
+export type Manifest = {
   name: string;
   author: string;
   uniqueName: string;
