@@ -1,0 +1,31 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.header {
+  border-bottom: 1px solid $light;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: calc(100vw - 100%);
+}
+
+.pageTitle {
+  padding: 0 $spacing-1;
+}
+
+.pageTitle a {
+  font-size: 3rem;
+  line-height: 1.2;
+  letter-spacing: -0.05rem;
+  width: 100%;
+  padding-bottom: 1.2rem;
+  color: $white;
+  font-weight: 100;
+}
+
+@include media-breakpoint-down('small') {
+  .pageTitle a {
+    font-size: 2rem;
+  }
+}
