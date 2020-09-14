@@ -1,4 +1,5 @@
 @import '../../styles/variables';
+@import '../../styles/mixins';
 
 .pageLayout {
   padding: $spacing-2;
@@ -14,4 +15,15 @@
 
 .medium {
   max-width: map-get($breakpoints, 'medium');
+}
+
+.pageLayoutColumns {
+  display: flex;
+  margin-top: $spacing-1;
+}
+
+@include media-breakpoint-down('medium') {
+  .pageLayoutColumns {
+    flex-direction: column-reverse;
+  }
 }

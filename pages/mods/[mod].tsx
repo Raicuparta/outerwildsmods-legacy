@@ -6,11 +6,11 @@ import {
   ModActions,
   ModDescription,
   PageLayout,
+  PageLayoutColumns,
 } from '../../components';
 import { getModDatabase, Mod, getModReadme } from '../../services';
 import { getRawContentUrl } from '../../helpers';
 
-import styles from './mod-page.module.scss';
 import { getModPathName } from '.';
 
 const readmeNames = ['README.md', 'readme.md', 'Readme.md'];
@@ -47,7 +47,7 @@ const ModPage: React.FunctionComponent<Props> = ({
   modManagerDownloadUrl,
 }) => {
   if (!mod) {
-    return <div className={styles.modPage}>Mod not found</div>;
+    return <h2>Mod not found</h2>;
   }
 
   return (
@@ -57,14 +57,14 @@ const ModPage: React.FunctionComponent<Props> = ({
         <meta name="Description" content={mod.manifest.description} />
       </Head>
       <TextLink href="/mods">{'< All mods'}</TextLink>
-      <div className={styles.contentWrapper}>
+      <PageLayoutColumns>
         <ModDescription
           manifest={mod.manifest}
           readme={readme}
           repo={mod.repo}
         />
         <ModActions mod={mod} modManagerDownloadUrl={modManagerDownloadUrl} />
-      </div>
+      </PageLayoutColumns>
     </PageLayout>
   );
 };
