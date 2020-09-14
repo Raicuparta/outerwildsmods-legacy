@@ -5,3 +5,4 @@ export * from './list-item-card';
 export * from './mod-list';
 export * from './page-section';
 export * from './smart-link';
+export * from './mod-actions';

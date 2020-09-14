@@ -2,7 +2,7 @@ import ReactMarkdown from 'react-markdown';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
 
-import { TextLink, LinkButton } from '../../components';
+import { TextLink, LinkButton, ModActions } from '../../components';
 import { getModDatabase, Mod, getModReadme } from '../../services';
 
 import styles from './mod-page.module.scss';
@@ -77,25 +77,10 @@ const ModPage: React.FunctionComponent<Props> = ({
             </ReactMarkdown>
           )}
         </div>
-        <div className={styles.actions}>
-          <div className={styles.actionsContent}>
-            <LinkButton href={modManagerDownloadUrl} variant="primary">
-              <div>Download mod using</div>
-              <div>Mod Manager</div>
-            </LinkButton>
-            <ul>
-              <li>
-                <TextLink isExternal href={mod.repo}>
-                  Source code
-                </TextLink>
-              </li>
-              <li>By {mod.manifest.author}</li>
-              <li>{mod.downloadCount} downloads</li>
-              <li>Version {mod.manifest.version}</li>
-            </ul>
-            <LinkButton href={mod.downloadUrl}>Download mod files</LinkButton>
-          </div>
-        </div>
+        <ModActions
+          mod={mod}
+          modManagerDownloadUrl={modManagerDownloadUrl} 
+        />
       </div>
     </div>
   );
