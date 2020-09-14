@@ -1,0 +1,17 @@
+@import '../../styles/variables';
+
+.pageLayout {
+  padding: $spacing-2;
+  margin: 0 auto;
+  h1 {
+    margin-top: 0;
+  }
+}
+
+.small {
+  max-width: map-get($breakpoints, 'small');
+}
+
+.medium {
+  max-width: map-get($breakpoints, 'medium');
+}

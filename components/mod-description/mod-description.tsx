@@ -1,30 +1,32 @@
 import ReactMarkdown from 'react-markdown';
 
 import { getRawContentUrl } from '../../helpers';
-import { Mod } from '../../services';
+import { Manifest } from '../../services';
 
 import styles from './mod-description.module.scss';
 
 type Props = {
-  mod: Mod;
+  manifest: Manifest;
   readme?: string;
+  repo: string;
 };
 
 export const ModDescription: React.FunctionComponent<Props> = ({
-  mod,
+  manifest,
   readme,
+  repo,
 }) => (
   <div className={styles.modDescription}>
     <div className={styles.box}>
-      <h1>{mod.manifest.name}</h1>
-      <p>{mod.manifest.description}</p>
+      <h1>{manifest.name}</h1>
+      <p>{manifest.description}</p>
     </div>
-    {readme && mod && (
+    {readme && (
       <ReactMarkdown
         className={styles.markdown}
         skipHtml
         transformImageUri={(uri) =>
-          uri.startsWith('http') ? uri : `${getRawContentUrl(mod.repo)}/${uri}`
+          uri.startsWith('http') ? uri : `${getRawContentUrl(repo)}/${uri}`
         }
       >
         {readme}

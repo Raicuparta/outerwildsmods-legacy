@@ -6,3 +6,5 @@ export * from './mod-list';
 export * from './page-section';
 export * from './smart-link';
 export * from './mod-actions';
+export * from './mod-description';
+export * from './page-layout';

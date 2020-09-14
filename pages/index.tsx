@@ -11,6 +11,7 @@ import {
   PageSectionColumns,
   TextLink,
   LinkButton,
+  PageLayout,
 } from '../components';
 import { getModDatabase } from '../services';
 
@@ -22,7 +23,7 @@ type Props = {
 };
 
 const Home: React.FunctionComponent<Props> = ({ modManagerDownloadUrl }) => (
-  <div className={styles.container}>
+  <PageLayout>
     <Head>
       <title>Outer Wilds Mods</title>
       <meta
@@ -120,7 +121,7 @@ const Home: React.FunctionComponent<Props> = ({ modManagerDownloadUrl }) => (
     <PageSection title="Authors" id="authors">
       <AuthorList />
     </PageSection>
-  </div>
+  </PageLayout>
 );
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
@@ -129,11 +130,17 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   const downloadUrl = modDatabase?.modManager?.installerDownloadUrl;
 
   if (!downloadUrl) {
-    throw new Error(`Could not retrieve mod manager installer download URL from database. \n${JSON.stringify(modDatabase?.modManager)}\n`);
+    throw new Error(
+      `Could not retrieve mod manager installer download URL from database. \n${JSON.stringify(
+        modDatabase?.modManager
+      )}\n`
+    );
   }
 
   return {
-    props: { modManagerDownloadUrl: modDatabase?.modManager.installerDownloadUrl },
+    props: {
+      modManagerDownloadUrl: modDatabase?.modManager.installerDownloadUrl,
+    },
   };
 };
 

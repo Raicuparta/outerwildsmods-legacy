@@ -1,13 +1,17 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
 
-import { TextLink, ModActions } from '../../components';
+import {
+  TextLink,
+  ModActions,
+  ModDescription,
+  PageLayout,
+} from '../../components';
 import { getModDatabase, Mod, getModReadme } from '../../services';
 import { getRawContentUrl } from '../../helpers';
 
 import styles from './mod-page.module.scss';
 import { getModPathName } from '.';
-import { ModDescription } from '../../components/mod-description';
 
 const readmeNames = ['README.md', 'readme.md', 'Readme.md'];
 
@@ -47,17 +51,21 @@ const ModPage: React.FunctionComponent<Props> = ({
   }
 
   return (
-    <div className={styles.modPage}>
+    <PageLayout size="medium">
       <Head>
         <title>{mod.manifest.name} - Outer Wilds Mods</title>
         <meta name="Description" content={mod.manifest.description} />
       </Head>
       <TextLink href="/mods">{'< All mods'}</TextLink>
       <div className={styles.contentWrapper}>
-        <ModDescription mod={mod} readme={readme} />
+        <ModDescription
+          manifest={mod.manifest}
+          readme={readme}
+          repo={mod.repo}
+        />
         <ModActions mod={mod} modManagerDownloadUrl={modManagerDownloadUrl} />
       </div>
-    </div>
+    </PageLayout>
   );
 };
 
