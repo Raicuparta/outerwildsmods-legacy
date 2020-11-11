@@ -59,12 +59,18 @@ const ModPage: React.FunctionComponent<Props> = ({
       <TextLink href="/">{'< Homepage '}</TextLink>
       <TextLink href="/mods">{' < All mods'}</TextLink>
       <PageLayoutColumns>
-        <ModDescription
-          manifest={mod.manifest}
-          readme={readme}
-          repo={mod.repo}
+        {readme && (
+          <ModDescription
+            manifest={mod.manifest}
+            readme={readme}
+            repo={mod.repo}
+          />
+        )}
+        <ModActions
+          mod={mod}
+          modManagerDownloadUrl={modManagerDownloadUrl}
+          fullWidth={!Boolean(readme)}
         />
-        <ModActions mod={mod} modManagerDownloadUrl={modManagerDownloadUrl} />
       </PageLayoutColumns>
     </PageLayout>
   );

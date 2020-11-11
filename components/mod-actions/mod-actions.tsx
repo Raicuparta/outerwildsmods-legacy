@@ -7,13 +7,15 @@ import styles from './mod-actions.module.scss';
 type Props = {
   mod: Mod;
   modManagerDownloadUrl?: string;
+  fullWidth?: boolean;
 };
 
 export const ModActions: React.FunctionComponent<Props> = ({
   modManagerDownloadUrl,
   mod,
+  fullWidth,
 }) => (
-  <div className={styles.modActions}>
+  <div className={`${styles.modActions} ${fullWidth ? styles.fullWidth : ''}`}>
     <div className={styles.content}>
       <h1 className={styles.title}>{mod.manifest.name}</h1>
       <ul>
