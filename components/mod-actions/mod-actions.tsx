@@ -1,5 +1,6 @@
 import { TextLink, LinkButton } from '..';
 import { Mod } from '../../services';
+import { WindowsIcon } from '../windows-icon';
 
 import styles from './mod-actions.module.scss';
 
@@ -14,10 +15,7 @@ export const ModActions: React.FunctionComponent<Props> = ({
 }) => (
   <div className={styles.modActions}>
     <div className={styles.content}>
-      <LinkButton href={modManagerDownloadUrl} variant="primary">
-        <div>Download mod using</div>
-        <div>Mod Manager</div>
-      </LinkButton>
+      <h1 className={styles.title}>{mod.manifest.name}</h1>
       <ul>
         <li>
           <TextLink isExternal href={mod.repo}>
@@ -28,7 +26,16 @@ export const ModActions: React.FunctionComponent<Props> = ({
         <li>{mod.downloadCount} downloads</li>
         <li>Version {mod.manifest.version}</li>
       </ul>
-      <LinkButton href={mod.downloadUrl}>Download mod files</LinkButton>
+      <p>{mod.manifest.description}</p>
+      <LinkButton
+        href={modManagerDownloadUrl}
+        variant="primary"
+        className={styles.managerButton}
+      >
+        <WindowsIcon />
+        Install mod using Mod Manager
+      </LinkButton>
+      <LinkButton href={mod.downloadUrl}><small>Download mod files</small></LinkButton>
     </div>
   </div>
 );

@@ -17,10 +17,6 @@ export const ModDescription: React.FunctionComponent<Props> = ({
   repo,
 }) => (
   <div className={styles.modDescription}>
-    <div className={styles.box}>
-      <h1>{manifest.name}</h1>
-      <p>{manifest.description}</p>
-    </div>
     {readme && (
       <ReactMarkdown
         className={styles.markdown}

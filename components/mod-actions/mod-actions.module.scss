@@ -16,6 +16,15 @@
   top: $spacing-2;
 }
 
+.title {
+  margin-bottom: 0;
+  font-size: larger;
+}
+
+.managerButton {
+  margin-bottom: $spacing-2;
+}
+
 @include media-breakpoint-down('medium') {
   .modActions {
     margin-left: 0;

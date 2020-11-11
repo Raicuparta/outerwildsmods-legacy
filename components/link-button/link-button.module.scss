@@ -7,7 +7,7 @@
   width: 100%;
   background-color: $light;
   color: white;
-  font-size: large;
+  font-size: medium;
   cursor: pointer;
   text-align: center;
   font-weight: bold;
@@ -20,6 +20,9 @@
   height: 100%;
   width: 100%;
   pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .linkButton:active {

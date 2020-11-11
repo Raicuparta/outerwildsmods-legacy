@@ -8,6 +8,7 @@ import {
   TextLink,
   PageLayout,
   LinkButton,
+  WindowsIcon,
 } from '../../components';
 import { ModDatabase, getModDatabase } from '../../services';
 
@@ -44,6 +45,7 @@ const Mods: React.FunctionComponent<Props> = ({ modDatabase }) => {
           rel="noopener noreferrer"
           variant="primary"
         >
+          <WindowsIcon />
           Download Outer Wilds Mod Manager
         </LinkButton>
       </PageSection>
