@@ -2,6 +2,7 @@ import ReactMarkdown from 'react-markdown';
 
 import { getRawContentUrl } from '../../helpers';
 import { Manifest } from '../../services';
+import { HeadingRenderer } from './heading-renderer';
 
 import styles from './mod-description.module.scss';
 
@@ -24,6 +25,7 @@ export const ModDescription: React.FunctionComponent<Props> = ({
         transformImageUri={(uri) =>
           uri.startsWith('http') ? uri : `${getRawContentUrl(repo)}/${uri}`
         }
+        renderers={{heading: HeadingRenderer}}
       >
         {readme}
       </ReactMarkdown>
