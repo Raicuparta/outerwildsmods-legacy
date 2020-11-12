@@ -18,17 +18,15 @@ export const ModActions: React.FunctionComponent<Props> = ({
   <div className={`${styles.modActions} ${fullWidth ? styles.fullWidth : ''}`}>
     <div className={styles.content}>
       <h1 className={styles.title}>{mod.manifest.name}</h1>
-      <ul>
-        <li>
-          <TextLink isExternal href={mod.repo}>
-            Source code
-          </TextLink>
-        </li>
-        <li>By {mod.manifest.author}</li>
-        <li>{mod.downloadCount} downloads</li>
-        <li>Version {mod.manifest.version}</li>
-      </ul>
+        <TextLink isExternal href={mod.repo}>
+        by {mod.manifest.author}
+        </TextLink>
       <p>{mod.manifest.description}</p>
+      <div>
+        <small>
+          Downloaded {mod.downloadCount} times
+        </small>
+      </div>
       <LinkButton
         href={modManagerDownloadUrl}
         variant="primary"
@@ -37,7 +35,12 @@ export const ModActions: React.FunctionComponent<Props> = ({
         <WindowsIcon />
         Install mod using Mod Manager
       </LinkButton>
-      <LinkButton href={mod.downloadUrl}><small>Download mod files</small></LinkButton>
+      <LinkButton href={mod.downloadUrl}>
+        <small>
+          <div>Download mod files</div>
+          <div>Version {mod.manifest.version}</div>
+        </small>
+      </LinkButton>
     </div>
   </div>
 );

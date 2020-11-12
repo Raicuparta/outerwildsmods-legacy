@@ -27,7 +27,7 @@
 }
 
 .managerButton {
-  margin-bottom: $spacing-2;
+  margin: $spacing-2 0;
 }
 
 @include media-breakpoint-down('medium') {
