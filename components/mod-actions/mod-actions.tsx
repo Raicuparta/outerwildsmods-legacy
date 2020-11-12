@@ -6,12 +6,10 @@ import styles from './mod-actions.module.scss';
 
 type Props = {
   mod: Mod;
-  modManagerDownloadUrl?: string;
   fullWidth?: boolean;
 };
 
 export const ModActions: React.FunctionComponent<Props> = ({
-  modManagerDownloadUrl,
   mod,
   fullWidth,
 }) => (
@@ -28,11 +26,10 @@ export const ModActions: React.FunctionComponent<Props> = ({
         </small>
       </div>
       <LinkButton
-        href={modManagerDownloadUrl}
+        href="/mod-manager"
         variant="primary"
         className={styles.managerButton}
       >
-        <WindowsIcon />
         Install mod using Mod Manager
       </LinkButton>
       <LinkButton href={mod.downloadUrl}>

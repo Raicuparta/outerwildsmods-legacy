@@ -72,7 +72,7 @@ const Home: React.FunctionComponent<Props> = ({ modManagerDownloadUrl }) => (
     <PageSection
       title="Some of the available mods"
       id="mods"
-      titleLinkText="All mods >"
+      titleLinkText="More mods >"
       titleLinkUrl="/mods"
     >
       <ModList />

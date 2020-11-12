@@ -34,19 +34,8 @@ const Mods: React.FunctionComponent<Props> = ({ modDatabase }) => {
         <title>Outer Wilds Mods</title>
         <meta name="Description" content="Full list of mods for Outer Wilds" />
       </Head>
-      <PageSection
-        id="mod-manager"
-        description="All of the following mods can be downloaded and installed using the Outer Wilds Mod Manager."
-      >
-        <LinkButton
-          href={modManagerDownloadUrl ?? modManagerDefaultDownloadUrl}
-          target={modManagerDownloadUrl ? undefined : '_blank'}
-          rel="noopener noreferrer"
-          variant="primary"
-        >
-          <WindowsIcon />
-          Download Outer Wilds Mod Manager
-        </LinkButton>
+      <PageSection id="mod-manager">
+        Install these mods using the <TextLink href="/mod-manager">Outer Wilds Mod Manager</TextLink>.
       </PageSection>
       <PageSection title="Available mods" id="mods">
         {mods?.map((mod) => (
