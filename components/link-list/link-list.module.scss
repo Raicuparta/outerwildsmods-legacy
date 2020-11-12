@@ -1,8 +1,7 @@
+@import '../../styles/variables';
+
 .linkList {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  a {
-    margin-top: 8px;
+  .linkWrapper {
+    margin-top: $spacing-1;
   }
 }

@@ -14,13 +14,15 @@ type Props = {
 export const LinkList: React.FunctionComponent<Props> = ({ links }) => (
   <div className={styles.linkList}>
     {links.map(({ href, text }) => (
-      <TextLink
-        href={href}
-        isExternal
-        key={href}
-      >
-        {text}
-      </TextLink>
+      <div className={styles.linkWrapper}>
+        <TextLink
+          href={href}
+          isExternal
+          key={href}
+        >
+          {text}
+        </TextLink>
+      </div>
     ))}
   </div>
 );

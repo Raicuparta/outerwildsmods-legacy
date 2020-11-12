@@ -13,3 +13,4 @@ export * from './footer';
 export * from './analytics';
 export * from './windows-icon';
 export * from './github-corner';
+export * from './navigation';
