@@ -1,0 +1,21 @@
+@import '../../styles/variables';
+
+.githubCorner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  fill: $accent;
+  opacity: 0.8;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.octoArm {
+  -webkit-transform-origin: 130px 106px;
+  transform-origin: 130px 106px;
+}
+
+.octoBody, .octoArm {
+  fill: $background;
+}
