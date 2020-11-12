@@ -14,6 +14,12 @@ const authors: Author[] = [
     ],
   },
   {
+    userName: 'clubby789',
+    description: [
+      'Made OWClock',
+    ],
+  },
+  {
     userName: 'MisterNebula',
     description: [
       'Made Marshmallow and StopTime.',
