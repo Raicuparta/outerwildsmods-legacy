@@ -16,21 +16,21 @@ const authors: Author[] = [
   {
     userName: 'clubby789',
     description: [
-      'Made OWClock',
+      'Made OWClock.',
     ],
   },
   {
     userName: 'MisterNebula',
     description: [
       'Made Marshmallow and StopTime.',
-      'Contributor to QSB.',
+      'Contributor to QSB and OWML.',
     ],
   },
   {
     userName: 'Raicuparta',
     description: [
       'Made NomaiVR, mod manager, and this page.',
-      'Contributor to QSB and OWML',
+      'Contributor to QSB and OWML.',
     ],
   },
   {
@@ -44,7 +44,7 @@ const authors: Author[] = [
     userName: 'TAImatem',
     description: [
       'The first modder.',
-      'Creator of TAICheat and contributor to OWML',
+      'Creator of TAICheat and contributor to OWML.',
     ],
   },
 ];
