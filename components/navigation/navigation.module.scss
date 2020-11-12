@@ -14,20 +14,18 @@
   padding: $spacing-1 0;
   margin: 0px $spacing-0;
   border: solid $light;
-  border-width: 0;
+  border-width: 1px;
   border-radius: $border-radius $border-radius 0 0;
-
+  margin-bottom: -1px;
   &:not(.disabledLink):hover {
     background-color: $dark;
-    border-color: $background;
   }
 }
 
 .disabledLink {
   color: $light;
   background-color: $background;
-  border-width: 1px 1px 0 1px;
-  margin-bottom: -1px;
+  border-bottom-color: transparent;
 }
 
 .layout {

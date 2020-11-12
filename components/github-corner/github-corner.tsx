@@ -9,8 +9,8 @@ export const GithubCorner = () => (
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="60"
-      height="60"
+      width="55"
+      height="55"
       viewBox="0 0 250 250"
     >
       <title>outerwildsmods.com source code</title>
