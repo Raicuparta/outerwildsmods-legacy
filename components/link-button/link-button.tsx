@@ -8,17 +8,21 @@ interface Props
     HTMLAnchorElement
   > {
   variant?: 'primary' | 'secondary' | 'main-download';
+  isExternal?: boolean;
 }
 
 export const LinkButton: React.FunctionComponent<Props> = ({
-  children,
   variant = 'secondary',
+  isExternal = false,
   className,
+  children,
   ...props
 }) => (
   <a
     className={`${className} ${styles.linkButton} ${styles[variant]}`}
     {...props}
+    target={isExternal ? '_blank' : undefined}
+    rel={isExternal ? 'noopener noreferrer' : undefined}
   >
     <div className={styles.content}>{children}</div>
   </a>
