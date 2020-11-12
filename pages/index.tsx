@@ -113,7 +113,7 @@ const Home: React.FunctionComponent<Props> = ({ modManagerDownloadUrl }) => (
         Info for modders in OWML docs
       </TextLink>
     </PageSection>
-    <PageSection title="Authors" id="authors">
+    <PageSection title="The Modders" id="authors">
       <AuthorList />
     </PageSection>
   </PageLayout>

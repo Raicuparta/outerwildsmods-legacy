@@ -9,22 +9,29 @@ const authors: Author[] = [
   {
     userName: 'AmazingAlek',
     description: [
-      'Creator of OWML and Light Bramble.',
+      'Made OWML and Light Bramble.',
       'Contributor to the mod manager and QSB.',
     ],
   },
   {
     userName: 'MisterNebula',
     description: [
-      'Creator of Marshmallow and StopTime.',
+      'Made Marshmallow and StopTime.',
       'Contributor to QSB.',
     ],
   },
   {
     userName: 'Raicuparta',
     description: [
-      'Creator of NomaiVR and the mod manager.',
+      'Made NomaiVR, mod manager, and this page.',
       'Contributor to QSB and OWML',
+    ],
+  },
+  {
+    userName: 'ShoosGun',
+    description: [
+      'Made the mod installer for Outer Wilds Alpha.',
+      'Also made a bunch of mods for the Alpha.',
     ],
   },
   {
