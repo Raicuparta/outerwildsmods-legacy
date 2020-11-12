@@ -56,8 +56,6 @@ const ModPage: React.FunctionComponent<Props> = ({
         <title>{mod.manifest.name} - Outer Wilds Mods</title>
         <meta name="Description" content={mod.manifest.description} />
       </Head>
-      <TextLink href="/">{'< Homepage '}</TextLink>
-      <TextLink href="/mods">{' < All mods'}</TextLink>
       <PageLayoutColumns>
         {readme && (
           <ModDescription
