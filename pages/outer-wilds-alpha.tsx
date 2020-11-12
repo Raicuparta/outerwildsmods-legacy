@@ -55,7 +55,7 @@ const OuterWildsAlpha: React.FunctionComponent = () => (
     <PageSection title="Outer Wilds Alpha" id="alpha">
       <PageSectionColumns>
         <PageSectionImage
-          imageUrl="/images/alpha.png"
+          imageUrl="/images/alpha.jpg"
           title="Outer Wilds Alpha"
         />
         <PageSectionDescription
