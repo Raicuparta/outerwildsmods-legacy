@@ -2,14 +2,32 @@
 
 .navigation {
   display: flex;
-  a {
-    flex: 1;
-    text-align: center;
-    padding: $spacing-2 0;
-    &:hover {
-      background-color: $dark;
-    }
+}
+
+.navigationLink {
+  color: $accent;
+  text-decoration: none;
+  font-weight: normal;
+  padding: $spacing-0 $spacing-1;
+  flex: 1;
+  text-align: center;
+  padding: $spacing-1 0;
+  margin: 0px $spacing-0;
+  border: solid $light;
+  border-width: 0;
+  border-radius: $border-radius $border-radius 0 0;
+
+  &:not(.disabledLink):hover {
+    background-color: $dark;
+    border-color: $background;
   }
+}
+
+.disabledLink {
+  color: $light;
+  background-color: $background;
+  border-width: 1px 1px 0 1px;
+  margin-bottom: -1px;
 }
 
 .layout {

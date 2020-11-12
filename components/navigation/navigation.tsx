@@ -1,23 +1,24 @@
 import { PageLayout } from '../page-layout';
 import { TextLink } from '../smart-link';
+import { NavigationLink } from './navigation-link';
 import styles from './navigation.module.scss';
 
 export const Navigation: React.FunctionComponent = () => (
   <div className={styles.wrapper}>
     <PageLayout className={styles.layout}>
       <nav className={styles.navigation}>
-        <TextLink href="/">
+        <NavigationLink href="/">
           Home
-        </TextLink>
-        <TextLink href="/mod-manager">
+        </NavigationLink>
+        <NavigationLink href="/mod-manager">
           Manager
-        </TextLink>
-        <TextLink href="/mods">
+        </NavigationLink>
+        <NavigationLink href="/mods">
           Mods
-        </TextLink>
-        <TextLink href="/outer-wilds-alpha">
+        </NavigationLink>
+        <NavigationLink href="/outer-wilds-alpha">
           Alpha
-        </TextLink>
+        </NavigationLink>
       </nav>
     </PageLayout>
   </div>
