@@ -66,7 +66,6 @@ const ModPage: React.FunctionComponent<Props> = ({
         )}
         <ModActions
           mod={mod}
-          modManagerDownloadUrl={modManagerDownloadUrl}
           fullWidth={!Boolean(readme)}
         />
       </PageLayoutColumns>

@@ -34,6 +34,17 @@ const infoLinks = [
   },
 ];
 
+const forModdersLinks = [
+  {
+    text: 'Info for modders in OWML docs',
+    href: 'https://github.com/amazingalek/owml/wiki/For-modders',
+  },
+  {
+    text: 'Outer Wilds mod template',
+    href: 'https://github.com/Raicuparta/ow-mod-template',
+  },
+]
+
 const communityLinks = [
   { text: 'Reddit', href: 'https://reddit.com/r/outerwilds' },
   { text: 'Discord', href: 'https://discord.gg/RaSjRbm' },
@@ -95,14 +106,9 @@ const Home: React.FunctionComponent<Props> = ({ modManagerDownloadUrl }) => (
     <PageSection
       title="Become a modder"
       id="become-a-modder"
-      description="If you want to make your own mods, the OWML documentation has most of the info you need to get started. The aforementioned Discord server also has a modding channel."
+      description="If you want to make your own mods, the OWML documentation has most of the info you need to get started. The easiest way to start is by cloning the mod template project and following the instructions there. The aforementioned Discord server also has a modding channel."
     >
-      <TextLink
-        href="https://github.com/amazingalek/owml/wiki/For-modders"
-        isExternal
-      >
-        Info for modders in OWML docs
-      </TextLink>
+      <LinkList links={forModdersLinks} />
     </PageSection>
     <PageSection title="The Modders" id="authors">
       <AuthorList />
