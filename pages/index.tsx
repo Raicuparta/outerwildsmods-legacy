@@ -60,22 +60,13 @@ const Home: React.FunctionComponent<Props> = ({ modManagerDownloadUrl }) => (
           title="Outer Wilds Mod Manager"
         />
         <PageSectionDescription description="Use the Outer Wilds Mod Manager for downloading, installing, and managing mods.">
-          <TextLink
-            href="https://github.com/Raicuparta/ow-mod-manager"
-            isExternal
-          >
-            Source code
-          </TextLink>
         </PageSectionDescription>
       </PageSectionColumns>
       <LinkButton
-        href={modManagerDownloadUrl ?? modManagerDefaultDownloadUrl}
-        target={modManagerDownloadUrl ? undefined : '_blank'}
-        rel="noopener noreferrer"
+        href="/mod-manager"
         variant="main-download"
       >
-        <WindowsIcon />
-        Download Outer Wilds Mod Manager
+        Outer Wilds Mod Manager
       </LinkButton>
     </PageSection>
     <PageSection
