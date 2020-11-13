@@ -1,5 +1,9 @@
 @import '../../styles/variables';
 
+.wrapper {
+  background-color: $dark;
+}
+
 .navigation {
   display: flex;
 }
@@ -13,25 +17,21 @@
   text-align: center;
   padding: $spacing-1 0;
   margin: 0px $spacing-0;
-  border: solid $light;
-  border-width: 1px;
   border-radius: $border-radius $border-radius 0 0;
-  margin-bottom: -1px;
+  background-color: $dark;
+  background-color: $background;
+  box-shadow: inset 0 -3px 0px 0px $dark;
   &:not(.disabledLink):hover {
     background-color: $dark;
+    box-shadow: none;
   }
 }
 
 .disabledLink {
   color: $light;
-  background-color: $background;
-  border-bottom-color: transparent;
+  box-shadow: none;
 }
 
 .layout {
   padding: 0;
-}
-
-.wrapper {
-  border-bottom: 1px solid $light;
 }

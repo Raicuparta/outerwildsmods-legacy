@@ -2,12 +2,12 @@
 @import '../../styles/mixins';
 
 .header {
-  // border-bottom: 1px solid $light;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
   padding-left: calc(100vw - 100%);
+  background-color: $dark;
 }
 
 .pageTitle {
