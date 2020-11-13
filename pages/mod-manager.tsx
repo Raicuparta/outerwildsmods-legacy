@@ -50,9 +50,7 @@ const Home: React.FunctionComponent<Props> = ({ modManagerDownloadUrl }) => (
         <WindowsIcon />
         Download the Outer Wilds Mod Manager for Windows
       </LinkButton>
-      <p>
-        For all your modding needs! With access to features such as:
-      </p>
+      <p>For all your modding needs! With access to features such as:</p>
       <ul>
         <li>Downloading mods;</li>
         <li>Updating mods;</li>
@@ -61,15 +59,23 @@ const Home: React.FunctionComponent<Props> = ({ modManagerDownloadUrl }) => (
         <li>Running the game with mods enabled.</li>
       </ul>
       <p>
-        It also lets you install / update the <TextLink href="/mods/owml">Outer Wilds Mod Loader</TextLink> from within the app, so you don't need to deal with that yourself.
+        It also lets you install / update the{' '}
+        <TextLink href="/mods/owml">Outer Wilds Mod Loader</TextLink> from
+        within the app, so you don't need to deal with that yourself.
       </p>
     </PageSection>
     <PageSection title="How do I use this?" id="how-to-use">
       <ul>
         <li>Download the Outer Wilds Mod Manager installer;</li>
-        <li>Run the downloaded .exe (you might need to ignore some Chrome / Windows warnings);</li>
+        <li>
+          Run the downloaded .exe (you might need to ignore some Chrome /
+          Windows warnings);
+        </li>
         <li>The Mod Manager should start automatically;</li>
-        <li>Shortcuts are added to desktop and start menu, use them next time you want to run the manager;</li>
+        <li>
+          Shortcuts are added to desktop and start menu, use them next time you
+          want to run the manager;
+        </li>
         <li>Install OWML;</li>
         <li>Install any mods you want;</li>
         <li>Press the big green button that says "Start Game";</li>
@@ -78,15 +84,22 @@ const Home: React.FunctionComponent<Props> = ({ modManagerDownloadUrl }) => (
     </PageSection>
     <PageSection title="How do I uninstall it?" id="uninstall">
       <p>
-        First, remember that uninstalling the Mod Manager won't uninstall your mods. Make sure to remove all mods and run the game once before uninstalling.
+        First, remember that uninstalling the Mod Manager won't uninstall your
+        mods. Make sure to remove all mods and run the game once before
+        uninstalling.
       </p>
       <p>
-        You can uninstall the Mod Manager by searching for "Add or remove programs" in the start menu (or in the control panel), and then finding OuterWildsModManager in the list.
+        You can uninstall the Mod Manager by searching for "Add or remove
+        programs" in the start menu (or in the control panel), and then finding
+        OuterWildsModManager in the list.
       </p>
     </PageSection>
     <PageSection title="More information" id="more-info">
       <p>
-        For more information, check the <TextLink href="https://github.com/Raicuparta/ow-mod-manager#outer-wilds-mod-manager">readme on GitHub</TextLink>
+        For more information, check the{' '}
+        <TextLink href="https://github.com/Raicuparta/ow-mod-manager#outer-wilds-mod-manager">
+          readme on GitHub
+        </TextLink>
       </p>
     </PageSection>
   </PageLayout>

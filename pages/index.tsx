@@ -43,7 +43,7 @@ const forModdersLinks = [
     text: 'Outer Wilds mod template',
     href: 'https://github.com/Raicuparta/ow-mod-template',
   },
-]
+];
 
 const communityLinks = [
   { text: 'Reddit', href: 'https://reddit.com/r/outerwilds' },
@@ -70,13 +70,9 @@ const Home: React.FunctionComponent<Props> = ({ modManagerDownloadUrl }) => (
           imageUrl="images/mod-manager.png"
           title="Outer Wilds Mod Manager"
         />
-        <PageSectionDescription description="Use the Outer Wilds Mod Manager for downloading, installing, and managing mods.">
-        </PageSectionDescription>
+        <PageSectionDescription description="Use the Outer Wilds Mod Manager for downloading, installing, and managing mods."></PageSectionDescription>
       </PageSectionColumns>
-      <LinkButton
-        href="/mod-manager"
-        variant="main-download"
-      >
+      <LinkButton href="/mod-manager" variant="main-download">
         Outer Wilds Mod Manager
       </LinkButton>
     </PageSection>

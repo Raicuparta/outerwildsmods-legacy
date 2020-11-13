@@ -13,11 +13,13 @@ export const NavigationLink: React.FunctionComponent<SmartLinkProps> = ({
 
   return (
     <a
-      className={`${styles.navigationLink} ${isDisabled ? styles.disabledLink : ''}`}
+      className={`${styles.navigationLink} ${
+        isDisabled ? styles.disabledLink : ''
+      }`}
       href={isDisabled ? undefined : href}
       {...props}
     >
       {children}
     </a>
-  )
+  );
 };

@@ -10,5 +10,7 @@ export const PageLayout: React.FunctionComponent<Props> = ({
   size = 'small',
   className = '',
 }) => (
-  <div className={`${styles.pageLayout} ${styles[size] ?? ''} ${className}`}>{children}</div>
+  <div className={`${styles.pageLayout} ${styles[size] ?? ''} ${className}`}>
+    {children}
+  </div>
 );

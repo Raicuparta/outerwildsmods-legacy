@@ -2,50 +2,37 @@ import { ListItemCard, SmartLink } from '..';
 
 type Author = {
   userName: string;
-  description: string[];
+  description: string;
 };
 
 const authors: Author[] = [
   {
     userName: 'AmazingAlek',
-    description: [
-      'Made OWML and Light Bramble.',
-      'Contributor to the mod manager and QSB.',
-    ],
+    description:
+      'Made OWML and Light Bramble. Contributor to the mod manager and QSB.',
   },
   {
     userName: 'clubby789',
-    description: [
-      'Made OWClock.',
-    ],
+    description: 'Made OWClock.',
   },
   {
     userName: 'MisterNebula',
-    description: [
-      'Made Marshmallow and StopTime.',
-      'Contributor to QSB and OWML.',
-    ],
+    description: 'Made Marshmallow and StopTime. Contributor to QSB and OWML.',
   },
   {
     userName: 'Raicuparta',
-    description: [
-      'Made NomaiVR, mod manager, and this page.',
-      'Contributor to QSB and OWML.',
-    ],
+    description:
+      'Made NomaiVR, mod manager, and this page. Contributor to QSB and OWML.',
   },
   {
     userName: 'ShoosGun',
-    description: [
-      'Made the mod installer for Outer Wilds Alpha.',
-      'Also made a bunch of mods for the Alpha.',
-    ],
+    description:
+      'Made the mod installer for Outer Wilds Alpha. Also made a bunch of mods for the Alpha.',
   },
   {
     userName: 'TAImatem',
-    description: [
-      'The first modder.',
-      'Creator of TAICheat and contributor to OWML.',
-    ],
+    description:
+      'The first modder. Creator of TAICheat and contributor to OWML.',
   },
 ];
 

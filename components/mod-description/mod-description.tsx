@@ -25,7 +25,7 @@ export const ModDescription: React.FunctionComponent<Props> = ({
         transformImageUri={(uri) =>
           uri.startsWith('http') ? uri : `${getRawContentUrl(repo)}/${uri}`
         }
-        renderers={{heading: HeadingRenderer}}
+        renderers={{ heading: HeadingRenderer }}
       >
         {readme}
       </ReactMarkdown>

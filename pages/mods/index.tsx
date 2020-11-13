@@ -7,13 +7,8 @@ import {
   SmartLink,
   TextLink,
   PageLayout,
-  LinkButton,
-  WindowsIcon,
 } from '../../components';
 import { ModDatabase, getModDatabase } from '../../services';
-
-const modManagerDefaultDownloadUrl =
-  'https://github.com/Raicuparta/ow-mod-manager/releases/latest';
 
 type Props = {
   modDatabase?: ModDatabase;
@@ -35,7 +30,8 @@ const Mods: React.FunctionComponent<Props> = ({ modDatabase }) => {
         <meta name="Description" content="Full list of mods for Outer Wilds" />
       </Head>
       <PageSection id="mod-manager">
-        Install these mods using the <TextLink href="/mod-manager">Outer Wilds Mod Manager</TextLink>.
+        Install these mods using the{' '}
+        <TextLink href="/mod-manager">Outer Wilds Mod Manager</TextLink>.
       </PageSection>
       <PageSection title="Available mods" id="mods">
         {mods?.map((mod) => (

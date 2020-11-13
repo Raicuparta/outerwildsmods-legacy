@@ -4,7 +4,7 @@ import styles from './mod-list.module.scss';
 
 export type Mod = {
   title: string;
-  description: string[];
+  description: string;
   path: string;
   image: string;
 };
@@ -12,37 +12,27 @@ export type Mod = {
 const mods: Mod[] = [
   {
     title: 'NomaiVR',
-    description: [
-      'Adds support for VR devices.',
-      'Full motion control support.',
-    ],
+    description: 'Adds support for VR devices. Full motion control support.',
     path: 'nomaivr',
     image: 'images/nomai-vr.png',
   },
   {
     title: 'QSB',
-    description: [
-      'Quantum Space Buddies.',
-      'Adds online multiplayer to the game.',
-    ],
+    description: 'Quantum Space Buddies. Adds online multiplayer to the game.',
     path: 'quantumspacebuddies',
     image: 'images/qsb.jpg',
   },
   {
     title: 'Light Bramble',
-    description: [
-      'Makes the Dark Bramble less scary.',
-      'Options to remove scary elements individually.',
-    ],
+    description:
+      'Makes the Dark Bramble less scary. Options to remove scary elements individually.',
     path: 'lightbramble',
     image: 'images/light-bramble.jpg',
   },
   {
     title: 'TAICheat',
-    description: [
-      'Collection of cheats.',
-      'Super jetpack, invincibility, and a lot more.',
-    ],
+    description:
+      'Collection of cheats. Super jetpack, invincibility, and a lot more.',
     path: 'taicheat',
     image: 'images/tai-cheat.png',
   },

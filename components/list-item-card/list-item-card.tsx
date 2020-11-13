@@ -2,15 +2,9 @@ import styles from './list-item-card.module.scss';
 
 export type ListItemCardProps = {
   title: string;
-  description: string[] | string;
+  description: string;
   imageUrl?: string;
 };
-
-const ItemDescription: React.FunctionComponent = ({ children }) => (
-  <div className={styles.description}>
-    <small>{children}</small>
-  </div>
-);
 
 export const ListItemCard: React.FunctionComponent<ListItemCardProps> = ({
   title,
@@ -18,20 +12,16 @@ export const ListItemCard: React.FunctionComponent<ListItemCardProps> = ({
   description,
 }) => (
   <span className={styles.listItemCard}>
-    <div className={styles.nameImageWrapper}>
-      {imageUrl && <img alt={title} className={styles.avatar} src={imageUrl} />}
+    {imageUrl && <img alt={title} className={styles.avatar} src={imageUrl} />}
+    <div>
       <span className={styles.userName}>{title}</span>
+      {description && (
+        <div className={styles.descriptionWrapper}>
+          <span className={styles.description}>
+            <small>{description} </small>
+          </span>
+        </div>
+      )}
     </div>
-    {description && (
-      <div className={styles.descriptionWrapper}>
-        {typeof description === 'string' && (
-          <ItemDescription>{description}</ItemDescription>
-        )}
-        {typeof description === 'object' &&
-          description.map((line) => (
-            <ItemDescription key={line}>{line}</ItemDescription>
-          ))}
-      </div>
-    )}
   </span>
 );

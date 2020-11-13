@@ -3,7 +3,7 @@ import Slugger from 'github-slugger';
 
 type Props = {
   level: number;
-}
+};
 
 const flatten = (text: string, child: any): any => {
   return typeof child === 'string'
@@ -11,7 +11,7 @@ const flatten = (text: string, child: any): any => {
     : Children.toArray(child.props.children).reduce(flatten, text);
 };
 
-export const HeadingRenderer: React.FunctionComponent<Props> = props => {
+export const HeadingRenderer: React.FunctionComponent<Props> = (props) => {
   const children = Children.toArray(props.children);
   const text = children.reduce(flatten, '');
   const slug = Slugger.slug(text);

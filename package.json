@@ -9,7 +9,7 @@
     "deploy": "npm run build && gh-pages -t -d out",
     "build": "next build && next export && npm run generate-sitemap",
     "generate-sitemap": "node generate-sitemap",
-    "prettier": "prettier --write"
+    "prettier": "prettier --write ."
   },
   "dependencies": {
     "@types/github-slugger": "^1.3.0",

@@ -1,27 +1,27 @@
 name: Auto Deploy
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   schedule:
     - cron: '0 * * * *'
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v1
-      with:
-        node-version: '12'
-    - name: Install dependencies
-      run: npm ci
-    - name: Build
-      run: npm run build
-    - name: Deploy to GH-Pages
-      uses: JamesIves/github-pages-deploy-action@3.5.9
-      with:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        BRANCH: gh-pages
-        FOLDER: out
-        GIT_CONFIG_NAME: Outer Wilds Mods Website
-        GIT_CONFIG_EMAIL: Outer Wilds Mods Website
-        SINGLE_COMMIT: true
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12'
+      - name: Install dependencies
+        run: npm ci
+      - name: Build
+        run: npm run build
+      - name: Deploy to GH-Pages
+        uses: JamesIves/github-pages-deploy-action@3.5.9
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: out
+          GIT_CONFIG_NAME: Outer Wilds Mods Website
+          GIT_CONFIG_EMAIL: Outer Wilds Mods Website
+          SINGLE_COMMIT: true

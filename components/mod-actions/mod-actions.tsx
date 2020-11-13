@@ -17,14 +17,12 @@ export const ModActions: React.FunctionComponent<Props> = ({
     <div className={styles.content}>
       <div>
         <h1 className={styles.title}>{mod.manifest.name}</h1>
-          <TextLink isExternal href={mod.repo}>
+        <TextLink isExternal href={mod.repo}>
           by {mod.manifest.author}
-          </TextLink>
+        </TextLink>
         <p>{mod.manifest.description}</p>
         <div>
-          <small>
-            Downloaded {mod.downloadCount} times
-          </small>
+          <small>Downloaded {mod.downloadCount} times</small>
         </div>
       </div>
       <div className={styles.buttons}>
