@@ -27,6 +27,14 @@
   margin-right: $spacing-2;
 }
 
+.bullet {
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  background-color: $dark;
+  margin-right: $spacing-2;
+}
+
 .userName {
   color: $accent;
 }

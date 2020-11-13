@@ -12,7 +12,12 @@ export const ListItemCard: React.FunctionComponent<ListItemCardProps> = ({
   description,
 }) => (
   <span className={styles.listItemCard}>
-    {imageUrl && <img alt={title} className={styles.avatar} src={imageUrl} />}
+    {imageUrl && (
+      <img alt={title} className={styles.avatar} src={imageUrl} />
+    )}
+    {!imageUrl && (
+      <span className={styles.bullet} />
+    )}
     <div>
       <span className={styles.userName}>{title}</span>
       {description && (
