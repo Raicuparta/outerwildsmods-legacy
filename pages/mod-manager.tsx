@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { GetStaticProps } from 'next';
+import { GetStaticProps, PageConfig } from 'next';
 
 import {
   PageSection,
@@ -127,5 +127,9 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     },
   };
 };
+
+export const config: PageConfig = {
+  amp: 'hybrid',
+}
 
 export default Home;

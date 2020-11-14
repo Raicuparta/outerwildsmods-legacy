@@ -1,4 +1,4 @@
-import { GetStaticProps } from 'next';
+import { GetStaticProps, PageConfig } from 'next';
 import Head from 'next/head';
 
 import {
@@ -58,5 +58,9 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     props: { modDatabase },
   };
 };
+
+export const config: PageConfig = {
+  amp: 'hybrid',
+}
 
 export default Mods;

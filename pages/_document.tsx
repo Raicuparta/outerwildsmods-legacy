@@ -1,3 +1,4 @@
+import { PageConfig } from 'next';
 import Document, {
   Html,
   Head,

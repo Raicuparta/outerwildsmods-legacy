@@ -1,3 +1,4 @@
+import { useAmp } from 'next/amp';
 import styles from './list-item-card.module.scss';
 
 export type ListItemCardProps = {
@@ -10,23 +11,27 @@ export const ListItemCard: React.FunctionComponent<ListItemCardProps> = ({
   title,
   imageUrl,
   description,
-}) => (
-  <span className={styles.listItemCard}>
-    {imageUrl && (
-      <img alt={title} className={styles.avatar} src={imageUrl} />
-    )}
-    {!imageUrl && (
-      <span className={styles.bullet} />
-    )}
-    <div>
-      <span className={styles.userName}>{title}</span>
-      {description && (
-        <div className={styles.descriptionWrapper}>
-          <span className={styles.description}>
-            <small>{description} </small>
-          </span>
-        </div>
+}) => {
+  const isAmp = useAmp();
+
+  return (
+    <span className={styles.listItemCard}>
+      {imageUrl && !isAmp && (
+        <img alt={title} className={styles.avatar} src={imageUrl} />
       )}
-    </div>
-  </span>
-);
+      {!imageUrl && (
+        <span className={styles.bullet} />
+      )}
+      <div>
+        <span className={styles.userName}>{title}</span>
+        {description && !isAmp && (
+          <div className={styles.descriptionWrapper}>
+            <span className={styles.description}>
+              <small>{description} </small>
+            </span>
+          </div>
+        )}
+      </div>
+    </span>
+  );
+};

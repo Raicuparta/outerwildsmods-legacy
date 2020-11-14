@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { GetStaticProps } from 'next';
+import { GetStaticProps, PageConfig } from 'next';
 
 import {
   PageSection,
@@ -78,5 +78,9 @@ const OuterWildsAlpha: React.FunctionComponent = () => (
     </PageSection>
   </PageLayout>
 );
+
+export const config: PageConfig = {
+  amp: 'hybrid',
+}
 
 export default OuterWildsAlpha;

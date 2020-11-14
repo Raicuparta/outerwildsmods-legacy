@@ -1,4 +1,4 @@
-import { GetStaticPaths, GetStaticProps } from 'next';
+import { GetStaticPaths, GetStaticProps, PageConfig } from 'next';
 import Head from 'next/head';
 
 import {
@@ -123,5 +123,9 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
     },
   };
 };
+
+export const config: PageConfig = {
+  amp: 'hybrid',
+}
 
 export default ModPage;
