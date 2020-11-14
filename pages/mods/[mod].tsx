@@ -124,7 +124,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
 };
 
 export const config: PageConfig = {
-  amp: 'hybrid',
+  amp: false
 }
 
 export default ModPage;
