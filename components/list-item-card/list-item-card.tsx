@@ -2,7 +2,7 @@ import styles from './list-item-card.module.scss';
 
 export type ListItemCardProps = {
   title: string;
-  description: string;
+  description?: string;
   imageUrl?: string;
 };
 

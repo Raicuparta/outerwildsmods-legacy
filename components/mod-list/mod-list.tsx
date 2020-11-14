@@ -4,9 +4,9 @@ import styles from './mod-list.module.scss';
 
 export type Mod = {
   title: string;
-  description: string;
+  description?: string;
   path: string;
-  image: string;
+  image?: string;
 };
 
 const mods: Mod[] = [
@@ -35,6 +35,10 @@ const mods: Mod[] = [
       'Collection of cheats. Super jetpack, invincibility, and a lot more.',
     path: 'taicheat',
     image: 'images/tai-cheat.png',
+  },
+  {
+    title: 'More mods',
+    path: '',
   },
 ];
 

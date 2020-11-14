@@ -8,8 +8,6 @@ type Props = {
   title?: string;
   description?: string;
   imageUrl?: string;
-  titleLinkUrl?: string;
-  titleLinkText?: string;
 };
 
 export const PageSectionColumns: React.FunctionComponent = ({ children }) => (
@@ -22,8 +20,6 @@ export const PageSection: React.FunctionComponent<Props> = ({
   id,
   description,
   imageUrl,
-  titleLinkUrl,
-  titleLinkText,
 }) => (
   <section id={id} className={styles.pageSection}>
     {title && (
@@ -31,9 +27,7 @@ export const PageSection: React.FunctionComponent<Props> = ({
         <h2 className={styles.sectionTitle}>
           <a href={`#${id}`}>{title}</a>
         </h2>
-        {titleLinkUrl && (
-          <TextLink href={titleLinkUrl}>{titleLinkText}</TextLink>
-        )}
+        <hr className={styles.line} />
       </div>
     )}
     {imageUrl || description ? (
