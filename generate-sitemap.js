@@ -12,6 +12,7 @@ const urlBase = 'https://outerwildsmods.com';
       const path = page.replace(/(\/index|.html|out)/gm, '');
       return `\n  <url><loc>${urlBase}${path}</loc></url>`;
     })
+    .filter((page) => !page.includes('.amp'))
     .join('');
 
   const sitemap = `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${pageUrls}\n</urlset>`;

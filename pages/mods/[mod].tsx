@@ -59,7 +59,6 @@ const ModPage: React.FunctionComponent<Props> = ({
       <PageLayoutColumns>
         {readme && (
           <ModDescription
-            manifest={mod.manifest}
             readme={readme}
             repo={mod.repo}
           />
