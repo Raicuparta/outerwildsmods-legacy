@@ -54,6 +54,7 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <CustomHead>
+          <meta name="theme-color" content="#1f1f1f" />
           <Analytics id={process.env.analyticsId} />
         </CustomHead>
         <body>
