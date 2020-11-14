@@ -1,3 +1,5 @@
+@import 'variables';
+
 body {
   padding: 0;
   margin: 0;
@@ -5,9 +7,14 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   line-height: 1.6;
   font-size: 18px;
-  color: white;
+  color: $light;
   font-weight: lighter;
-  background-color: rgb(39, 39, 39);
+  background-color: $background;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $white;
+  font-weight: normal;
 }
 
 * {
