@@ -73,7 +73,7 @@
   .sectionColumns {
     flex-direction: column;
   }
-  .sectionImageWrapper:first-child {
+  .sectionImageWrapper:first-child:not(:only-child) {
     margin-right: 0;
     margin-bottom: 1rem;
   }
