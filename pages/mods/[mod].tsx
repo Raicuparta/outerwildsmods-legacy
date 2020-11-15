@@ -51,7 +51,7 @@ const ModPage: React.FunctionComponent<Props> = ({
   }
 
   return (
-    <PageLayout size="medium">
+    <PageLayout isWide>
       <Head>
         <title>{mod.manifest.name} - Outer Wilds Mods</title>
         <meta name="Description" content={mod.manifest.description} />
@@ -124,7 +124,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
 };
 
 export const config: PageConfig = {
-  amp: false
+  amp: 'hybrid'
 }
 
 export default ModPage;

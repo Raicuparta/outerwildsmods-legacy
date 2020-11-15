@@ -5,7 +5,7 @@ import { spacing, breakpoints } from '../../styles/variables';
 export const PageLayout = styled.div<{ isWide: boolean }>(({ isWide }) => `
     padding: ${spacing.large};
     margin: 0 auto;
-    max-width: ${isWide ? breakpoints.small : breakpoints.small};
+    max-width: ${isWide ? breakpoints.medium : breakpoints.small};
     h1 {
       margin-top: 0;
     }

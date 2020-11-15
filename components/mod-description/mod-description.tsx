@@ -1,11 +1,9 @@
 import { useAmp } from 'next/amp';
-import ReactMarkdown from 'react-markdown';
 
 import { getRawContentUrl } from '../../helpers';
-import { Manifest } from '../../services';
 import { HeadingRenderer } from './heading-renderer';
+import { Markdown, Wrapper } from './mod-description.styles';
 
-import styles from './mod-description.module.scss';
 
 type Props = {
   readme?: string;
@@ -19,10 +17,9 @@ export const ModDescription: React.FunctionComponent<Props> = ({
   const isAmp = useAmp();
 
   return (
-    <div className={styles.modDescription}>
+    <Wrapper>
       {readme && (
-        <ReactMarkdown
-          className={styles.markdown}
+        <Markdown
           skipHtml
           transformImageUri={(uri) =>
             uri.startsWith('http') ? uri : `${getRawContentUrl(repo)}/${uri}`
@@ -31,8 +28,8 @@ export const ModDescription: React.FunctionComponent<Props> = ({
           disallowedTypes={isAmp ? ['image'] : undefined}
         >
           {readme}
-        </ReactMarkdown>
+        </Markdown>
       )}
-    </div>
+    </Wrapper>
   );
 };
