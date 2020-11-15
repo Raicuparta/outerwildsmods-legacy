@@ -1,29 +1,30 @@
 import { DetailedHTMLProps, AnchorHTMLAttributes } from 'react';
 
-import styles from './link-button.module.scss';
+import { Wrapper, Content } from './link-button.styles';
+
+export type ButtonVariant = 'primary' | 'secondary' | 'main-download';
 
 interface Props
   extends DetailedHTMLProps<
     AnchorHTMLAttributes<HTMLAnchorElement>,
     HTMLAnchorElement
   > {
-  variant?: 'primary' | 'secondary' | 'main-download';
+  variant?: ButtonVariant;
   isExternal?: boolean;
 }
 
 export const LinkButton: React.FunctionComponent<Props> = ({
   variant = 'secondary',
   isExternal = false,
-  className,
   children,
-  ...props
+  href,
 }) => (
-  <a
-    className={`${className} ${styles.linkButton} ${styles[variant]}`}
-    {...props}
+  <Wrapper
+    href={href}
     target={isExternal ? '_blank' : undefined}
     rel={isExternal ? 'noopener noreferrer' : undefined}
+    variant={variant}
   >
-    <div className={styles.content}>{children}</div>
-  </a>
+    <Content>{children}</Content>
+  </Wrapper>
 );

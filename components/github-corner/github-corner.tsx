@@ -1,15 +1,15 @@
 import { useAmp } from 'next/amp';
+
 import { SmartLink } from '../smart-link';
-import styles from './github-corner.module.scss';
+import { Wrapper } from './github-corner.styles';
 
 export const GithubCorner = () => {
   const isAmp = useAmp();
 
   return isAmp ? null : (
-    <SmartLink
+    <Wrapper
       isExternal
       href="https://github.com/Raicuparta/outer-wilds-mods"
-      className={styles.githubCorner}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -31,6 +31,6 @@ export const GithubCorner = () => {
         </mask>
         <path d="M0 0l115 115h15l12 27 108 108V0z" mask="url(#myMask)" />
       </svg>
-    </SmartLink>
+    </Wrapper>
   );
 };
