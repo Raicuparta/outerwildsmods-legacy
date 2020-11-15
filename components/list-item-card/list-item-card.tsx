@@ -1,4 +1,4 @@
-import { useAmp } from 'next/amp';
+import amp, { useAmp } from 'next/amp';
 
 import {
   Wrapper,
@@ -24,11 +24,29 @@ export const ListItemCard: React.FunctionComponent<ListItemCardProps> = ({
 
   return (
     <Wrapper>
-      {imageUrl && !isAmp && <Avatar alt={title} src={imageUrl} />}
+      {imageUrl && (isAmp ? (
+        <amp-img
+          className="list-item-card-image"
+          alt={title}
+          src={imageUrl}
+          width="50"
+          height="50"
+          layout="fixed"
+        />
+      ) : (
+        <img
+          className="list-item-card-image"
+          alt={title}
+          src={imageUrl}
+          width="50"
+          height="50"
+        />
+      ))}
+      {/* {imageUrl && <Avatar alt={title} src={imageUrl} />} */}
       {!imageUrl && <Bullet />}
       <div>
         <UserName>{title}</UserName>
-        {description && !isAmp && (
+        {description && (
           <DescriptionWrapper>
             <Description>
               <small>{description} </small>

@@ -13,6 +13,12 @@ export const Wrapper = styled.span`
   &:not(:last-child) {
     margin-bottom: ${spacing.medium};
   }
+  .list-item-card-image {
+    border-radius: 100%;
+    margin-right: ${spacing.large};
+    width: 50px;
+    height: 50px;
+  }
 `;
 
 export const Avatar = styled.img`
