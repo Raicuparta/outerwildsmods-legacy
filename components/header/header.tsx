@@ -1,13 +1,12 @@
 import { SmartLink } from '..';
 import { GithubCorner } from '../github-corner';
-
-import styles from './header.module.scss';
+import { Wrapper, PageTitle } from './header.styles';
 
 export const Header = () => (
-  <header className={styles.header}>
+  <Wrapper>
     <GithubCorner />
-    <h1 className={styles.pageTitle}>
+    <PageTitle>
       <SmartLink href="/">Outer Wilds Mods</SmartLink>
-    </h1>
-  </header>
+    </PageTitle>
+  </Wrapper>
 );
