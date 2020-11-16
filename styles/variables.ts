@@ -4,7 +4,7 @@ export const colors = {
   cta: '#35823f',
   background: '#1f2122',
   light: 'rgba(255, 255, 255, 0.65)',
-  dark: '#191a1b',
+  dark: 'rgba(0, 0, 0, 0.2)',
 };
 
 export const spacing = {

@@ -26,11 +26,12 @@ export const NavLinkWrapper = styled.a<{ isActive: boolean }>(
     padding: ${spacing.medium} 0;
     margin: 0px ${spacing.small};
     border-radius: ${borderRadius} ${borderRadius} 0 0;
-    background-color: ${isActive ? colors.background : colors.dark};
+    background-color: ${isActive ? colors.background : 'none'};
     ${!isActive
       ? css`
           &:hover {
-            filter: brightness(115%);
+            background-color: ${colors.dark};
+            box-shadow: none;
           }
         `
       : ''}
