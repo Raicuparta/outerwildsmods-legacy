@@ -1,4 +1,5 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
+import { mediaDown } from '../../styles/mixins';
 
 import { colors, spacing } from '../../styles/variables';
 
@@ -22,12 +23,9 @@ export const PageTitle = styled.h1`
     padding-bottom: 1.2rem;
     color: ${colors.white};
     font-weight: 100;
+
+    ${mediaDown('small')} {
+      font-size: 2rem;
+    }
   }
 `;
-
-  /* TODO breakpoints */
-// @include media-breakpoint-down('small') {
-//   .pageTitle a {
-//     font-size: 2rem;
-//   }
-// }
