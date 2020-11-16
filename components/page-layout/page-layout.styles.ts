@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 
 import { spacing, breakpoints } from '../../styles/variables';
 
-export const PageLayout = styled.div<{ isWide: boolean }>(({ isWide }) => css`
+export const PageLayout = styled.div<{ isWide?: boolean }>(({ isWide }) => css`
     padding: ${spacing.large};
     margin: 0 auto;
     max-width: ${isWide ? breakpoints.medium : breakpoints.small};
