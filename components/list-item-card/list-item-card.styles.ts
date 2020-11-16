@@ -1,6 +1,9 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 import { colors, spacing, borderRadius } from '../../styles/variables';
+
+const imageSize = '50px';
+const bulletSize = '30px';
 
 export const Wrapper = styled.span`
   display: flex;
@@ -15,25 +18,30 @@ export const Wrapper = styled.span`
   }
   .list-item-card-image {
     border-radius: 100%;
-    margin-right: ${spacing.large};
-    width: 50px;
-    height: 50px;
+    width: 100%;
+    height: 100%;
   }
 `;
 
-export const Avatar = styled.img`
-  width: 50px;
-  height: 50px;
-  border-radius: 100%;
-  margin-right: ${spacing.large};
+export const ImageWrapper = styled.div`
+  min-width: ${imageSize};
+  min-height: ${imageSize};
+  max-width: ${imageSize};
+  max-height: ${imageSize};
+`;
+
+export const TextWrapper = styled.div`
+  margin-left: ${spacing.large};
 `;
 
 export const Bullet = styled.span`
-  width: 20px;
-  height: 20px;
+  min-width: ${bulletSize};
+  min-height: ${bulletSize};
+  max-width: ${bulletSize};
+  max-height: ${bulletSize};
   border-radius: 100%;
   background-color: ${colors.dark};
-  margin-right: ${spacing.large};
+  margin: ${spacing.medium} ${spacing.medium};
 `;
 
 export const UserName = styled.span`
@@ -44,6 +52,6 @@ export const DescriptionWrapper = styled.div`
   line-height: normal;
 `;
 
-export const Description= styled.span`
+export const Description = styled.span`
   color: ${colors.light};
 `;

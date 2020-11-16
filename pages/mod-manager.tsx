@@ -29,10 +29,7 @@ const Home: React.FunctionComponent<Props> = ({ modManagerDownloadUrl }) => (
         content="Download, install, and manage Outer Wilds mods"
       ></meta>
     </Head>
-    <PageSection
-      title="Outer Wilds Mod Manager"
-      id="mod-manager"
-    >
+    <PageSection title="Outer Wilds Mod Manager" id="mod-manager">
       <div>
         <PageSectionImage
           imageUrl="/images/mod-manager.png"
@@ -129,7 +126,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 };
 
 export const config: PageConfig = {
-  amp: true,
-}
+  amp: 'hybrid',
+};
 
 export default Home;

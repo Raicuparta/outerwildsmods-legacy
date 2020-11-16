@@ -76,10 +76,7 @@ const Home: React.FunctionComponent<Props> = ({ modManagerDownloadUrl }) => (
         Outer Wilds Mod Manager
       </LinkButton>
     </PageSection>
-    <PageSection
-      title="Some of the available mods"
-      id="mods"
-    >
+    <PageSection title="Some of the available mods" id="mods">
       <ModList />
     </PageSection>
     <PageSection
@@ -131,7 +128,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 };
 
 export const config: PageConfig = {
-  amp: true,
-}
+  amp: 'hybrid',
+};
 
 export default Home;

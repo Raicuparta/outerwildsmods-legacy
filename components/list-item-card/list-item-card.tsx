@@ -2,11 +2,12 @@ import amp, { useAmp } from 'next/amp';
 
 import {
   Wrapper,
-  Avatar,
+  ImageWrapper,
   Bullet,
   UserName,
   DescriptionWrapper,
   Description,
+  TextWrapper,
 } from './list-item-card.styles';
 
 export type ListItemCardProps = {
@@ -24,27 +25,23 @@ export const ListItemCard: React.FunctionComponent<ListItemCardProps> = ({
 
   return (
     <Wrapper>
-      {imageUrl && (isAmp ? (
-        <amp-img
-          className="list-item-card-image"
-          alt={title}
-          src={imageUrl}
-          width="50"
-          height="50"
-          layout="fixed"
-        />
-      ) : (
-        <img
-          className="list-item-card-image"
-          alt={title}
-          src={imageUrl}
-          width="50"
-          height="50"
-        />
-      ))}
-      {/* {imageUrl && <Avatar alt={title} src={imageUrl} />} */}
+      {imageUrl && (
+        <ImageWrapper>
+          {isAmp ? (
+            <amp-img
+              className="list-item-card-image"
+              alt={title}
+              src={imageUrl}
+              width="50"
+              height="50"
+            />
+          ) : (
+            <img className="list-item-card-image" alt={title} src={imageUrl} />
+          )}
+        </ImageWrapper>
+      )}
       {!imageUrl && <Bullet />}
-      <div>
+      <TextWrapper>
         <UserName>{title}</UserName>
         {description && (
           <DescriptionWrapper>
@@ -53,7 +50,7 @@ export const ListItemCard: React.FunctionComponent<ListItemCardProps> = ({
             </Description>
           </DescriptionWrapper>
         )}
-      </div>
+      </TextWrapper>
     </Wrapper>
   );
 };

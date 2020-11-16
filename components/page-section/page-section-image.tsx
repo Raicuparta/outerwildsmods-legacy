@@ -19,15 +19,12 @@ export const PageSectionImage: React.FunctionComponent<Props> = ({
           src={imageUrl}
           alt={title}
           width={280}
-          height={140}
+          height={150}
+          layout="responsive"
           className="page-section-image"
         />
       ) : (
-        <img
-          src={imageUrl}
-          alt={title}
-          className="page-section-image"
-        />
+        <img src={imageUrl} alt={title} className="page-section-image" />
       )}
     </SectionImageWrapper>
   );
