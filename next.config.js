@@ -9,7 +9,7 @@ module.exports = (phase) => {
   };
 
   return {
-    trailingSlash: true,
+    trailingSlash: false,
     env,
   };
 };
