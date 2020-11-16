@@ -14,27 +14,27 @@ const mods: Mod[] = [
     title: 'NomaiVR',
     description: 'Adds support for VR devices. Full motion control support.',
     path: 'nomaivr',
-    image: 'images/nomai-vr.png',
+    image: '/images/nomai-vr.png',
   },
   {
     title: 'QSB',
     description: 'Quantum Space Buddies. Adds online multiplayer to the game.',
     path: 'quantumspacebuddies',
-    image: 'images/qsb.jpg',
+    image: '/images/qsb.jpg',
   },
   {
     title: 'Light Bramble',
     description:
       'Makes the Dark Bramble less scary. Options to remove scary elements individually.',
     path: 'lightbramble',
-    image: 'images/light-bramble.jpg',
+    image: '/images/light-bramble.jpg',
   },
   {
     title: 'TAICheat',
     description:
       'Collection of cheats. Super jetpack, invincibility, and a lot more.',
     path: 'taicheat',
-    image: 'images/tai-cheat.png',
+    image: '/images/tai-cheat.png',
   },
   {
     title: 'More mods',
