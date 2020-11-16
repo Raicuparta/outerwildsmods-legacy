@@ -1,7 +1,7 @@
 import ReactMarkdown from 'react-markdown';
 import styled from 'styled-components';
 
-import { colors, spacing } from '../../styles/variables';
+import { borderRadius, colors, spacing } from '../../styles/variables';
 
 export const Wrapper = styled.div`
   flex: 1;
@@ -11,6 +11,7 @@ export const Markdown = styled(ReactMarkdown)`
   background: ${colors.dark};
   padding: ${spacing.large};
   font-size: 1rem;
+  border-radius: ${borderRadius};
 
   a {
     color: ${colors.accent};

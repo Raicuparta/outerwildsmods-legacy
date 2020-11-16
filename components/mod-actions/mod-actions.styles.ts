@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { colors, spacing } from '../../styles/variables';
+import { colors, spacing, borderRadius } from '../../styles/variables';
 import { mediaDown } from '../../styles/mixins';
 
 export const Wrapper = styled.div<{ isFullWidth: boolean }>(
@@ -13,6 +13,7 @@ export const Wrapper = styled.div<{ isFullWidth: boolean }>(
     margin-left: ${spacing.large};
     padding: ${spacing.large};
     background-color: ${colors.dark};
+    border-radius: ${borderRadius};
 
     ${mediaDown('medium')} {
       margin-left: 0;
