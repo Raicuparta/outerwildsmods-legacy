@@ -1,7 +1,13 @@
 import { TextLink, LinkButton } from '..';
 import { Mod } from '../../services';
 
-import { Wrapper, Content, Title, Spacer, ButtonsWrapper } from './mod-actions.styles';
+import {
+  Wrapper,
+  Content,
+  Title,
+  Spacer,
+  ButtonsWrapper,
+} from './mod-actions.styles';
 
 type Props = {
   mod: Mod;
@@ -26,10 +32,7 @@ export const ModActions: React.FunctionComponent<Props> = ({
       </div>
       <ButtonsWrapper>
         <Spacer />
-        <LinkButton
-          href="/mod-manager"
-          variant="primary"
-        >
+        <LinkButton href="/mod-manager" variant="primary">
           Install mod using Mod Manager
         </LinkButton>
         <Spacer />

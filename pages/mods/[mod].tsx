@@ -2,7 +2,6 @@ import { GetStaticPaths, GetStaticProps, PageConfig } from 'next';
 import Head from 'next/head';
 
 import {
-  TextLink,
   ModActions,
   ModDescription,
   PageLayout,
@@ -41,11 +40,7 @@ const multipleFetchAttempts = async (
   return response;
 };
 
-const ModPage: React.FunctionComponent<Props> = ({
-  readme,
-  mod,
-  modManagerDownloadUrl,
-}) => {
+const ModPage: React.FunctionComponent<Props> = ({ readme, mod }) => {
   if (!mod) {
     return <h2>Mod not found</h2>;
   }
@@ -57,12 +52,7 @@ const ModPage: React.FunctionComponent<Props> = ({
         <meta name="Description" content={mod.manifest.description} />
       </Head>
       <PageLayoutColumns>
-        {readme && (
-          <ModDescription
-            readme={readme}
-            repo={mod.repo}
-          />
-        )}
+        {readme && <ModDescription readme={readme} repo={mod.repo} />}
         <ModActions mod={mod} isFullWidth={!Boolean(readme)} />
       </PageLayoutColumns>
     </PageLayout>
