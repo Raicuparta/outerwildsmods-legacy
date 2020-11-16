@@ -1,25 +1,21 @@
 import { useRouter } from 'next/dist/client/router';
 
-import styles from './navigation.module.scss';
-import { SmartLink, SmartLinkProps } from '..';
+import { SmartLinkProps } from '..';
+import { NavLinkWrapper } from './navigation.styles';
 
 export const NavigationLink: React.FunctionComponent<SmartLinkProps> = ({
   children,
   href,
-  ...props
 }) => {
   const { pathname } = useRouter();
-  const isDisabled = pathname === href;
+  const isActive = pathname === href;
 
   return (
-    <a
-      className={`${styles.navigationLink} ${
-        isDisabled ? styles.disabledLink : ''
-      }`}
-      href={isDisabled ? undefined : href}
-      {...props}
+    <NavLinkWrapper
+      isActive={isActive}
+      href={isActive ? undefined : href}
     >
       {children}
-    </a>
+    </NavLinkWrapper>
   );
 };

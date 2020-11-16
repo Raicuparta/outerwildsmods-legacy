@@ -1,6 +1,6 @@
 import { useAmp } from 'next/amp';
 
-import styles from './page-section.module.scss';
+import { SectionImageWrapper } from './page-section.styles';
 
 type Props = {
   imageUrl: string;
@@ -12,9 +12,20 @@ export const PageSectionImage: React.FunctionComponent<Props> = ({
   title,
 }) => {
   const isAmp = useAmp();
-  return isAmp ? null : (
-    <div className={styles.sectionImageWrapper}>
-      <img className={styles.sectionImage} src={imageUrl} alt={title} />
-    </div>
+  return (
+    <SectionImageWrapper>
+      {isAmp ? (
+        <amp-img
+          src={imageUrl}
+          alt={title}
+          width={280}
+          height={150}
+          layout="responsive"
+          className="page-section-image"
+        />
+      ) : (
+        <img src={imageUrl} alt={title} className="page-section-image" />
+      )}
+    </SectionImageWrapper>
   );
 };

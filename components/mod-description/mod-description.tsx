@@ -1,16 +1,16 @@
 import { useAmp } from 'next/amp';
-import ReactMarkdown from 'react-markdown';
+import gfm from 'remark-gfm';
 
 import { getRawContentUrl } from '../../helpers';
-import { Manifest } from '../../services';
 import { HeadingRenderer } from './heading-renderer';
-
-import styles from './mod-description.module.scss';
+import { Markdown, Wrapper } from './mod-description.styles';
 
 type Props = {
   readme?: string;
   repo: string;
 };
+
+const plugins = [gfm];
 
 export const ModDescription: React.FunctionComponent<Props> = ({
   readme,
@@ -19,20 +19,33 @@ export const ModDescription: React.FunctionComponent<Props> = ({
   const isAmp = useAmp();
 
   return (
-    <div className={styles.modDescription}>
+    <Wrapper>
       {readme && (
-        <ReactMarkdown
-          className={styles.markdown}
+        <Markdown
           skipHtml
           transformImageUri={(uri) =>
             uri.startsWith('http') ? uri : `${getRawContentUrl(repo)}/${uri}`
           }
-          renderers={{ heading: HeadingRenderer }}
-          disallowedTypes={isAmp ? ['image'] : undefined}
+          renderers={{
+            heading: HeadingRenderer,
+            ...(isAmp && {
+              image: ({ src }) => {
+                return (
+                  <amp-img
+                    src={src}
+                    height={4}
+                    width={30}
+                    layout="responsive"
+                  />
+                );
+              },
+            }),
+          }}
+          plugins={plugins}
         >
           {readme}
-        </ReactMarkdown>
+        </Markdown>
       )}
-    </div>
+    </Wrapper>
   );
 };

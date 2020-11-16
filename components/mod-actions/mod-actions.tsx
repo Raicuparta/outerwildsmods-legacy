@@ -1,22 +1,27 @@
 import { TextLink, LinkButton } from '..';
 import { Mod } from '../../services';
-import { WindowsIcon } from '../windows-icon';
 
-import styles from './mod-actions.module.scss';
+import {
+  Wrapper,
+  Content,
+  Title,
+  Spacer,
+  ButtonsWrapper,
+} from './mod-actions.styles';
 
 type Props = {
   mod: Mod;
-  fullWidth?: boolean;
+  isFullWidth: boolean;
 };
 
 export const ModActions: React.FunctionComponent<Props> = ({
   mod,
-  fullWidth,
+  isFullWidth,
 }) => (
-  <div className={`${styles.modActions} ${fullWidth ? styles.fullWidth : ''}`}>
-    <div className={styles.content}>
+  <Wrapper isFullWidth={isFullWidth}>
+    <Content>
       <div>
-        <h1 className={styles.title}>{mod.manifest.name}</h1>
+        <Title>{mod.manifest.name}</Title>
         <TextLink isExternal href={mod.repo}>
           by {mod.manifest.author}
         </TextLink>
@@ -25,21 +30,19 @@ export const ModActions: React.FunctionComponent<Props> = ({
           <small>Downloaded {mod.downloadCount} times</small>
         </div>
       </div>
-      <div className={styles.buttons}>
-        <LinkButton
-          href="/mod-manager"
-          variant="primary"
-          className={styles.managerButton}
-        >
+      <ButtonsWrapper>
+        <Spacer />
+        <LinkButton href="/mod-manager" variant="primary">
           Install mod using Mod Manager
         </LinkButton>
+        <Spacer />
         <LinkButton href={mod.downloadUrl}>
           <small>
             <div>Download mod files</div>
             <div>Version {mod.manifest.version}</div>
           </small>
         </LinkButton>
-      </div>
-    </div>
-  </div>
+      </ButtonsWrapper>
+    </Content>
+  </Wrapper>
 );

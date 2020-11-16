@@ -1,11 +1,12 @@
 import { AppProps } from 'next/app';
 
-import '../styles/global.scss';
+import GlobalStyle from '../styles/global';
 import { Footer, Header, Navigation } from '../components';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
+      <GlobalStyle />
       <Header />
       <Navigation />
       <Component {...pageProps} />

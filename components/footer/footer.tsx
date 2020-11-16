@@ -1,17 +1,19 @@
 import { useAmp } from 'next/amp';
 
-import styles from './footer.module.scss';
+import { Wrapper } from './footer.styles';
 
 export const Footer = () => {
   const isAmp = useAmp();
-
-  return isAmp ? null : (
-    <footer className={styles.footer}>
+  const pageDescriptor = isAmp ? 'AMP page' : 'Page';
+  return (
+    <Wrapper>
       <p>
         This page isn't official, nor affiliated with Mobius Digital, or anyone
         really.
       </p>
-      <p>Page last updated on {new Date().toUTCString()}</p>
-    </footer>
+      <p>
+        {pageDescriptor} last updated on {new Date().toUTCString()}
+      </p>
+    </Wrapper>
   );
-}
+};

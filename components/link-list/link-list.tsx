@@ -1,6 +1,6 @@
 import { TextLink } from '..';
 
-import styles from './link-list.module.scss';
+import { LinkWrapper } from './link-list.styles';
 
 type LinkItem = {
   text: string;
@@ -12,13 +12,13 @@ type Props = {
 };
 
 export const LinkList: React.FunctionComponent<Props> = ({ links }) => (
-  <div className={styles.linkList}>
+  <div>
     {links.map(({ href, text }) => (
-      <div key={href} className={styles.linkWrapper}>
+      <LinkWrapper key={href}>
         <TextLink href={href} isExternal>
           {text}
         </TextLink>
-      </div>
+      </LinkWrapper>
     ))}
   </div>
 );

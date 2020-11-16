@@ -2,7 +2,6 @@ import { GetStaticPaths, GetStaticProps, PageConfig } from 'next';
 import Head from 'next/head';
 
 import {
-  TextLink,
   ModActions,
   ModDescription,
   PageLayout,
@@ -41,29 +40,20 @@ const multipleFetchAttempts = async (
   return response;
 };
 
-const ModPage: React.FunctionComponent<Props> = ({
-  readme,
-  mod,
-  modManagerDownloadUrl,
-}) => {
+const ModPage: React.FunctionComponent<Props> = ({ readme, mod }) => {
   if (!mod) {
     return <h2>Mod not found</h2>;
   }
 
   return (
-    <PageLayout size="medium">
+    <PageLayout isWide>
       <Head>
         <title>{mod.manifest.name} - Outer Wilds Mods</title>
         <meta name="Description" content={mod.manifest.description} />
       </Head>
       <PageLayoutColumns>
-        {readme && (
-          <ModDescription
-            readme={readme}
-            repo={mod.repo}
-          />
-        )}
-        <ModActions mod={mod} fullWidth={!Boolean(readme)} />
+        {readme && <ModDescription readme={readme} repo={mod.repo} />}
+        <ModActions mod={mod} isFullWidth={!Boolean(readme)} />
       </PageLayoutColumns>
     </PageLayout>
   );
@@ -124,7 +114,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
 };
 
 export const config: PageConfig = {
-  amp: false
-}
+  amp: 'hybrid',
+};
 
 export default ModPage;

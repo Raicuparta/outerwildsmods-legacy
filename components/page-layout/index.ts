@@ -1,2 +1,1 @@
-export * from './page-layout';
-export * from './page-layout-columns';
+export * from './page-layout.styles';

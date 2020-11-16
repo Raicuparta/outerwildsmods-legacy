@@ -1,5 +1,14 @@
-import { useAmp } from 'next/amp';
-import styles from './list-item-card.module.scss';
+import amp, { useAmp } from 'next/amp';
+
+import {
+  Wrapper,
+  ImageWrapper,
+  Bullet,
+  UserName,
+  DescriptionWrapper,
+  Description,
+  TextWrapper,
+} from './list-item-card.styles';
 
 export type ListItemCardProps = {
   title: string;
@@ -15,23 +24,33 @@ export const ListItemCard: React.FunctionComponent<ListItemCardProps> = ({
   const isAmp = useAmp();
 
   return (
-    <span className={styles.listItemCard}>
-      {imageUrl && !isAmp && (
-        <img alt={title} className={styles.avatar} src={imageUrl} />
+    <Wrapper>
+      {imageUrl && (
+        <ImageWrapper>
+          {isAmp ? (
+            <amp-img
+              className="list-item-card-image"
+              alt={title}
+              src={imageUrl}
+              width="50"
+              height="50"
+            />
+          ) : (
+            <img className="list-item-card-image" alt={title} src={imageUrl} />
+          )}
+        </ImageWrapper>
       )}
-      {!imageUrl && (
-        <span className={styles.bullet} />
-      )}
-      <div>
-        <span className={styles.userName}>{title}</span>
-        {description && !isAmp && (
-          <div className={styles.descriptionWrapper}>
-            <span className={styles.description}>
+      {!imageUrl && <Bullet />}
+      <TextWrapper>
+        <UserName>{title}</UserName>
+        {description && (
+          <DescriptionWrapper>
+            <Description>
               <small>{description} </small>
-            </span>
-          </div>
+            </Description>
+          </DescriptionWrapper>
         )}
-      </div>
-    </span>
+      </TextWrapper>
+    </Wrapper>
   );
 };
