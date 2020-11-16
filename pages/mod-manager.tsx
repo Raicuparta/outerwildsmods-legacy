@@ -129,7 +129,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 };
 
 export const config: PageConfig = {
-  amp: false,
+  amp: true,
 }
 
 export default Home;

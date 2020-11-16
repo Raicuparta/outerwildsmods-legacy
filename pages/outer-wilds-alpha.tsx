@@ -80,7 +80,7 @@ const OuterWildsAlpha: React.FunctionComponent = () => (
 );
 
 export const config: PageConfig = {
-  amp: false,
+  amp: true,
 }
 
 export default OuterWildsAlpha;
