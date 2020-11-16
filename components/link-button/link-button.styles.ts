@@ -33,9 +33,7 @@ export const Wrapper = styled.a<{ variant: ButtonVariant }>(({ variant }) => css
   outline: none;
   overflow: hidden;
   margin: 0 auto;
-  ${variant === "main-download" ? css`
-    margin-top: ${spacing.large}
-  ` : ''}
+  margin-top: ${variant === "main-download" ? spacing.large : 0};
 
   &:active {
     box-shadow: none;
