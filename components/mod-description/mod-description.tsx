@@ -28,8 +28,19 @@ export const ModDescription: React.FunctionComponent<Props> = ({
           }
           renderers={{
             heading: HeadingRenderer,
+            ...(isAmp && {
+              image: ({ src }) => {
+                return (
+                  <amp-img
+                    src={src}
+                    height={4}
+                    width={30}
+                    layout="responsive"
+                  />
+                );
+              },
+            }),
           }}
-          disallowedTypes={isAmp ? ['image'] : undefined}
           plugins={plugins}
         >
           {readme}

@@ -51,5 +51,6 @@ export const Markdown = styled(ReactMarkdown)`
 
   img {
     max-width: 100%;
+    object-fit: scale-down;
   }
-`
+`;
