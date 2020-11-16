@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 import { SmartLink } from '.';
 
 import { colors, spacing, borderRadius } from '../../styles/variables';
@@ -9,8 +9,8 @@ export const TextLink = styled(SmartLink)`
   font-weight: normal;
   padding: 0 ${spacing.small};
   border-radius: ${borderRadius};
-
+  display: inline-block;
   &:hover {
-    background-color: ${colors.dark};
+    backdrop-filter: brightness(120%);
   }
-`
+`;

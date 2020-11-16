@@ -5,13 +5,22 @@ import { colors, spacing, borderRadius } from '../../styles/variables';
 const imageSize = '50px';
 const bulletSize = '30px';
 
+export const UserName = styled.span`
+  color: ${colors.accent};
+`;
+
 export const Wrapper = styled.span`
   display: flex;
   align-items: center;
   border-radius: ${borderRadius};
   padding: ${spacing.medium};
+  /* background-color: ${colors.background}; */
   &:hover {
-    background-color: ${colors.dark};
+    backdrop-filter: brightness(120%);
+    ${UserName} {
+      /* color: ${colors.background}; */
+      /* font-weight: 600; */
+    }
   }
   &:not(:last-child) {
     margin-bottom: ${spacing.medium};
@@ -42,10 +51,6 @@ export const Bullet = styled.span`
   border-radius: 100%;
   background-color: ${colors.dark};
   margin: ${spacing.medium} ${spacing.medium};
-`;
-
-export const UserName = styled.span`
-  color: ${colors.accent};
 `;
 
 export const DescriptionWrapper = styled.div`
