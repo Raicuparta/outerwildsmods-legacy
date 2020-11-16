@@ -5,9 +5,9 @@ import Document, {
   NextScript,
   DocumentContext,
 } from 'next/document';
-import { ServerStyleSheet } from 'styled-components'
+import { ServerStyleSheet } from 'styled-components';
 
-import { Analytics } from '../components';
+import { Analytics, AmpAnalytics } from '../components';
 
 function isPreloadLink(node: JSX.Element) {
   return (
@@ -47,17 +47,17 @@ class CustomHead extends Head {
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
-    const sheet = new ServerStyleSheet()
-    const originalRenderPage = ctx.renderPage
+    const sheet = new ServerStyleSheet();
+    const originalRenderPage = ctx.renderPage;
 
     try {
       ctx.renderPage = () =>
         originalRenderPage({
           enhanceApp: (App) => (props) =>
             sheet.collectStyles(<App {...props} />),
-        })
+        });
 
-      const initialProps = await Document.getInitialProps(ctx)
+      const initialProps = await Document.getInitialProps(ctx);
       return {
         ...initialProps,
         styles: (
@@ -66,22 +66,24 @@ class MyDocument extends Document {
             {sheet.getStyleElement()}
           </>
         ),
-      }
+      };
     } finally {
-      sheet.seal()
+      sheet.seal();
     }
   }
 
   render() {
+    const id = process.env.analyticsId ?? '';
     return (
       <Html lang="en">
         <CustomHead>
           <meta name="theme-color" content="#1f1f1f" />
-          <Analytics id={process.env.analyticsId} />
+          <Analytics id={id} />
         </CustomHead>
         <body>
           <Main />
           {!process.env.isProd && <NextScript />}
+          <AmpAnalytics id={id} />
         </body>
       </Html>
     );
