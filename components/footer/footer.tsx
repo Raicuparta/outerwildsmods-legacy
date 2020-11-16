@@ -4,14 +4,16 @@ import { Wrapper } from './footer.styles';
 
 export const Footer = () => {
   const isAmp = useAmp();
-
-  return isAmp ? null : (
+  const pageDescriptor = isAmp ? 'AMP page' : 'Page';
+  return (
     <Wrapper>
       <p>
         This page isn't official, nor affiliated with Mobius Digital, or anyone
         really.
       </p>
-      <p>Page last updated on {new Date().toUTCString()}</p>
+      <p>
+        {pageDescriptor} last updated on {new Date().toUTCString()}
+      </p>
     </Wrapper>
   );
-}
+};
