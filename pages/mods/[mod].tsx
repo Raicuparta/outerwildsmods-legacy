@@ -63,7 +63,7 @@ const ModPage: React.FunctionComponent<Props> = ({
             repo={mod.repo}
           />
         )}
-        <ModActions mod={mod} fullWidth={!Boolean(readme)} />
+        <ModActions mod={mod} isFullWidth={!Boolean(readme)} />
       </PageLayoutColumns>
     </PageLayout>
   );
