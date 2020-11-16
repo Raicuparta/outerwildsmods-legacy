@@ -1,4 +1,5 @@
 import { useAmp } from 'next/amp';
+import gfm from 'remark-gfm';
 
 import { getRawContentUrl } from '../../helpers';
 import { HeadingRenderer } from './heading-renderer';
@@ -9,6 +10,8 @@ type Props = {
   readme?: string;
   repo: string;
 };
+
+const plugins = [gfm];
 
 export const ModDescription: React.FunctionComponent<Props> = ({
   readme,
@@ -26,6 +29,7 @@ export const ModDescription: React.FunctionComponent<Props> = ({
           }
           renderers={{ heading: HeadingRenderer }}
           disallowedTypes={isAmp ? ['image'] : undefined}
+          plugins={plugins}
         >
           {readme}
         </Markdown>
