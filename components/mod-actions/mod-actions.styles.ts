@@ -51,26 +51,3 @@ export const ButtonsWrapper = styled.div`
     padding: 0 ${spacing.large};
   }
 `;
-
-// TODO mobile
-// @include media-breakpoint-down('medium') {
-//   .modActions {
-//     margin-left: 0;
-//     margin-bottom: $spacing-2;
-//   }
-//   .content {
-//     display: flex;
-//     width: 100%;
-//     div {
-//       flex: 1;
-//     }
-//   }
-//   .buttons {
-//     padding: 0 $spacing-2;
-//   }
-// }
-// @include media-breakpoint-down('small') {
-//   .content {
-//     display: block;
-//   }
-// }

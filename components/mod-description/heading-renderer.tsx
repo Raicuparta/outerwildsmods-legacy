@@ -1,4 +1,4 @@
-import { Children, createElement, ElementType, ReactChild } from 'react';
+import { Children, createElement } from 'react';
 import Slugger from 'github-slugger';
 
 type Props = {

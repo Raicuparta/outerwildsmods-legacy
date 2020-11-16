@@ -1,4 +1,5 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
+import { mediaDown } from '../../styles/mixins';
 
 import { borderRadius, colors, spacing } from '../../styles/variables';
 
@@ -34,15 +35,27 @@ export const Line = styled.hr`
 
 export const PageSectionColumns = styled.div`
   display: flex;
+
+  ${mediaDown('small')} {
+    flex-direction: column;
+  }
 `;
 
 export const SectionImageWrapper = styled.div`
   flex: 1;
   &:first-child:not(:only-child) {
-    margin-right: 1rem;
+    margin-right: ${spacing.large};
+    ${mediaDown('small')} {
+      margin-right: 0;
+      margin-bottom: ${spacing.large};
+    }
   }
   &:not(:first-child) {
-    margin-left: 1rem;
+    margin-left: ${spacing.large};
+    ${mediaDown('small')} {
+      margin-left: 0;
+      margin-top: ${spacing.large};
+    }
   }
   .page-section-image {
     border-radius: ${borderRadius};
@@ -59,21 +72,3 @@ export const SectionDescriptionWrapper = styled.div`
 export const SectionDescription = styled.p`
   margin-top: 0;
 `;
-
-// TODO breakpoints
-// @include media-breakpoint-down('small') {
-//   .sectionColumns {
-//     flex-direction: column;
-//   }
-//   .sectionImageWrapper:first-child:not(:only-child) {
-//     margin-right: 0;
-//     margin-bottom: 1rem;
-//   }
-//   .sectionImageWrapper:not(:first-child) {
-//     margin-left: 0;
-//     margin-top: 1rem;
-//   }
-//   .titleLink {
-//     margin-left: 0;
-//   }
-// }

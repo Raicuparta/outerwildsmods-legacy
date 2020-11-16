@@ -5,7 +5,6 @@ import { getRawContentUrl } from '../../helpers';
 import { HeadingRenderer } from './heading-renderer';
 import { Markdown, Wrapper } from './mod-description.styles';
 
-
 type Props = {
   readme?: string;
   repo: string;
@@ -27,7 +26,9 @@ export const ModDescription: React.FunctionComponent<Props> = ({
           transformImageUri={(uri) =>
             uri.startsWith('http') ? uri : `${getRawContentUrl(repo)}/${uri}`
           }
-          renderers={{ heading: HeadingRenderer }}
+          renderers={{
+            heading: HeadingRenderer,
+          }}
           disallowedTypes={isAmp ? ['image'] : undefined}
           plugins={plugins}
         >
