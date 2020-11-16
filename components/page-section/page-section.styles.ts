@@ -44,13 +44,12 @@ export const SectionImageWrapper = styled.div`
   &:not(:first-child) {
     margin-left: 1rem;
   }
-`;
-
-export const SectionImage = styled.img`
-  border-radius: ${borderRadius};
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-  max-width: 100%;
-  display: block;
+  .page-section-image {
+    border-radius: ${borderRadius};
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    max-width: 100%;
+    display: block;
+  }
 `;
 
 export const SectionDescriptionWrapper = styled.div`

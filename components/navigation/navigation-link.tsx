@@ -14,7 +14,6 @@ export const NavigationLink: React.FunctionComponent<SmartLinkProps> = ({
   return (
     <NavLinkWrapper
       isActive={isActive}
-      className={isActive ? 'disabled-link' : ''}
       href={isActive ? undefined : href}
     >
       {children}
