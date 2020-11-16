@@ -6,7 +6,6 @@ import { NavLinkWrapper } from './navigation.styles';
 export const NavigationLink: React.FunctionComponent<SmartLinkProps> = ({
   children,
   href,
-  ...props
 }) => {
   const { pathname } = useRouter();
   const isActive = pathname === href;
