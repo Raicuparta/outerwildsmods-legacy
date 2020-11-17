@@ -25,7 +25,7 @@ const Home: React.FunctionComponent<Props> = ({ modManagerDownloadUrl }) => (
     <Head>
       <title>Outer Wilds Mod Manager</title>
       <meta
-        name="Description"
+        name="description"
         content="Download, install, and manage Outer Wilds mods"
       ></meta>
     </Head>

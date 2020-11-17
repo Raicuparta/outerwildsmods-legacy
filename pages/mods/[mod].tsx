@@ -49,7 +49,7 @@ const ModPage: React.FunctionComponent<Props> = ({ readme, mod }) => {
     <PageLayout isWide>
       <Head>
         <title>{mod.manifest.name} - Outer Wilds Mods</title>
-        <meta name="Description" content={mod.manifest.description} />
+        <meta name="description" content={mod.manifest.description} />
       </Head>
       <PageLayoutColumns>
         {readme && <ModDescription readme={readme} repo={mod.repo} />}

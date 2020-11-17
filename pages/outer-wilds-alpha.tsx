@@ -49,7 +49,7 @@ const OuterWildsAlpha: React.FunctionComponent = () => (
     <Head>
       <title>Outer Wilds Alpha - Outer Wilds Mods</title>
       <meta
-        name="Description"
+        name="description"
         content="Download Outer Wilds Alpha and install mods for it"
       ></meta>
     </Head>
