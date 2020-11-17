@@ -31,7 +31,7 @@ const Mods: React.FunctionComponent<Props> = ({ modDatabase }) => {
       </Head>
       <PageSection id="mod-manager">
         Install these mods using the{' '}
-        <TextLink href="/mod-manager">Outer Wilds Mod Manager</TextLink>.
+        <TextLink href="/mod-manager">Outer Wilds Mod Manager</TextLink>
       </PageSection>
       <PageSection title="Available mods" id="mods">
         {mods?.map((mod) => (

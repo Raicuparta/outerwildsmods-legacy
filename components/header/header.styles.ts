@@ -11,6 +11,7 @@ export const Wrapper = styled.header`
   justify-content: center;
   align-items: center;
   background-color: ${colors.dark};
+  overflow: hidden;
 `;
 
 export const PageTitle = styled.h1`

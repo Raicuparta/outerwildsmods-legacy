@@ -11,10 +11,7 @@ export const NavigationLink: React.FunctionComponent<SmartLinkProps> = ({
   const isActive = pathname === href;
 
   return (
-    <NavLinkWrapper
-      isActive={isActive}
-      href={isActive ? undefined : href}
-    >
+    <NavLinkWrapper isActive={isActive} href={href}>
       {children}
     </NavLinkWrapper>
   );
