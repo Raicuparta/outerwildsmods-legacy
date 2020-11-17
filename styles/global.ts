@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from 'styled-components';
 
 import { colors } from './variables';
 
@@ -13,6 +13,7 @@ export default createGlobalStyle`
     color: ${colors.light};
     font-weight: lighter;
     background-color: ${colors.background};
+    overflow-y: scroll;
   }
 
   h1, h2, h3, h4, h5, h6 {

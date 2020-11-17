@@ -8,7 +8,6 @@ export default function App({ Component, pageProps }: AppProps) {
     <>
       <GlobalStyle />
       <Header />
-      <Navigation />
       <Component {...pageProps} />
       <Footer />
     </>

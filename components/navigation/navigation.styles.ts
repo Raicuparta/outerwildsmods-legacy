@@ -1,10 +1,11 @@
 import styled, { css } from 'styled-components';
 
+import { textOutline } from '../../styles/mixins';
 import { colors, spacing, borderRadius } from '../../styles/variables';
 import { PageLayout } from '../page-layout';
 
 export const Wrapper = styled.div`
-  background-color: ${colors.dark};
+  width: 100%;
 `;
 
 export const Layout = styled(PageLayout)`
@@ -29,6 +30,7 @@ export const NavLinkWrapper = styled.a<{ isActive: boolean }>(
     background-color: ${isActive ? colors.background : 'none'};
     ${!isActive
       ? css`
+          ${textOutline(colors.background)};
           &:hover {
             background-color: ${colors.dark};
             box-shadow: none;

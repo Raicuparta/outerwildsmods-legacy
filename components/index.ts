@@ -14,3 +14,4 @@ export * from './analytics';
 export * from './windows-icon';
 export * from './github-corner';
 export * from './navigation';
+export * from './stars';

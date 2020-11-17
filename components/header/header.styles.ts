@@ -1,14 +1,15 @@
 import styled from 'styled-components';
-import { mediaDown } from '../../styles/mixins';
+import { mediaDown, textOutline } from '../../styles/mixins';
 
 import { colors, spacing } from '../../styles/variables';
 
 export const Wrapper = styled.header`
+  position: relative;
   text-align: center;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-left: calc(100vw - 100%);
   background-color: ${colors.dark};
 `;
 
@@ -23,6 +24,7 @@ export const PageTitle = styled.h1`
     padding-bottom: 1.2rem;
     color: ${colors.white};
     font-weight: 100;
+    ${textOutline(colors.background)};
 
     ${mediaDown('small')} {
       font-size: 2rem;
