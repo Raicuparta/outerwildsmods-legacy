@@ -9,8 +9,8 @@ const urlBase = 'https://outerwildsmods.com';
 
   const pageUrls = pages
     .map((page) => {
-      const path = page.replace(/(\/index|.html|out\/)/gm, '');
-      return `\n  <url><loc>${urlBase}/${path}</loc></url>`;
+      const path = `${urlBase}/${page.replace(/(index|.html|out\/)/gm, '')}`;
+      return `\n  <url><loc>${path}</loc></url>`;
     })
     .filter((page) => !page.includes('.amp'))
     .join('');
