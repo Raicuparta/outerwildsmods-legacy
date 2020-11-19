@@ -10,30 +10,30 @@ type StarData = {
 
 const width = 2000;
 const height = 150;
-const starCount = 125;
+const starCount = 80;
 
 const round = (value: number, magnitude: number) =>
   Math.round(value * magnitude) / magnitude;
 
-const random = (min: number, max: number) =>
-  round(Math.random() * (max - min) + min, 100);
+const random = (min: number, max: number, roundMagnitude: number) =>
+  round(Math.random() * (max - min) + min, roundMagnitude);
 
 const starData1: StarData[] = [];
 const starData2: StarData[] = [];
 
 for (let i = 0; i < starCount; i++) {
   starData1.push({
-    x: random(0, width),
-    y: random(0, height),
-    opacity: random(0.1, 0.8),
-    radius: random(0.1, 1.2),
+    x: random(0, width, 1),
+    y: random(0, height, 1),
+    opacity: random(0.1, 0.8, 10),
+    radius: random(0.1, 1.2, 10),
     id: i,
   });
   starData2.push({
-    x: random(0, width),
-    y: random(0, height),
-    opacity: random(0.1, 0.8),
-    radius: random(0.1, 1.2),
+    x: random(0, width, 1),
+    y: random(0, height, 1),
+    opacity: random(0.1, 0.8, 10),
+    radius: random(0.1, 1.2, 10),
     id: i,
   });
 }
