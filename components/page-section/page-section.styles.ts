@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { mediaDown } from '../../styles/mixins';
 
 import { borderRadius, colors, spacing } from '../../styles/variables';
@@ -17,11 +17,14 @@ export const TitleWrapper = styled.div`
   margin-bottom: ${spacing.large};
 `;
 
-export const Title = styled.h2`
-  font-size: 1.5rem;
-  line-height: 1.4;
-  margin: 0;
-`;
+export const Title = styled.h2<{ spaced: boolean }>(
+  (spaced) => css`
+    font-size: 1.5rem;
+    line-height: 1.4;
+    margin-bottom: 0;
+    margin-top: ${spaced ? spacing.large : 0};
+  `
+);
 
 export const Line = styled.hr`
   flex: 1;

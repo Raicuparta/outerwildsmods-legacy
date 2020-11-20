@@ -2,6 +2,7 @@ import ReactMarkdown from 'react-markdown';
 import styled from 'styled-components';
 
 import { borderRadius, colors, spacing } from '../../styles/variables';
+import { PageSectionTitle } from '../page-section/page-section-title';
 
 export const Wrapper = styled.div`
   flex: 1;
@@ -13,14 +14,14 @@ export const Markdown = styled(ReactMarkdown)`
 
   pre {
     padding: ${spacing.medium};
-    border: 1px solid ${colors.light};
     overflow: auto;
   }
 
   pre,
   code {
     background: ${colors.dark};
-    padding: 2px;
+    border-radius: ${borderRadius};
+    padding: ${spacing.small};
     white-space: pre-wrap;
     word-break: break-all;
   }

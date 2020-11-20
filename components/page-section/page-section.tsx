@@ -1,7 +1,14 @@
 import { useAmp } from 'next/amp';
 
 import { PageSectionDescription, PageSectionImage } from '..';
-import { Wrapper, TitleWrapper, Title, Line, PageSectionColumns } from './page-section.styles';
+import { PageSectionTitle } from './page-section-title';
+import {
+  Wrapper,
+  TitleWrapper,
+  Title,
+  Line,
+  PageSectionColumns,
+} from './page-section.styles';
 
 type Props = {
   id: string;
@@ -18,14 +25,7 @@ export const PageSection: React.FunctionComponent<Props> = ({
   imageUrl,
 }) => (
   <Wrapper>
-    {title && (
-      <TitleWrapper>
-        <Title id={id}>
-          {title}
-        </Title>
-        <Line />
-      </TitleWrapper>
-    )}
+    {title && <PageSectionTitle id={id}>{title}</PageSectionTitle>}
     {imageUrl || description ? (
       <PageSectionColumns>
         {description && (
