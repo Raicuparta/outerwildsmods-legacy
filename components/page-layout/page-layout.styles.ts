@@ -16,7 +16,6 @@ export const PageLayout = styled.div<{ isWide?: boolean }>(
 
 export const PageLayoutColumns = styled.div`
   display: flex;
-  margin-top: ${spacing.medium};
   ${mediaDown('medium')} {
     flex-direction: column-reverse;
   }

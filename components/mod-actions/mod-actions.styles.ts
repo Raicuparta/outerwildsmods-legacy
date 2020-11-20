@@ -12,7 +12,6 @@ export const Wrapper = styled.div<{ isFullWidth: boolean }>(
     flex: ${isFullWidth ? 1 : 0};
     margin-left: ${spacing.large};
     padding: ${spacing.large};
-    background-color: ${colors.dark};
     border-radius: ${borderRadius};
 
     ${mediaDown('medium')} {

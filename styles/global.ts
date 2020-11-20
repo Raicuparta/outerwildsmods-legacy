@@ -12,7 +12,7 @@ export default createGlobalStyle`
     font-size: 18px;
     color: ${colors.light};
     font-weight: lighter;
-    background-color: ${colors.background};
+    background-color: ${colors.dark};
     overflow-y: scroll;
   }
 

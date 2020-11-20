@@ -10,7 +10,6 @@ export const Wrapper = styled.header`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: ${colors.dark};
   overflow: hidden;
 `;
 

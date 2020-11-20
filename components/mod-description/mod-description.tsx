@@ -2,6 +2,7 @@ import { useAmp } from 'next/amp';
 import gfm from 'remark-gfm';
 
 import { getRawContentUrl } from '../../helpers';
+import { TextLink } from '../smart-link';
 import { HeadingRenderer } from './heading-renderer';
 import { Markdown, Wrapper } from './mod-description.styles';
 
@@ -28,6 +29,7 @@ export const ModDescription: React.FunctionComponent<Props> = ({
           }
           renderers={{
             heading: HeadingRenderer,
+            link: TextLink,
             ...(isAmp && {
               image: ({ src }) => {
                 return (

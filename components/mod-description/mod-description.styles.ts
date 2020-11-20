@@ -8,18 +8,8 @@ export const Wrapper = styled.div`
 `;
 
 export const Markdown = styled(ReactMarkdown)`
-  background: ${colors.dark};
-  padding: ${spacing.large};
   font-size: 1rem;
   border-radius: ${borderRadius};
-
-  a {
-    color: ${colors.accent};
-  }
-
-  a:hover {
-    text-decoration: underline;
-  }
 
   pre {
     padding: ${spacing.medium};

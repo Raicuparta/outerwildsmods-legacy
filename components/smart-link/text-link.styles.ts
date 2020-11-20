@@ -1,6 +1,7 @@
+import { lighten, darken } from 'polished';
 import styled from 'styled-components';
-import { SmartLink } from '.';
 
+import { SmartLink } from '.';
 import { colors, spacing, borderRadius } from '../../styles/variables';
 
 export const TextLink = styled(SmartLink)`
