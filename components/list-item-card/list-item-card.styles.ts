@@ -42,6 +42,7 @@ export const Bullet = styled.span`
   border-radius: 100%;
   background-color: ${colors.dark};
   margin: ${spacing.medium} ${spacing.medium};
+  border: 2px solid ${colors.background};
 `;
 
 export const UserName = styled.span`
