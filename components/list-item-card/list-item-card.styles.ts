@@ -16,6 +16,11 @@ export const Wrapper = styled.span`
   &:not(:last-child) {
     margin-bottom: ${spacing.medium};
   }
+  .list-item-card-image {
+    border-radius: 100%;
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 export const ImageWrapper = styled.div`
@@ -23,12 +28,6 @@ export const ImageWrapper = styled.div`
   min-height: ${imageSize};
   max-width: ${imageSize};
   max-height: ${imageSize};
-  img,
-  amp-img {
-    border-radius: 100%;
-    width: 100%;
-    height: 100%;
-  }
 `;
 
 export const TextWrapper = styled.div`
