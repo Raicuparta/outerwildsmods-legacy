@@ -38,7 +38,7 @@ const alphaMods: AlphaMod[] = [
     href: 'https://github.com/ShoosGun/FreeCamMod',
   },
   {
-    name: 'Probe Grapple Mod',
+    name: 'Probe Graple Mod',
     description: 'Adds a grappling hook mechanic.',
     href: 'https://github.com/ShoosGun/ProbeGrapleMod',
   },

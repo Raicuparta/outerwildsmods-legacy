@@ -32,7 +32,7 @@ const mods: Mod[] = [
   {
     title: 'TAICheat',
     description:
-      'Collection of cheats. Super jet pack, invincibility, and a lot more.',
+      'Collection of cheats. Super jetpack, invincibility, and a lot more.',
     path: 'taicheat',
     image: '/images/tai-cheat.png',
   },
