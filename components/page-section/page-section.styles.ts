@@ -45,7 +45,7 @@ export const PageSectionColumns = styled.div`
 export const SectionImageWrapper = styled.div`
   flex: 1;
   border-radius: ${borderRadius};
-  border: 2px solid ${colors.dark} !important;
+  border: 2px solid ${colors.dark};
   overflow: hidden;
   height: fit-content;
   &:first-child:not(:only-child) {
