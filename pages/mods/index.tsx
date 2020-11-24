@@ -21,7 +21,6 @@ const getModPath = (modName: string) => `/mods/${getModPathName(modName)}`;
 
 const Mods: React.FunctionComponent<Props> = ({ modDatabase }) => {
   const mods = modDatabase?.releases;
-  const modManagerDownloadUrl = modDatabase?.modManager?.installerDownloadUrl;
 
   return (
     <PageLayout>
@@ -31,7 +30,7 @@ const Mods: React.FunctionComponent<Props> = ({ modDatabase }) => {
       </Head>
       <PageSection id="mod-manager">
         Install these mods using the{' '}
-        <TextLink href="/mod-manager">Outer Wilds Mod Manager</TextLink>
+        <SmartLink href="/mod-manager">Outer Wilds Mod Manager</SmartLink>
       </PageSection>
       <PageSection title="Available mods" id="mods">
         {mods?.map((mod) => (

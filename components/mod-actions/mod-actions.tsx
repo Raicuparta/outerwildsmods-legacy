@@ -22,7 +22,7 @@ export const ModActions: React.FunctionComponent<Props> = ({
     <Content>
       <div>
         <Title>{mod.manifest.name}</Title>
-        <TextLink isExternal href={mod.repo}>
+        <TextLink href={mod.repo}>
           by {mod.manifest.author}
         </TextLink>
         <p>{mod.manifest.description}</p>
