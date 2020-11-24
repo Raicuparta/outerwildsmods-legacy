@@ -1,8 +1,7 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { mediaDown } from '../../styles/mixins';
 
 import { borderRadius, colors, spacing } from '../../styles/variables';
-import { SmartImage } from '../smart-image';
 
 export const Wrapper = styled.section`
   padding: ${spacing.large} 0;
