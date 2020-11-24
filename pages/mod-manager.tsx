@@ -33,7 +33,6 @@ const Home: React.FunctionComponent<Props> = ({ modManagerDownloadUrl }) => (
         <PageSectionImage
           imageUrl="/images/mod-manager.png"
           title="Outer Wilds Mod Manager"
-          hideOnMobile={false}
         />
       </div>
       <LinkButton

@@ -4,15 +4,13 @@ import { SectionImageWrapper } from './page-section.styles';
 type Props = {
   imageUrl: string;
   title?: string;
-  hideOnMobile?: boolean;
 };
 
 export const PageSectionImage: React.FunctionComponent<Props> = ({
-  hideOnMobile = true,
   imageUrl,
   title,
 }) => (
-  <SectionImageWrapper hideOnMobile={hideOnMobile}>
+  <SectionImageWrapper>
     <SmartImage
       src={imageUrl}
       alt={title}

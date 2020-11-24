@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { mediaDown } from '../../styles/mixins';
 
 import { borderRadius, colors, spacing } from '../../styles/variables';
@@ -41,40 +41,31 @@ export const PageSectionColumns = styled.div`
   }
 `;
 
-export const SectionImageWrapper = styled.div<{ hideOnMobile: boolean }>(
-  ({ hideOnMobile }) => css`
-    ${hideOnMobile
-      ? css`
-          ${mediaDown('small')} {
-            display: none;
-          }
-        `
-      : ''}
-    flex: 1;
-    border-radius: ${borderRadius};
-    border: 2px solid ${colors.dark};
-    overflow: hidden;
-    height: fit-content;
-    &:first-child:not(:only-child) {
-      margin-right: ${spacing.large};
-      ${mediaDown('small')} {
-        margin-right: 0;
-        margin-bottom: ${spacing.large};
-      }
+export const SectionImageWrapper = styled.div`
+  flex: 1;
+  border-radius: ${borderRadius};
+  border: 2px solid ${colors.dark};
+  overflow: hidden;
+  height: fit-content;
+  &:first-child:not(:only-child) {
+    margin-right: ${spacing.large};
+    ${mediaDown('small')} {
+      margin-right: 0;
+      margin-bottom: ${spacing.large};
     }
-    &:not(:first-child) {
-      margin-left: ${spacing.large};
-      ${mediaDown('small')} {
-        margin-left: 0;
-        margin-top: ${spacing.large};
-      }
+  }
+  &:not(:first-child) {
+    margin-left: ${spacing.large};
+    ${mediaDown('small')} {
+      margin-left: 0;
+      margin-top: ${spacing.large};
     }
-    img,
-    amp-img {
-      object-fit: cover;
-    }
-  `
-);
+  }
+  img,
+  amp-img {
+    object-fit: cover;
+  }
+`;
 
 export const SectionDescriptionWrapper = styled.div`
   flex: 1;
