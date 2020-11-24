@@ -5,7 +5,6 @@ import { colors, spacing, borderRadius } from '../../styles/variables';
 import { ButtonVariant } from './link-button';
 
 export const Content = styled.div`
-  padding: 10px;
   height: 100%;
   width: 100%;
   pointer-events: none;
@@ -27,7 +26,7 @@ export const Wrapper = styled.a<{ variant: ButtonVariant }>(
     border: none;
     width: 100%;
     background-color: ${variantColor[variant]};
-    color: ${colors.white};
+    color: ${variant === 'secondary' ? colors.dark : colors.white};
     font-size: medium;
     cursor: pointer;
     text-align: center;
@@ -36,6 +35,8 @@ export const Wrapper = styled.a<{ variant: ButtonVariant }>(
     overflow: hidden;
     margin: 0 auto;
     margin-top: ${variant === 'main-download' ? spacing.large : 0};
+    border: ${spacing.small} solid transparent;
+    padding: ${spacing.small};
 
     &:active {
       box-shadow: none;
@@ -43,7 +44,7 @@ export const Wrapper = styled.a<{ variant: ButtonVariant }>(
     }
 
     &:hover:not(.disabled):not(:active) {
-      background-color: ${lighten(0.1)(variantColor[variant])};
+      border: ${spacing.small} solid ${lighten(0.1)(variantColor[variant])};
     }
   `
 );
