@@ -1,4 +1,3 @@
-import amp, { useAmp } from 'next/amp';
 import { SmartImage } from '../smart-image';
 
 import {
@@ -21,27 +20,29 @@ export const ListItemCard: React.FunctionComponent<ListItemCardProps> = ({
   title,
   imageUrl,
   description,
-}) => {
-  const isAmp = useAmp();
-
-  return (
-    <Wrapper>
-      {imageUrl && (
-        <ImageWrapper>
-          <SmartImage alt={title} src={imageUrl} width="50" height="50" />
-        </ImageWrapper>
+}) => (
+  <Wrapper>
+    {imageUrl && (
+      <ImageWrapper>
+        <SmartImage
+          layout="fixed"
+          alt={title}
+          src={imageUrl}
+          width="50"
+          height="50"
+        />
+      </ImageWrapper>
+    )}
+    {!imageUrl && <Bullet />}
+    <TextWrapper>
+      <UserName>{title}</UserName>
+      {description && (
+        <DescriptionWrapper>
+          <Description>
+            <small>{description} </small>
+          </Description>
+        </DescriptionWrapper>
       )}
-      {!imageUrl && <Bullet />}
-      <TextWrapper>
-        <UserName>{title}</UserName>
-        {description && (
-          <DescriptionWrapper>
-            <Description>
-              <small>{description} </small>
-            </Description>
-          </DescriptionWrapper>
-        )}
-      </TextWrapper>
-    </Wrapper>
-  );
-};
+    </TextWrapper>
+  </Wrapper>
+);
