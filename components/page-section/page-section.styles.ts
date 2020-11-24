@@ -61,10 +61,6 @@ export const SectionImageWrapper = styled.div`
       margin-top: ${spacing.large};
     }
   }
-  img,
-  amp-img {
-    object-fit: cover;
-  }
 `;
 
 export const SectionDescriptionWrapper = styled.div`
