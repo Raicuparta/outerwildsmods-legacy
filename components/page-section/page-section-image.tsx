@@ -1,4 +1,5 @@
-import { SmartImage } from '../smart-image';
+import { useAmp } from 'next/amp';
+
 import { SectionImageWrapper } from './page-section.styles';
 
 type Props = {
@@ -9,14 +10,22 @@ type Props = {
 export const PageSectionImage: React.FunctionComponent<Props> = ({
   imageUrl,
   title,
-}) => (
-  <SectionImageWrapper>
-    <SmartImage
-      src={imageUrl}
-      alt={title}
-      width={280}
-      height={150}
-      layout="responsive"
-    />
-  </SectionImageWrapper>
-);
+}) => {
+  const isAmp = useAmp();
+  return (
+    <SectionImageWrapper>
+      {isAmp ? (
+        <amp-img
+          src={imageUrl}
+          alt={title}
+          width={280}
+          height={150}
+          layout="responsive"
+          className="page-section-image"
+        />
+      ) : (
+        <img src={imageUrl} alt={title} className="page-section-image" />
+      )}
+    </SectionImageWrapper>
+  );
+};
