@@ -10,7 +10,7 @@ export const Wrapper = styled.section`
   }
 `;
 
-export const TitleWrapper = styled.div`
+export const TitleWrapper = styled.span`
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
