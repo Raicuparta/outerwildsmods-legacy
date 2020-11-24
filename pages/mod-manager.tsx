@@ -3,12 +3,13 @@ import { GetStaticProps, PageConfig } from 'next';
 
 import {
   PageSection,
+  PageSectionDescription,
   PageSectionImage,
+  PageSectionColumns,
   TextLink,
   LinkButton,
   PageLayout,
   WindowsIcon,
-  SmartLink,
 } from '../components';
 import { getModDatabase } from '../services';
 
@@ -59,7 +60,7 @@ const Home: React.FunctionComponent<Props> = ({ modManagerDownloadUrl }) => (
       </ul>
       <p>
         It also lets you install / update the{' '}
-        <SmartLink href="/mods/owml">Outer Wilds Mod Loader</SmartLink> from
+        <TextLink href="/mods/owml">Outer Wilds Mod Loader</TextLink> from
         within the app, so you don't need to deal with that yourself.
       </p>
     </PageSection>
