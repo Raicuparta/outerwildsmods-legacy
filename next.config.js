@@ -14,5 +14,8 @@ module.exports = (phase) => {
     images: {
       domains: ['github.com', 'raw.githubusercontent.com'],
     },
+    amp: {
+      canonicalBase: 'https://outerwildsmods.com',
+    },
   };
 };

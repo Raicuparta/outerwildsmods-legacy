@@ -2,7 +2,6 @@ import ReactMarkdown from 'react-markdown';
 import styled from 'styled-components';
 
 import { borderRadius, colors, spacing } from '../../styles/variables';
-import { PageSectionTitle } from '../page-section/page-section-title';
 
 export const Wrapper = styled.div`
   flex: 1;
@@ -44,5 +43,8 @@ export const Markdown = styled(ReactMarkdown)`
   img {
     max-width: 100%;
     object-fit: scale-down;
+  }
+  li {
+    padding: ${spacing.small} 0;
   }
 `;
