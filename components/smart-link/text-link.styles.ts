@@ -1,10 +1,9 @@
 import { lighten } from 'polished';
 import styled from 'styled-components';
 
-import { SmartLink } from '.';
 import { colors } from '../../styles/variables';
 
-export const TextLink = styled(SmartLink)`
+export const TextLink = styled.a`
   color: ${colors.accent};
 
   &:hover {
