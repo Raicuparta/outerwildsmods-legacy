@@ -12,7 +12,7 @@ module.exports = (phase) => {
     trailingSlash: true,
     env,
     images: {
-      domains: ['github.com', 'raw.githubusercontent.com'],
+      domains: ['github.com'],
     },
   };
 };
