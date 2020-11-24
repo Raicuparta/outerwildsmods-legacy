@@ -46,6 +46,9 @@ export const PageSectionColumns = styled.div`
 
 export const SectionImageWrapper = styled.div`
   flex: 1;
+  border-radius: ${borderRadius};
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
   &:first-child:not(:only-child) {
     margin-right: ${spacing.large};
     ${mediaDown('small')} {
@@ -59,12 +62,6 @@ export const SectionImageWrapper = styled.div`
       margin-left: 0;
       margin-top: ${spacing.large};
     }
-  }
-  .page-section-image {
-    border-radius: ${borderRadius};
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-    max-width: 100%;
-    display: block;
   }
 `;
 
