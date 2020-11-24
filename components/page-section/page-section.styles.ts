@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 import { mediaDown } from '../../styles/mixins';
 
 import { borderRadius, colors, spacing } from '../../styles/variables';
+import { SmartImage } from '../smart-image';
 
 export const Wrapper = styled.section`
   padding: ${spacing.large} 0;
@@ -17,14 +18,11 @@ export const TitleWrapper = styled.div`
   margin-bottom: ${spacing.large};
 `;
 
-export const Title = styled.h2<{ spaced: boolean }>(
-  (spaced) => css`
-    font-size: 1.5rem;
-    line-height: 1.4;
-    margin-bottom: 0;
-    margin-top: ${spaced ? spacing.large : 0};
-  `
-);
+export const Title = styled.h2`
+  font-size: 1.5rem;
+  line-height: 1.4;
+  margin: 0;
+`;
 
 export const Line = styled.hr`
   flex: 1;
@@ -47,8 +45,9 @@ export const PageSectionColumns = styled.div`
 export const SectionImageWrapper = styled.div`
   flex: 1;
   border-radius: ${borderRadius};
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  border: 2px solid ${colors.dark} !important;
   overflow: hidden;
+  height: fit-content;
   &:first-child:not(:only-child) {
     margin-right: ${spacing.large};
     ${mediaDown('small')} {
