@@ -76,13 +76,13 @@ class MyDocument extends Document {
     const id = process.env.analyticsId ?? '';
     return (
       <Html lang="en">
-        <Head>
+        <CustomHead>
           <meta name="theme-color" content="#1f1f1f" />
           <Analytics id={id} />
-        </Head>
+        </CustomHead>
         <body>
           <Main />
-          <NextScript />
+          {!process.env.isProd && <NextScript />}
           <AmpAnalytics id={id} />
         </body>
       </Html>

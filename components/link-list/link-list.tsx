@@ -15,7 +15,7 @@ export const LinkList: React.FunctionComponent<Props> = ({ links }) => (
   <div>
     {links.map(({ href, text }) => (
       <LinkWrapper key={href}>
-        <TextLink href={href}>
+        <TextLink href={href} isExternal>
           {text}
         </TextLink>
       </LinkWrapper>
