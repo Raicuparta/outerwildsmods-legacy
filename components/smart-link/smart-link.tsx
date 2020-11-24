@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { TextLink } from './text-link.styles';
 
 export type SmartLinkProps = {
   href: string;
@@ -30,14 +31,14 @@ export const SmartLink: React.FunctionComponent<SmartLinkProps> = ({
 }) => {
   return (
     <LinkWrapper href={href} as={as} isExternal={isExternal}>
-      <a
+      <TextLink
         href={as || href}
         className={className}
         target={isExternal ? '_blank' : undefined}
         rel={isExternal ? 'noopener noreferrer' : undefined}
       >
         {children}
-      </a>
+      </TextLink>
     </LinkWrapper>
   );
 };
