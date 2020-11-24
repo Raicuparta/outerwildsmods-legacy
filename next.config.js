@@ -11,5 +11,8 @@ module.exports = (phase) => {
   return {
     trailingSlash: true,
     env,
+    images: {
+      domains: ['github.com'],
+    },
   };
 };
