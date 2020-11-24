@@ -57,7 +57,7 @@ const Home: React.FunctionComponent = () => (
     <PageSection title="Outer Wilds Mod Manager" id="mod-manager">
       <PageSectionColumns>
         <PageSectionImage
-          imageUrl="/images/mod-manager-small.png"
+          imageUrl="/images/mod-manager.png"
           title="Outer Wilds Mod Manager"
         />
         <PageSectionDescription description="Use the Outer Wilds Mod Manager for downloading, installing, and managing mods."></PageSectionDescription>
