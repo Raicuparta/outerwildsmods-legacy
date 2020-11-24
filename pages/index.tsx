@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { PageConfig } from 'next';
+import { GetStaticProps, PageConfig } from 'next';
 
 import {
   ModList,
@@ -8,10 +8,16 @@ import {
   PageSectionDescription,
   PageSectionImage,
   PageSectionColumns,
+  TextLink,
   LinkButton,
   PageLayout,
   LinkList,
+  WindowsIcon,
 } from '../components';
+import { getModDatabase } from '../services';
+
+const modManagerDefaultDownloadUrl =
+  'https://github.com/Raicuparta/ow-mod-manager/releases/latest';
 
 const infoLinks = [
   {
@@ -44,7 +50,11 @@ const communityLinks = [
   { text: 'Discord', href: 'https://discord.gg/RaSjRbm' },
 ];
 
-const Home: React.FunctionComponent = () => (
+type Props = {
+  modManagerDownloadUrl?: string;
+};
+
+const Home: React.FunctionComponent<Props> = ({ modManagerDownloadUrl }) => (
   <PageLayout>
     <Head>
       <title>Outer Wilds Mods</title>
@@ -96,6 +106,26 @@ const Home: React.FunctionComponent = () => (
     </PageSection>
   </PageLayout>
 );
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const modDatabase = await getModDatabase();
+
+  const downloadUrl = modDatabase?.modManager?.installerDownloadUrl;
+
+  if (!downloadUrl) {
+    throw new Error(
+      `Could not retrieve mod manager installer download URL from database. \n${JSON.stringify(
+        modDatabase?.modManager
+      )}\n`
+    );
+  }
+
+  return {
+    props: {
+      modManagerDownloadUrl: modDatabase?.modManager.installerDownloadUrl,
+    },
+  };
+};
 
 export const config: PageConfig = {
   amp: 'hybrid',
