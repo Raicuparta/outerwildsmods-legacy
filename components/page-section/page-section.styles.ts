@@ -51,10 +51,6 @@ export const SectionImageWrapper = styled.div<{ hideOnMobile: boolean }>(
         `
       : ''}
     flex: 1;
-    border-radius: ${borderRadius};
-    border: 2px solid ${colors.dark};
-    overflow: hidden;
-    height: fit-content;
     &:first-child:not(:only-child) {
       margin-right: ${spacing.large};
       ${mediaDown('small')} {
@@ -72,6 +68,11 @@ export const SectionImageWrapper = styled.div<{ hideOnMobile: boolean }>(
     img,
     amp-img {
       object-fit: cover;
+      object-position: top;
+      border-radius: ${borderRadius};
+      border: 2px solid ${colors.dark};
+      overflow: hidden;
+      width: 100%;
     }
   `
 );
