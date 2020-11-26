@@ -26,8 +26,11 @@ export const NavLinkWrapper = styled.a<{ isActive: boolean }>(
     margin: 0px ${spacing.small};
     border-radius: ${borderRadius} ${borderRadius} 0 0;
     ${textOutline(colors.background)};
-    &:hover {
-      background-color: ${transparentize(0.55)(colors.background)};
+    -webkit-tap-highlight-color: ${transparentize(0.55)(colors.background)};
+    @media (hover: hover) {
+      &:hover {
+        background-color: ${transparentize(0.55)(colors.background)};
+      }
     }
   `
 );
