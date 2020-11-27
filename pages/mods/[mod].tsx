@@ -40,11 +40,20 @@ const multipleFetchAttempts = async (
   return response;
 };
 
-const getPageDescription = (modDescription: string, modName: string) => {
-  const descriptionTerminator = modDescription.endsWith('.') ? '' : '.';
-
-  return `${modDescription}${descriptionTerminator} Download and install ${modName} mod for Outer Wilds.`;
+const getDescriptionTerminator = (modDescription: string) => {
+  if (modDescription === '') {
+    return '';
+  }
+  if (modDescription.endsWith('.')) {
+    return ' ';
+  }
+  return '.';
 };
+
+const getPageDescription = (modDescription = '', modName: string) =>
+  `${modDescription}${getDescriptionTerminator(
+    modDescription
+  )}Download and install ${modName} mod for Outer Wilds using the Mod Manager.`;
 
 const ModPage: React.FunctionComponent<Props> = ({ readme, mod }) => {
   if (!mod) {
@@ -54,7 +63,9 @@ const ModPage: React.FunctionComponent<Props> = ({ readme, mod }) => {
   return (
     <PageLayout isWide>
       <Head>
-        <title>{mod.manifest.name} - Outer Wilds Mods</title>
+        <title>
+          {mod.manifest.name} - Download and install Outer Wilds mods
+        </title>
         <meta
           name="description"
           content={getPageDescription(

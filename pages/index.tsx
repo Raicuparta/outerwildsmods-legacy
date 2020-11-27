@@ -47,10 +47,12 @@ const communityLinks = [
 const Home: React.FunctionComponent = () => (
   <PageLayout>
     <Head>
-      <title>Outer Wilds Mods</title>
+      <title>
+        Outer Wilds Mods - Download and Install Mods for Outer Wilds
+      </title>
       <meta
         name="description"
-        content="Find all the tools needed to mod Outer Wilds. Download and install mods with the Outer Wilds Mod Manager"
+        content="Find all the tools needed to mod Outer Wilds. Download and install mods with the Outer Wilds Mod Manager."
       ></meta>
       <link rel="canonical" href="https://outerwildsmods.com" />
     </Head>

@@ -50,7 +50,7 @@ const OuterWildsAlpha: React.FunctionComponent = () => (
       <title>Outer Wilds Alpha - Outer Wilds Mods</title>
       <meta
         name="description"
-        content="Download Outer Wilds Alpha and install mods for it"
+        content="Download Outer Wilds Alpha. Find all of the available mods for the Alpha version of Outer Wilds."
       ></meta>
     </Head>
     <PageSection title="Outer Wilds Alpha" id="alpha">

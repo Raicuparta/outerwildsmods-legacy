@@ -22,10 +22,10 @@ type Props = {
 const Home: React.FunctionComponent<Props> = ({ modManagerDownloadUrl }) => (
   <PageLayout>
     <Head>
-      <title>Outer Wilds Mod Manager</title>
+      <title>Outer Wilds Mod Manager - Download Windows app</title>
       <meta
         name="description"
-        content="Download, install, and manage Outer Wilds mods"
+        content="Download, install, and manage Outer Wilds mods using the Outer Wilds Mod Manager for Windows."
       ></meta>
     </Head>
     <PageSection title="Outer Wilds Mod Manager" id="mod-manager">

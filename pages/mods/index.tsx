@@ -24,8 +24,11 @@ const Mods: React.FunctionComponent<Props> = ({ modDatabase }) => {
   return (
     <PageLayout>
       <Head>
-        <title>Outer Wilds Mods</title>
-        <meta name="description" content="Full list of mods for Outer Wilds" />
+        <title>Outer Wilds Mods - Find all mods for Outer Wilds</title>
+        <meta
+          name="description"
+          content="Full list of mods for Outer Wilds. Including mods for VR, multiplayer, and cheats."
+        />
       </Head>
       <PageSection id="mod-manager">
         Install these mods using the{' '}
