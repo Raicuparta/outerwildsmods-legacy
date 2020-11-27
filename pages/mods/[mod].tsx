@@ -40,6 +40,12 @@ const multipleFetchAttempts = async (
   return response;
 };
 
+const getPageDescription = (modDescription: string, modName: string) => {
+  const descriptionTerminator = modDescription.endsWith('.') ? '' : '.';
+
+  return `${modDescription}${descriptionTerminator} Download and install ${modName} mod for Outer Wilds.`;
+};
+
 const ModPage: React.FunctionComponent<Props> = ({ readme, mod }) => {
   if (!mod) {
     return <h2>Mod not found</h2>;
@@ -49,7 +55,13 @@ const ModPage: React.FunctionComponent<Props> = ({ readme, mod }) => {
     <PageLayout isWide>
       <Head>
         <title>{mod.manifest.name} - Outer Wilds Mods</title>
-        <meta name="description" content={mod.manifest.description} />
+        <meta
+          name="description"
+          content={getPageDescription(
+            mod.manifest.description,
+            mod.manifest.name
+          )}
+        />
       </Head>
       <PageLayoutColumns>
         {readme && <ModDescription readme={readme} repo={mod.repo} />}
