@@ -1,6 +1,7 @@
 import { Children, createElement } from 'react';
 import Slugger from 'github-slugger';
 import { PageSectionTitle } from '../page-section/page-section-title';
+import Head from 'next/head';
 
 type Props = {
   level: number;
@@ -12,6 +13,20 @@ const flatten = (text: string, child: any): any => {
     : Children.toArray(child.props.children).reduce(flatten, text);
 };
 
+const PageTitle: React.FunctionComponent<{ text: string }> = ({ text }) => {
+  const suffix = text.includes('Outer Wilds')
+    ? 'Download and Install'
+    : `Download and Install Outer Wilds Mod`;
+
+  return (
+    <Head>
+      <title>
+        {text} - {suffix}
+      </title>
+    </Head>
+  );
+};
+
 export const HeadingRenderer: React.FunctionComponent<Props> = (props) => {
   const children = Children.toArray(props.children);
   const text = children.reduce(flatten, '');
@@ -21,5 +36,10 @@ export const HeadingRenderer: React.FunctionComponent<Props> = (props) => {
     return <PageSectionTitle id={slug}>{props.children}</PageSectionTitle>;
   }
 
-  return createElement('h' + props.level, { id: slug }, props.children);
+  const newChildren = [
+    ...children,
+    ...(props.level === 1 ? [<PageTitle text={text} />] : []),
+  ];
+
+  return createElement('h' + props.level, { id: slug }, newChildren);
 };
