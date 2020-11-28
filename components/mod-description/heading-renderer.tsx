@@ -38,7 +38,7 @@ export const HeadingRenderer: React.FunctionComponent<Props> = (props) => {
 
   const newChildren = [
     ...children,
-    ...(props.level === 1 ? [<PageTitle text={text} />] : []),
+    ...(props.level === 1 ? [<PageTitle key={text} text={text} />] : []),
   ];
 
   return createElement('h' + props.level, { id: slug }, newChildren);
