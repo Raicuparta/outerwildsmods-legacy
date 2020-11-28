@@ -8,7 +8,6 @@ import { Markdown, Wrapper } from './mod-description.styles';
 
 type Props = {
   readme?: string;
-  repo: string;
   externalImages?: ImageMap;
 };
 
@@ -16,7 +15,6 @@ const plugins = [gfm];
 
 export const ModDescription: React.FunctionComponent<Props> = ({
   readme,
-  repo,
   externalImages = {},
 }) => (
   <Wrapper>

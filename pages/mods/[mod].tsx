@@ -85,11 +85,7 @@ const ModPage: React.FunctionComponent<Props> = ({
       </Head>
       <PageLayoutColumns>
         {readme && (
-          <ModDescription
-            readme={readme}
-            repo={mod.repo}
-            externalImages={externalImages}
-          />
+          <ModDescription readme={readme} externalImages={externalImages} />
         )}
         <ModActions mod={mod} isFullWidth={!Boolean(readme)} />
       </PageLayoutColumns>
