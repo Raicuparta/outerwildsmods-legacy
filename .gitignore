@@ -26,3 +26,6 @@ yarn-error.log*
 
 # generated sitemap
 /public/sitemap.xml
+
+# downloaded images
+/public/images/external
