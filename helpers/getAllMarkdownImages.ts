@@ -2,6 +2,8 @@ import fs, { promises as fsp } from 'fs';
 import path from 'path';
 import { Parser } from 'commonmark';
 
+export type ImageMap = Record<string, string>;
+
 const getPath = (relativePath: string) =>
   path.join(process.cwd(), relativePath);
 
@@ -40,7 +42,7 @@ export const downloadImage = async (
 
   await fsp.writeFile(getPath(filePath), Buffer.from(image));
 
-  return filePath;
+  return `/${filePath}`;
 };
 
 export const downloadAllImages = async (
@@ -48,7 +50,7 @@ export const downloadAllImages = async (
   modName: string,
   imageUrls: string[]
 ) => {
-  const imageMap: Record<string, string> = {};
+  const imageMap: ImageMap = {};
 
   for (let url of imageUrls) {
     imageMap[url] = await downloadImage(baseUrl, modName, url);
