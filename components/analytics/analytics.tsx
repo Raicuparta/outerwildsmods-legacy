@@ -4,7 +4,7 @@ export const Analytics: React.FunctionComponent<{ id: string }> = ({ id }) => {
   const isAmp = useAmp();
   return isAmp ? (
     <script
-      defer
+      async
       custom-element="amp-analytics"
       src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"
     />
