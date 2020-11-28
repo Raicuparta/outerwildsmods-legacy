@@ -1,2 +1,2 @@
 export * from './getRawContentUrl';
-export * from './getAllMarkdownImages';
+export * from './getMarkdownImages';

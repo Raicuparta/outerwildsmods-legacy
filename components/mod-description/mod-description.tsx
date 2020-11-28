@@ -23,9 +23,6 @@ export const ModDescription: React.FunctionComponent<Props> = ({
     {readme && (
       <Markdown
         skipHtml
-        // transformImageUri={(uri) =>
-        //   uri.startsWith('http') ? uri : `${getRawContentUrl(repo)}/${uri}`
-        // }
         renderers={{
           heading: HeadingRenderer,
           link: TextLink,
