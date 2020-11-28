@@ -33,16 +33,17 @@ export const downloadImage = async (
 ) => {
   const response = await fetch(`${baseUrl}/${imageUrl}`);
   const image = await response.arrayBuffer();
-  const filePath = `public/images/external/${modName}/${imageUrl}`;
+  const filePath = `/images/external/${modName}/${imageUrl}`;
+  const publicPath = `public${filePath}`;
 
-  const fileDirectory = path.dirname(filePath);
-  if (!fs.existsSync(fileDirectory)) {
-    await fsp.mkdir(fileDirectory, { recursive: true });
+  const publicDirectory = path.dirname(publicPath);
+  if (!fs.existsSync(publicDirectory)) {
+    await fsp.mkdir(publicDirectory, { recursive: true });
   }
 
-  await fsp.writeFile(getPath(filePath), Buffer.from(image));
+  await fsp.writeFile(getPath(publicPath), Buffer.from(image));
 
-  return `/${filePath}`;
+  return filePath;
 };
 
 export const downloadAllImages = async (
