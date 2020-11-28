@@ -134,7 +134,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   console.log('images', images);
 
   try {
-    downloadImage(rawContentUrl + '/' + images[0]);
+    downloadImage(rawContentUrl, images[0], mod.manifest.name);
   } catch {
     console.log('couldnt download image');
   }

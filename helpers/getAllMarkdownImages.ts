@@ -24,13 +24,19 @@ export const getAllMarkdownImages = (markdown?: string): string[] => {
   return uniqueSrcList;
 };
 
-export const downloadImage = async (imageUrl: string) => {
-  const response = await fetch(imageUrl);
+export const downloadImage = async (
+  baseUrl: string,
+  imageUrl: string,
+  modName: string
+) => {
+  const response = await fetch(`${baseUrl}/${imageUrl}`);
   const image = await response.arrayBuffer();
-  // console.log('image size', image.byteLength);
-  const dir = 'public/images/external/';
-  if (!fs.existsSync(dir)) {
-    await fsp.mkdir(dir);
+  const filePath = `public/images/external/${modName}/${imageUrl}`;
+
+  const fileDirectory = path.dirname(filePath);
+  if (!fs.existsSync(fileDirectory)) {
+    await fsp.mkdir(fileDirectory, { recursive: true });
   }
-  await fsp.writeFile(getPath(dir + 'IMAGE_TEST.png'), Buffer.from(image));
+
+  await fsp.writeFile(getPath(filePath), Buffer.from(image));
 };
