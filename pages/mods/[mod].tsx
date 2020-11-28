@@ -8,7 +8,11 @@ import {
   PageLayoutColumns,
 } from '../../components';
 import { getModDatabase, Mod, getModReadme } from '../../services';
-import { getRawContentUrl } from '../../helpers';
+import {
+  downloadImage,
+  getAllMarkdownImages,
+  getRawContentUrl,
+} from '../../helpers';
 
 import { getModPathName } from '.';
 
@@ -125,6 +129,15 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
     (readmeName) => `${rawContentUrl}/${readmeName}`
   );
   const readme = await getModReadme(readmePaths);
+
+  const images = getAllMarkdownImages(readme);
+  console.log('images', images);
+
+  try {
+    downloadImage(rawContentUrl + '/' + images[0]);
+  } catch {
+    console.log('couldnt download image');
+  }
 
   return {
     props: {
