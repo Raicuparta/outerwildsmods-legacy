@@ -9,6 +9,7 @@ import {
 } from '../../components';
 import { getModDatabase, Mod, getModReadme } from '../../services';
 import {
+  downloadAllImages,
   downloadImage,
   getAllMarkdownImages,
   getRawContentUrl,
@@ -131,13 +132,8 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   const readme = await getModReadme(readmePaths);
 
   const images = getAllMarkdownImages(readme);
-  console.log('images', images);
 
-  try {
-    downloadImage(rawContentUrl, images[0], mod.manifest.name);
-  } catch {
-    console.log('couldnt download image');
-  }
+  downloadAllImages(rawContentUrl, mod.manifest.name, images);
 
   return {
     props: {

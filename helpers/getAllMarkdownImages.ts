@@ -26,8 +26,8 @@ export const getAllMarkdownImages = (markdown?: string): string[] => {
 
 export const downloadImage = async (
   baseUrl: string,
-  imageUrl: string,
-  modName: string
+  modName: string,
+  imageUrl: string
 ) => {
   const response = await fetch(`${baseUrl}/${imageUrl}`);
   const image = await response.arrayBuffer();
@@ -39,4 +39,20 @@ export const downloadImage = async (
   }
 
   await fsp.writeFile(getPath(filePath), Buffer.from(image));
+
+  return filePath;
+};
+
+export const downloadAllImages = async (
+  baseUrl: string,
+  modName: string,
+  imageUrls: string[]
+) => {
+  const imageMap: Record<string, string> = {};
+
+  for (let url of imageUrls) {
+    imageMap[url] = await downloadImage(baseUrl, modName, url);
+  }
+
+  return imageMap;
 };
