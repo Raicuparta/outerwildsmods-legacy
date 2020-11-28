@@ -6,5 +6,5 @@ type Props = Partial<Parameters<typeof Image>[0]>;
 export const SmartImage: React.FunctionComponent<Props> = (props) => {
   const isAmp = useAmp();
 
-  return isAmp ? <amp-img {...props} /> : <img {...props} />;
+  return isAmp ? <amp-img {...props} /> : <img {...props} loading="lazy" />;
 };
