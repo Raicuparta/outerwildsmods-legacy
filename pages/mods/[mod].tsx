@@ -17,7 +17,6 @@ const readmeNames = ['README.md', 'readme.md', 'Readme.md'];
 type Props = {
   readme?: string;
   mod?: Mod;
-  modManagerDownloadUrl?: string;
 };
 
 const multipleFetchAttempts = async (
@@ -131,7 +130,6 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
     props: {
       ...(readme ? { readme } : undefined),
       mod,
-      modManagerDownloadUrl: modDatabase.modManager.installerDownloadUrl,
     },
   };
 };
