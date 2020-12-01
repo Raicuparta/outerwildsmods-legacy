@@ -82,7 +82,7 @@ class MyDocument extends Document {
         </CustomHead>
         <body>
           <Main />
-          <NextScript />
+          {!process.env.isProd && <NextScript />}
           <AmpAnalytics id={id} />
         </body>
       </Html>

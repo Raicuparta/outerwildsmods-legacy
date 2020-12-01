@@ -47,6 +47,9 @@ export const NavLinkWrapper = styled.a<{ isActive: boolean }>(
     color: ${isActive ? colors.light : colors.accent};
     background-color: ${isActive ? colors.background : 'none'};
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: ${spacing.medium} 0;
     margin: 0px ${spacing.small};
     border-radius: ${borderRadius} ${borderRadius} 0 0;
@@ -67,3 +70,12 @@ export const NavLinkAdWrapper = styled(NavLinkWrapper)(
     background-color: ${isActive ? colors.background : 'none'};
   `
 );
+
+export const WishlistLabel = styled.label`
+  position: relative;
+  top: -42px;
+  height: 0;
+  color: #dc5555;
+  font-size: x-small;
+  white-space: nowrap;
+`;
