@@ -2,20 +2,27 @@ import { useRouter } from 'next/dist/client/router';
 import Link from 'next/link';
 
 import { SmartLinkProps } from '..';
-import { NavLinkWrapper } from './navigation.styles';
+import { NavLinkWrapper, NavLinkAdWrapper } from './navigation.styles';
 
-export const NavigationLink: React.FunctionComponent<SmartLinkProps> = ({
+type Props = SmartLinkProps & {
+  isAd?: boolean;
+};
+
+export const NavigationLink: React.FunctionComponent<Props> = ({
   children,
   href,
+  isAd = false,
 }) => {
   const { pathname } = useRouter();
   const isActive = pathname === href;
 
+  const Wrapper = isAd ? NavLinkAdWrapper : NavLinkWrapper;
+
   return (
     <Link href={href}>
-      <NavLinkWrapper isActive={isActive} href={href}>
+      <Wrapper isActive={isActive} href={href}>
         {children}
-      </NavLinkWrapper>
+      </Wrapper>
     </Link>
   );
 };

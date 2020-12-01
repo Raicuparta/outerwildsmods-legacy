@@ -25,8 +25,11 @@ export const PageTitle = styled.h1`
     color: ${colors.white};
     font-weight: 100;
     ${textOutline(colors.background)};
-
-    ${mediaDown('small')} {
+  }
+  
+  ${mediaDown('small')} {
+    margin-bottom: 0;
+    a {
       font-size: 2rem;
     }
   }
