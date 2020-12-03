@@ -24,7 +24,7 @@ export const NavigationLink: React.FunctionComponent<Props> = ({
         isActive={isActive}
         href={href}
         target={isAd ? '_blank' : undefined}
-        rel={isAd ? 'noopener noreferrer' : undefined}
+        rel={isAd ? 'noopener' : undefined}
       >
         {children}
         {isAd && (<WishlistLabel>
