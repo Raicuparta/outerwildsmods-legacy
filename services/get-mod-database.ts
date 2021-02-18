@@ -39,5 +39,10 @@ export async function getModDatabase() {
     return;
   }
 
-  return response.data;
+  return {
+    ...response.data,
+    releases: response.data.releases.sort(
+      (releaseA, releaseB) => releaseB.downloadCount - releaseA.downloadCount
+    ),
+  };
 }
