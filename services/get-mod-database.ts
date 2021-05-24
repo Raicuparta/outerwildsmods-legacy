@@ -18,13 +18,16 @@ export type Mod = {
   required?: boolean;
 };
 
+export type ModManager = {
+  version: string;
+  downloadUrl: string;
+  installerDownloadUrl: string;
+  zipDownloadUrl: string;
+  downloadCount: number;
+}
+
 export type ModDatabase = {
-  modManager: {
-    version: string;
-    downloadUrl: string;
-    installerDownloadUrl: string;
-    zipDownloadUrl: string;
-  };
+  modManager: ModManager;
   releases: Mod[];
 };
 

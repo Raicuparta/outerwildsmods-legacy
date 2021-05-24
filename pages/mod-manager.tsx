@@ -10,16 +10,16 @@ import {
   WindowsIcon,
   SmartLink,
 } from '../components';
-import { getModDatabase } from '../services';
+import { getModDatabase, ModManager } from '../services';
 
 const modManagerDefaultDownloadUrl =
   'https://github.com/Raicuparta/ow-mod-manager/releases/latest';
 
 type Props = {
-  modManagerDownloadUrl?: string;
+  modManager?: ModManager;
 };
 
-const Home: React.FunctionComponent<Props> = ({ modManagerDownloadUrl }) => (
+const Home: React.FunctionComponent<Props> = ({ modManager }) => (
   <PageLayout>
     <Head>
       <title>Outer Wilds Mod Manager - Download Windows app</title>
@@ -38,19 +38,28 @@ const Home: React.FunctionComponent<Props> = ({ modManagerDownloadUrl }) => (
         />
       </div>
       <LinkButton
-        href={modManagerDownloadUrl ?? modManagerDefaultDownloadUrl}
-        target={modManagerDownloadUrl ? undefined : '_blank'}
+        href={modManager?.downloadUrl ?? modManagerDefaultDownloadUrl}
+        target={modManager?.downloadUrl ? undefined : '_blank'}
         rel="noopener noreferrer"
         variant="main-download"
       >
         <WindowsIcon />
         Download the Outer Wilds Mod Manager for Windows
       </LinkButton>
-      <p>
-        <TextLink href="https://github.com/Raicuparta/ow-mod-manager">
-          Source code
-        </TextLink>
-      </p>
+      {modManager?.zipDownloadUrl && (
+        <p>
+          or
+          {' '}
+          <TextLink href={modManager.zipDownloadUrl}>
+            download the portable version instead
+          </TextLink>
+        </p>
+      )}
+      {modManager?.downloadCount && (
+        <p>
+          The Mod Manager has been downloaded <strong>{modManager.downloadCount}</strong> times.
+        </p>
+      )}
       <p>For all your modding needs! With access to features such as:</p>
       <ul>
         <li>Downloading mods;</li>
@@ -92,7 +101,7 @@ const Home: React.FunctionComponent<Props> = ({ modManagerDownloadUrl }) => (
       <p>
         You can uninstall the Mod Manager by searching for "Add or remove
         programs" in the start menu (or in the control panel), and then finding
-        OuterWildsModManager in the list.
+        Outer Wilds Mod Manager in the list.
       </p>
     </PageSection>
     <PageSection title="More information" id="more-info">
@@ -121,7 +130,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 
   return {
     props: {
-      modManagerDownloadUrl: modDatabase?.modManager.installerDownloadUrl,
+      modManager: modDatabase?.modManager,
     },
   };
 };
