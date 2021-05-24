@@ -2,7 +2,7 @@ import fs, { promises as fsp } from 'fs';
 import path from 'path';
 import { Parser } from 'commonmark';
 
-export type ImageMap = Record<string, string>;
+export type ImageMap = Record<string, string | null>;
 
 const getPath = (relativePath: string) =>
   path.join(process.cwd(), relativePath);
@@ -34,7 +34,7 @@ export const downloadImage = async (
   const response = await fetch(`${baseUrl}/${imageUrl}`);
 
   if (!response.ok) {
-    return imageUrl;
+    return null;
   }
 
   const image = await response.arrayBuffer();
