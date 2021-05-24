@@ -32,6 +32,11 @@ export const downloadImage = async (
   imageUrl: string
 ) => {
   const response = await fetch(`${baseUrl}/${imageUrl}`);
+
+  if (!response.ok) {
+    return imageUrl;
+  }
+
   const image = await response.arrayBuffer();
   const filePath = `/images/external/${modName}/${imageUrl}`;
   const publicPath = `public${filePath}`;
