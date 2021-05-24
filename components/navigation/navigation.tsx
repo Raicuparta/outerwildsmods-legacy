@@ -14,7 +14,6 @@ export const Navigation: React.FunctionComponent = () => (
         <NavigationLink href="/mod-manager">Manager</NavigationLink>
         <NavigationLink href="/mods">Mods</NavigationLink>
         <NavigationLink href="/outer-wilds-alpha">Alpha</NavigationLink>
-        <NavigationLink href="https://store.steampowered.com/app/651600/Jumps_VR/?fromowm=true" isAd>Jumps VR</NavigationLink>
       </NavWrapper>
     </Layout>
   </Wrapper>
