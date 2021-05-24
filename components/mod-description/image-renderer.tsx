@@ -5,11 +5,12 @@ import { SmartImage } from '../smart-image';
 type Props = {
   src: string;
   alt: string;
+  node: never;
 };
 
 export const ImageRenderer = (
   externalImages: ImageMap
-): React.FunctionComponent<Props> => ({ src, alt, ...props }) => {
+): React.FunctionComponent<Props> => ({ src, alt, node, ...props }) => {
   const isAmp = useAmp();
 
   return (!isAmp || externalImages[src]) ? (
