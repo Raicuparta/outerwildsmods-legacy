@@ -38,8 +38,8 @@ const Home: React.FunctionComponent<Props> = ({ modManager }) => (
         />
       </div>
       <LinkButton
-        href={modManager?.downloadUrl ?? modManagerDefaultDownloadUrl}
-        target={modManager?.downloadUrl ? undefined : '_blank'}
+        href={modManager?.installerDownloadUrl ?? modManagerDefaultDownloadUrl}
+        target={modManager?.installerDownloadUrl ? undefined : '_blank'}
         rel="noopener noreferrer"
         variant="main-download"
       >

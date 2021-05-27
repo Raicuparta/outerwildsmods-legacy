@@ -20,7 +20,7 @@ export type Mod = {
 
 export type ModManager = {
   version: string;
-  downloadUrl: string;
+  downloadUrl: never; // Legacy download URL, shouldn't be used.
   installerDownloadUrl: string;
   zipDownloadUrl: string;
   downloadCount: number;
