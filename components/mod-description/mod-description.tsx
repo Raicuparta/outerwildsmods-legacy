@@ -1,9 +1,9 @@
 import gfm from 'remark-gfm';
 
-import { getRawContentUrl, ImageMap } from '../../helpers';
-import { TextLink } from '../smart-link';
+import { ImageMap } from '../../helpers';
 import { HeadingRenderer } from './heading-renderer';
 import { ImageRenderer } from './image-renderer';
+import { LinkRenderer } from './link-renderer';
 import { Markdown, Wrapper } from './mod-description.styles';
 
 type Props = {
@@ -23,7 +23,7 @@ export const ModDescription: React.FunctionComponent<Props> = ({
         skipHtml
         renderers={{
           heading: HeadingRenderer,
-          link: TextLink,
+          link: LinkRenderer,
           image: ImageRenderer(externalImages),
         }}
         plugins={plugins}
