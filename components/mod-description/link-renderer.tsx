@@ -46,7 +46,6 @@ export const LinkRenderer = (imageRenderer: ReturnType<typeof ImageRenderer>): R
 
     const youtubeId = getYoutubeId(href);
 
-
     return isAmp ? (
       <amp-youtube
         data-videoid={youtubeId}
@@ -66,7 +65,6 @@ export const LinkRenderer = (imageRenderer: ReturnType<typeof ImageRenderer>): R
       />
     );
   }
-
 
   return VideoFromImageLink() || <TextLink {...props} />;
 };
