@@ -33,7 +33,11 @@ export const HeadingRenderer: React.FunctionComponent<Props> = (props) => {
   const slug = Slugger.slug(text);
 
   if (props.level === 2) {
-    return <PageSectionTitle id={slug}>{props.children}</PageSectionTitle>;
+    return (
+      <a href={`#${slug}`}>
+        <PageSectionTitle id={slug}>{props.children}</PageSectionTitle>
+      </a>
+    );
   }
 
   const newChildren = [
@@ -41,5 +45,9 @@ export const HeadingRenderer: React.FunctionComponent<Props> = (props) => {
     ...(props.level === 1 ? [<PageTitle key={text} text={text} />] : []),
   ];
 
-  return createElement('h' + props.level, { id: slug }, newChildren);
+  return (
+    <a href={`#${slug}`}>
+      {createElement('h' + props.level, { id: slug }, newChildren)}
+    </a>
+  );
 };
