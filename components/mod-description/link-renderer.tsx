@@ -1,5 +1,6 @@
-import { resolveHref } from "next/dist/next-server/lib/router/router";
+import { Children, ReactElement } from "react";
 import { TextLink } from "../smart-link";
+import { ImageRenderer } from "./image-renderer";
 
 type Props = React.AnchorHTMLAttributes<HTMLAnchorElement>;
 
@@ -20,24 +21,32 @@ function getYoutubeId(url: string){
   return urlParts[2].split(/[^0-9a-z_\-]/i)[0];
 }
 
-export const LinkRenderer: React.FC<Props> = (props) => {
-  const { href } = props;
+export const LinkRenderer = (imageRenderer: ReturnType<typeof ImageRenderer>): React.FC<Props> => (props) => {
+  const { href, children } = props;
   let hostName = '';
   try {
     hostName = href ? new URL(href).hostname : '';
   } finally {
     if (!href) {
-      return null;
+      throw Error("Missing href");
     }
 
-    if (youtubeHostNames.includes(hostName)) {
+    let child: ReactElement | null = null;
+    try {
+      child = Children.toArray(children)[0] as ReactElement;
+    } catch {
+      child = null;
+    }
+    const isWrappingImage = child !== null && (child.type === imageRenderer || child.type === 'img');
+
+    if (youtubeHostNames.includes(hostName) && isWrappingImage) {
 
       const videoId = getYoutubeId(href);
 
       return (
         <iframe
-          width="560"
-          height="315"
+          width="100%"
+          height="350"
           src={`https://www.youtube.com/embed/${videoId}`}
           title="YouTube video player"
           frameBorder="0"

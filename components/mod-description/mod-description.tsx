@@ -16,20 +16,24 @@ const plugins = [gfm];
 export const ModDescription: React.FunctionComponent<Props> = ({
   readme,
   externalImages = {},
-}) => (
-  <Wrapper>
-    {readme && (
-      <Markdown
-        skipHtml
-        renderers={{
-          heading: HeadingRenderer,
-          link: LinkRenderer,
-          image: ImageRenderer(externalImages),
-        }}
-        plugins={plugins}
-      >
-        {readme}
-      </Markdown>
-    )}
-  </Wrapper>
-);
+}) => {
+  const imageRenderer = ImageRenderer(externalImages);
+
+  return (
+    <Wrapper>
+      {readme && (
+        <Markdown
+          skipHtml
+          renderers={{
+            heading: HeadingRenderer,
+            link: LinkRenderer(imageRenderer),
+            image: imageRenderer,
+          }}
+          plugins={plugins}
+        >
+          {readme}
+        </Markdown>
+      )}
+    </Wrapper>
+  );
+}
