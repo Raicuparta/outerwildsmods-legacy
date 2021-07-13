@@ -30,13 +30,13 @@ export const LinkRenderer = (imageRenderer: ReturnType<typeof ImageRenderer>): R
     if (!href) {
       return null;
     }
-
     try {
-      const child = Children.only(children) as ReactElement | null;
+      const child = Children.toArray(children)[0] as ReactElement | null;
       if (!child) {
         return null;
       }
       const isWrappingImage = child.type === imageRenderer || child.type === 'img';
+      const hostName = new URL(href).hostname;
       if (!youtubeHostNames.includes(hostName) || !isWrappingImage) {
         return null;
       }
@@ -45,6 +45,7 @@ export const LinkRenderer = (imageRenderer: ReturnType<typeof ImageRenderer>): R
     }
 
     const youtubeId = getYoutubeId(href);
+
 
     return isAmp ? (
       <amp-youtube
@@ -66,39 +67,6 @@ export const LinkRenderer = (imageRenderer: ReturnType<typeof ImageRenderer>): R
     );
   }
 
-  let hostName = '';
-  try {
-    hostName = href ? new URL(href).hostname : '';
-  } finally {
-    if (!href) {
-      throw Error("Missing href");
-    }
 
-    let child: ReactElement | null = null;
-    try {
-      child = Children.toArray(children)[0] as ReactElement;
-    } catch {
-      child = null;
-    }
-    const isWrappingImage = child !== null && (child.type === imageRenderer || child.type === 'img');
-
-    if (youtubeHostNames.includes(hostName) && isWrappingImage) {
-
-      const videoId = getYoutubeId(href);
-
-      return (
-        <iframe
-          width="100%"
-          height="350"
-          src={`https://www.youtube.com/embed/${videoId}`}
-          title="YouTube video player"
-          frameBorder="0"
-          allow="accelerometer;autoplay;clipboard-write;encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        />
-      );
-    } else {
-      return VideoFromImageLink() || <TextLink {...props} />;
-    }
-  }
+  return VideoFromImageLink() || <TextLink {...props} />;
 };
