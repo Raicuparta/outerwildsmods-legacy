@@ -1,3 +1,4 @@
+import { useAmp } from "next/amp";
 import { Children, ReactElement } from "react";
 import { TextLink } from "../smart-link";
 import { ImageRenderer } from "./image-renderer";
@@ -22,6 +23,7 @@ function getYoutubeId(url: string){
 }
 
 export const LinkRenderer = (imageRenderer: ReturnType<typeof ImageRenderer>): React.FC<Props> => (props) => {
+  const isAmp = useAmp();
   const { href, children } = props;
 
   const VideoFromImageLink = () => {
@@ -42,11 +44,20 @@ export const LinkRenderer = (imageRenderer: ReturnType<typeof ImageRenderer>): R
       return null;
     }
 
-    return (
+    const youtubeId = getYoutubeId(href);
+
+    return isAmp ? (
+      <amp-youtube
+        data-videoid={youtubeId}
+        layout="responsive"
+        width="480"
+        height="270"
+      />
+    ) : (
       <iframe
         width="100%"
         height="350"
-        src={`https://www.youtube.com/embed/${getYoutubeId(href)}`}
+        src={`https://www.youtube.com/embed/${youtubeId}`}
         title="YouTube video player"
         frameBorder="0"
         allow="accelerometer;autoplay;clipboard-write;encrypted-media; gyroscope; picture-in-picture"
