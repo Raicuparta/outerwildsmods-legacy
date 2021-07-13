@@ -23,6 +23,38 @@ function getYoutubeId(url: string){
 
 export const LinkRenderer = (imageRenderer: ReturnType<typeof ImageRenderer>): React.FC<Props> => (props) => {
   const { href, children } = props;
+
+  const VideoFromImageLink = () => {
+    if (!href) {
+      return null;
+    }
+
+    try {
+      const child = Children.only(children) as ReactElement | null;
+      if (!child) {
+        return null;
+      }
+      const isWrappingImage = child.type === imageRenderer || child.type === 'img';
+      if (!youtubeHostNames.includes(hostName) || !isWrappingImage) {
+        return null;
+      }
+    } catch {
+      return null;
+    }
+
+    return (
+      <iframe
+        width="100%"
+        height="350"
+        src={`https://www.youtube.com/embed/${getYoutubeId(href)}`}
+        title="YouTube video player"
+        frameBorder="0"
+        allow="accelerometer;autoplay;clipboard-write;encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      />
+    );
+  }
+
   let hostName = '';
   try {
     hostName = href ? new URL(href).hostname : '';
@@ -55,7 +87,7 @@ export const LinkRenderer = (imageRenderer: ReturnType<typeof ImageRenderer>): R
         />
       );
     } else {
-      return <TextLink {...props} />
+      return VideoFromImageLink() || <TextLink {...props} />;
     }
   }
 };
