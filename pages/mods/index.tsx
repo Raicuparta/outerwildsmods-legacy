@@ -39,12 +39,9 @@ const Mods: React.FunctionComponent<Props> = ({ modDatabase }) => {
           <SmartLink
             key={mod.repo}
             href="/mods/[mod]"
-            as={getModPath(mod.manifest.name)}
+            as={getModPath(mod.name)}
           >
-            <ListItemCard
-              title={mod.manifest.name}
-              description={mod.manifest.description}
-            />
+            <ListItemCard title={mod.name} description={mod.description} />
           </SmartLink>
         ))}
       </PageSection>

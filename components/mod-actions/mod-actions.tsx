@@ -21,11 +21,9 @@ export const ModActions: React.FunctionComponent<Props> = ({
   <Wrapper isFullWidth={isFullWidth}>
     <Content>
       <div>
-        <Title>{mod.manifest.name}</Title>
-        <TextLink href={mod.repo}>
-          by {mod.manifest.author}
-        </TextLink>
-        <p>{mod.manifest.description}</p>
+        <Title>{mod.name}</Title>
+        <TextLink href={mod.repo}>by {mod.author}</TextLink>
+        <p>{mod.description}</p>
         <div>
           <small>Downloaded {mod.downloadCount} times</small>
         </div>
@@ -39,7 +37,7 @@ export const ModActions: React.FunctionComponent<Props> = ({
         <LinkButton href={mod.downloadUrl}>
           <small>
             <div>Download mod files</div>
-            <div>Version {mod.manifest.version}</div>
+            <div>Version {mod.version}</div>
           </small>
         </LinkButton>
       </ButtonsWrapper>

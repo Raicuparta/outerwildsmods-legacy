@@ -2,19 +2,15 @@ const DATABASE_URL =
   'https://raw.githubusercontent.com/Raicuparta/ow-mod-db/master/database.json';
 import axios from 'axios';
 
-export type Manifest = {
-  name: string;
-  author: string;
-  uniqueName: string;
-  version: string;
-  description: string;
-};
-
 export type Mod = {
+  name: string;
+  uniqueName: string;
+  author: string;
+  description: string;
+  version: string;
   repo: string;
   downloadUrl: string;
   downloadCount: number;
-  manifest: Manifest;
   required?: boolean;
 };
 
@@ -24,7 +20,7 @@ export type ModManager = {
   installerDownloadUrl: string;
   zipDownloadUrl: string;
   downloadCount: number;
-}
+};
 
 export type ModDatabase = {
   modManager: ModManager;

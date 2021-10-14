@@ -72,15 +72,10 @@ const ModPage: React.FunctionComponent<Props> = ({
   return (
     <PageLayout isWide>
       <Head>
-        <title>
-          {mod.manifest.name} - Download and install Outer Wilds mods
-        </title>
+        <title>{mod.name} - Download and install Outer Wilds mods</title>
         <meta
           name="description"
-          content={getPageDescription(
-            mod.manifest.description,
-            mod.manifest.name
-          )}
+          content={getPageDescription(mod.description, mod.name)}
         />
       </Head>
       <PageLayoutColumns>
@@ -103,8 +98,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
     };
   }
 
-  const paths = modDatabase.releases.map(({ manifest }) => ({
-    params: { mod: getModPathName(manifest.name) },
+  const paths = modDatabase.releases.map(({ name }) => ({
+    params: { mod: getModPathName(name) },
   }));
 
   return {
@@ -125,7 +120,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   }
 
   const mod = modDatabase.releases.find(
-    (mod) => getModPathName(mod.manifest.name) === params.mod
+    (mod) => getModPathName(mod.name) === params.mod
   );
 
   if (!mod) {
@@ -142,7 +137,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
 
   const externalImages = await downloadAllImages(
     rawContentUrl,
-    mod.manifest.name,
+    mod.name,
     images
   );
 
