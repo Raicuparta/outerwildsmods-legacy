@@ -3,7 +3,6 @@ import { PageConfig } from 'next';
 
 import {
   ModList,
-  AuthorList,
   PageSection,
   PageSectionDescription,
   PageSectionImage,
@@ -92,9 +91,6 @@ const Home: React.FunctionComponent = () => (
       description="If you want to make your own mods, the OWML documentation has most of the info you need to get started. The easiest way to start is by cloning the mod template project and following the instructions there. The aforementioned Discord server also has a modding channel."
     >
       <LinkList links={forModdersLinks} />
-    </PageSection>
-    <PageSection title="The Modders" id="authors">
-      <AuthorList />
     </PageSection>
   </PageLayout>
 );

@@ -1,4 +1,3 @@
-export * from './author-list';
 export * from './link-button';
 export * from './list-item-card';
 export * from './mod-list';
