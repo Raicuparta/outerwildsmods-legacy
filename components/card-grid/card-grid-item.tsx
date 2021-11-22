@@ -7,7 +7,7 @@ import {
   DescriptionWrapper,
   Description,
   TextWrapper,
-} from './card-grid-item.styles';
+} from './card-grid.styles';
 
 export type CardGridItemProps = {
   title: string;
