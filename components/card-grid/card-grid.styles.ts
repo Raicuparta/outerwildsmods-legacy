@@ -11,7 +11,7 @@ export const GridWrapper = styled.div`
 export const ItemWrapper = styled.span`
   display: flex;
   flex-direction: column;
-  width: 300px;
+  width: 280px;
   height: calc(100% - 2 * ${spacing.small});
   border-radius: ${borderRadius.medium};
   margin: ${spacing.small};
@@ -54,6 +54,7 @@ export const PlaceholderText = styled.div`
   text-align: center;
   overflow: hidden;
   padding: ${spacing.medium};
+  z-index: 1;
 `;
 
 export const TextWrapper = styled.div`
