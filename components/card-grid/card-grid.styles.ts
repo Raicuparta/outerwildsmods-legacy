@@ -47,6 +47,7 @@ export const PlaceholderText = styled.div`
   font-size: 1.5em;
   line-height: 1em;
   text-align: center;
+  overflow: hidden;
 `;
 
 export const TextWrapper = styled.div`
