@@ -7,6 +7,8 @@ import {
   SmartLink,
   PageLayout,
 } from '../../components';
+import { CardGridItem } from '../../components/card-grid';
+import { CardGrid } from '../../components/card-grid/card-grid';
 import { ModDatabase, getModDatabase } from '../../services';
 
 type Props = {
@@ -22,7 +24,7 @@ const Mods: React.FunctionComponent<Props> = ({ modDatabase }) => {
   const mods = modDatabase?.releases;
 
   return (
-    <PageLayout>
+    <PageLayout isWide>
       <Head>
         <title>Outer Wilds Mods - Find all mods for Outer Wilds</title>
         <meta
@@ -35,15 +37,21 @@ const Mods: React.FunctionComponent<Props> = ({ modDatabase }) => {
         <SmartLink href="/mod-manager">Outer Wilds Mod Manager</SmartLink>
       </PageSection>
       <PageSection title="Available mods" id="mods">
-        {mods?.map((mod) => (
-          <SmartLink
-            key={mod.repo}
-            href="/mods/[mod]"
-            as={getModPath(mod.name)}
-          >
-            <ListItemCard title={mod.name} description={mod.description} />
-          </SmartLink>
-        ))}
+        <CardGrid>
+          {mods?.map((mod) => (
+            <SmartLink
+              key={mod.repo}
+              href="/mods/[mod]"
+              as={getModPath(mod.name)}
+            >
+              <CardGridItem
+                title={mod.name}
+                description={mod.description}
+                imageUrl="/images/nomai-vr.png"
+              />
+            </SmartLink>
+          ))}
+        </CardGrid>
       </PageSection>
     </PageLayout>
   );
