@@ -28,13 +28,6 @@ const mods: Mod[] = [
     image: '/images/light-bramble.jpg',
   },
   {
-    title: 'TAICheat',
-    description:
-      'Collection of cheats. Super jet pack, invincibility, and a lot more.',
-    path: 'taicheat',
-    image: '/images/tai-cheat.png',
-  },
-  {
     title: 'More mods',
     path: '',
   },
