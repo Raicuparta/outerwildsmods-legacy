@@ -88,8 +88,6 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
           ? await downloadAllImages(rawContentUrl, mod.name, [images[0]])
           : {};
 
-      console.log(mod.name + ' : ' + externalImages[0]);
-
       return {
         ...mod,
         imageUrl: Object.values(externalImages)[0] || images[0] || null,

@@ -22,7 +22,7 @@ export const CardGridItem: React.FunctionComponent<CardGridItemProps> = ({
   description,
 }) => (
   <ItemWrapper>
-    <ImageWrapper>
+    <ImageWrapper hue={imageUrl ? 0 : Math.random()}>
       {!imageUrl && <PlaceholderText>{title}</PlaceholderText>}
       <SmartImage
         layout="fixed"

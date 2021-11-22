@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { colors, spacing, borderRadius } from '../../styles/variables';
 
@@ -25,17 +25,20 @@ export const ItemWrapper = styled.span`
   }
 `;
 
-export const ImageWrapper = styled.div`
-  width: 100%;
-  height: 100px;
-  position: relative;
-  img,
-  amp-img {
+export const ImageWrapper = styled.div<{ hue?: number }>(
+  ({ hue = 0 }) => css`
     width: 100%;
     height: 100px;
-    object-fit: cover;
-  }
-`;
+    position: relative;
+    filter: hue-rotate(${hue}turn);
+    img,
+    amp-img {
+      width: 100%;
+      height: 100px;
+      object-fit: cover;
+    }
+  `
+);
 
 export const PlaceholderText = styled.div`
   position: absolute;
