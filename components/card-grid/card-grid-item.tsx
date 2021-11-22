@@ -4,7 +4,6 @@ import {
   ItemWrapper,
   ImageWrapper,
   Title,
-  Author,
   DescriptionWrapper,
   Description,
   TextWrapper,
