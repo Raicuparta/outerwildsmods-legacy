@@ -92,7 +92,10 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 
       return {
         ...mod,
-        imageUrl: Object.values(externalImages)[0] || images[0] || null,
+        imageUrl:
+          Object.values(externalImages)[0] ||
+          images[0] ||
+          '/images/placeholder.jpg',
       };
     })
   );

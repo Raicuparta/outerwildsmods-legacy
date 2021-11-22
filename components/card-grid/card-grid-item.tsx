@@ -26,8 +26,8 @@ export const CardGridItem: React.FunctionComponent<CardGridItemProps> = ({
         layout="fixed"
         alt={title}
         src={imageUrl}
-        width="50"
-        height="50"
+        height="100"
+        width="100%"
       />
     </ImageWrapper>
     <TextWrapper>
