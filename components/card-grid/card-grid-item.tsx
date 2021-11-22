@@ -7,6 +7,7 @@ import {
   DescriptionWrapper,
   Description,
   TextWrapper,
+  PlaceholderText,
 } from './card-grid.styles';
 
 export type CardGridItemProps = {
@@ -22,11 +23,12 @@ export const CardGridItem: React.FunctionComponent<CardGridItemProps> = ({
 }) => (
   <ItemWrapper>
     <ImageWrapper>
+      {!imageUrl && <PlaceholderText>{title}</PlaceholderText>}
       <SmartImage
         layout="fixed"
         alt={title}
-        src={imageUrl}
-        height="100"
+        src={imageUrl || '/images/placeholder.jpg'}
+        height="100px"
         width="100%"
       />
     </ImageWrapper>

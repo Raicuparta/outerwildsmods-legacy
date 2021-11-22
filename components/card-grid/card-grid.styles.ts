@@ -24,12 +24,29 @@ export const ItemWrapper = styled.span`
 
 export const ImageWrapper = styled.div`
   width: 100%;
+  height: 100px;
+  position: relative;
+  margin-bottom: ${spacing.medium};
   img,
   amp-img {
     width: 100%;
     height: 100px;
     object-fit: cover;
   }
+`;
+
+export const PlaceholderText = styled.div`
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  opacity: 0.2;
+  color: ${colors.white};
+  font-size: 1.5em;
+  line-height: 1em;
+  text-align: center;
 `;
 
 export const TextWrapper = styled.div`
