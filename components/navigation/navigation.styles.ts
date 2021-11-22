@@ -10,8 +10,8 @@ export const Wrapper = styled.div`
 `;
 
 export const NavWrapper = styled.nav`
-display: flex;
-${mediaDown('small')} {
+  display: flex;
+  ${mediaDown('small')} {
     display: none;
     flex-direction: column;
   }
@@ -27,13 +27,13 @@ export const MenuButton = styled.label`
   padding: ${spacing.medium};
   background: ${colors.background};
   line-height: ${spacing.large};
-  border-radius: ${borderRadius};
+  border-radius: ${borderRadius.small};
   margin: ${spacing.medium};
   display: none;
   ${mediaDown('small')} {
     display: inline-block;
   }
-`
+`;
 
 export const Layout = styled(PageLayout)`
   padding: 0;
@@ -52,7 +52,7 @@ export const NavLinkWrapper = styled.a<{ isActive: boolean }>(
     align-items: center;
     padding: ${spacing.medium} 0;
     margin: 0px ${spacing.small};
-    border-radius: ${borderRadius} ${borderRadius} 0 0;
+    border-radius: ${borderRadius.small} ${borderRadius.small} 0 0;
     ${textOutline(colors.background)};
     -webkit-tap-highlight-color: ${transparentize(0.55)(colors.background)};
     @media (hover: hover) {

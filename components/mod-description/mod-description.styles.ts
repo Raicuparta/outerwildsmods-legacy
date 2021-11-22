@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
 
 export const Markdown = styled(ReactMarkdown)`
   font-size: 1rem;
-  border-radius: ${borderRadius};
+  border-radius: ${borderRadius.small};
 
   pre {
     padding: ${spacing.medium};
@@ -19,7 +19,7 @@ export const Markdown = styled(ReactMarkdown)`
   pre,
   code {
     background: ${colors.dark};
-    border-radius: ${borderRadius};
+    border-radius: ${borderRadius.small};
     padding: ${spacing.small};
     white-space: pre-wrap;
     word-break: break-all;

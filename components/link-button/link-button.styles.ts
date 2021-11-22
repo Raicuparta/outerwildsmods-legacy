@@ -22,7 +22,7 @@ const variantColor: Record<ButtonVariant, string> = {
 export const Wrapper = styled.a<{ variant: ButtonVariant }>(
   ({ variant }) => css`
     display: block;
-    border-radius: ${borderRadius};
+    border-radius: ${borderRadius.small};
     border: none;
     width: 100%;
     background-color: ${variantColor[variant]};

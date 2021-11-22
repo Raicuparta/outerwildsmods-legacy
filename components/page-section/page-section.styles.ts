@@ -69,7 +69,7 @@ export const SectionImageWrapper = styled.div<{ hideOnMobile: boolean }>(
     amp-img {
       object-fit: cover;
       object-position: top;
-      border-radius: ${borderRadius};
+      border-radius: ${borderRadius.small};
       border: 2px solid ${colors.dark};
       overflow: hidden;
       width: 100%;

@@ -12,13 +12,16 @@ export const ItemWrapper = styled.span`
   display: flex;
   flex-direction: column;
   width: 300px;
-  height: calc(100% - 2 * ${spacing.medium});
-  border-radius: ${borderRadius};
-  padding: ${spacing.medium};
-  margin: ${spacing.medium};
+  height: calc(100% - 2 * ${spacing.small});
+  border-radius: ${borderRadius.medium};
+  margin: ${spacing.small};
   background-color: ${colors.dark};
+  overflow: hidden;
+  border: ${spacing.small} solid;
+  border-color: ${colors.background};
   &:hover {
-    background-color: ${colors.black};
+    border-color: ${colors.dark};
+    background-color: transparent;
   }
 `;
 
@@ -26,7 +29,6 @@ export const ImageWrapper = styled.div`
   width: 100%;
   height: 100px;
   position: relative;
-  margin-bottom: ${spacing.medium};
   img,
   amp-img {
     width: 100%;
@@ -48,10 +50,11 @@ export const PlaceholderText = styled.div`
   line-height: 1em;
   text-align: center;
   overflow: hidden;
+  padding: ${spacing.medium};
 `;
 
 export const TextWrapper = styled.div`
-  /* margin-left: ${spacing.large}; */
+  padding: ${spacing.medium};
 `;
 
 export const UserName = styled.span`

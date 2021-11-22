@@ -8,7 +8,7 @@ const bulletSize = '30px';
 export const Wrapper = styled.span`
   display: flex;
   align-items: center;
-  border-radius: ${borderRadius};
+  border-radius: ${borderRadius.small};
   padding: ${spacing.medium};
   &:hover {
     background-color: ${colors.dark};

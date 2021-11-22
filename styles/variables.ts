@@ -14,7 +14,10 @@ export const spacing = {
   large: '20px',
 };
 
-export const borderRadius = '0.3rem';
+export const borderRadius = {
+  small: '0.3rem',
+  medium: '0.6rem',
+};
 
 export const breakpoints = {
   small: '600.98px',

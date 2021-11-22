@@ -13,7 +13,7 @@ export const Wrapper = styled.div<{ isFullWidth: boolean }>(
     margin-left: ${spacing.large};
     padding: ${spacing.large};
     background-color: ${colors.dark};
-    border-radius: ${borderRadius};
+    border-radius: ${borderRadius.small};
 
     ${mediaDown('medium')} {
       margin-left: 0;
