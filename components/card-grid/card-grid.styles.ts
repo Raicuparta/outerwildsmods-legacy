@@ -61,7 +61,7 @@ export const TextWrapper = styled.div`
   padding: ${spacing.medium};
 `;
 
-export const UserName = styled.span`
+export const Title = styled.span`
   color: ${colors.accent};
 `;
 

@@ -3,7 +3,8 @@ import { SmartImage } from '../smart-image';
 import {
   ItemWrapper,
   ImageWrapper,
-  UserName,
+  Title,
+  Author,
   DescriptionWrapper,
   Description,
   TextWrapper,
@@ -33,7 +34,7 @@ export const CardGridItem: React.FunctionComponent<CardGridItemProps> = ({
       />
     </ImageWrapper>
     <TextWrapper>
-      <UserName>{title}</UserName>
+      <Title>{title}</Title>
       {description && (
         <DescriptionWrapper>
           <Description>
