@@ -5,13 +5,12 @@ import { colors, spacing, borderRadius } from '../../styles/variables';
 export const GridWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  align-items: stretch;
+  justify-content: center;
 `;
 
 export const ItemWrapper = styled.span`
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   width: 300px;
   height: calc(100% - 2 * ${spacing.medium});
   border-radius: ${borderRadius};
