@@ -35,13 +35,14 @@ const Mods: React.FunctionComponent<Props> = ({ mods }) => (
     </Head>
     <PageSection title="Available mods" id="mods">
       <CardGrid>
-        {mods?.map((mod) => (
+        {mods?.map((mod, index) => (
           <SmartLink
             key={mod.repo}
             href="/mods/[mod]"
             as={getModPath(mod.name)}
           >
             <CardGridItem
+              index={index}
               title={mod.name}
               description={mod.description}
               imageUrl={mod.imageUrl || undefined}

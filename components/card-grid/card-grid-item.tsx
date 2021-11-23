@@ -13,6 +13,7 @@ import {
 export type CardGridItemProps = {
   title: string;
   description?: string;
+  index: number;
   imageUrl?: string;
 };
 
@@ -37,6 +38,7 @@ export const CardGridItem: React.FunctionComponent<CardGridItemProps> = ({
   title,
   imageUrl,
   description,
+  index,
 }) => (
   <ItemWrapper>
     <ImageWrapper hue={imageUrl ? 0 : stringToNumber(title)}>
@@ -47,6 +49,7 @@ export const CardGridItem: React.FunctionComponent<CardGridItemProps> = ({
         src={imageUrl || '/images/placeholder.jpg'}
         height={200}
         width={560}
+        priority={index <= 6}
       />
     </ImageWrapper>
     <TextWrapper>

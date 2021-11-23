@@ -21,6 +21,7 @@ export const PageSectionImage: React.FunctionComponent<Props> = ({
       height={height}
       width={280}
       layout="responsive"
+      priority
     />
   </SectionImageWrapper>
 );
