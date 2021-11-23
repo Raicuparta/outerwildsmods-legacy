@@ -1,6 +1,13 @@
 import { Parser } from 'commonmark';
+import probe from 'probe-image-size';
 
-export type ImageMap = Record<string, string | null>;
+type ImageData = {
+  width: number;
+  height: number;
+  url: string;
+};
+
+export type ImageMap = Record<string, ImageData | null>;
 
 export const getAllMarkdownImages = (markdown?: string): string[] => {
   if (!markdown) return [];
@@ -23,15 +30,23 @@ export const getAllMarkdownImages = (markdown?: string): string[] => {
 
 export const downloadImage = async (
   baseUrl: string,
-  modName: string,
-  imageUrl: string
-) => {
-  const response = await fetch(`${baseUrl}/${imageUrl}`);
+  url: string
+): Promise<ImageData | null> => {
+  const fullUrl = url.startsWith('http') ? url : `${baseUrl}/${url}`;
+  try {
+    const { height, width } = await probe(fullUrl);
 
-  if (!response.ok) {
+    return {
+      height,
+      width,
+      url: fullUrl,
+    };
+  } catch (exception) {
+    console.error(
+      `Failed to probe image dimensions for ${fullUrl}.`,
+      exception
+    );
     return null;
-  } else {
-    return `${baseUrl}/${imageUrl}`;
   }
 };
 
@@ -43,7 +58,7 @@ export const downloadAllImages = async (
   const imageMap: ImageMap = {};
 
   for (let url of imageUrls) {
-    imageMap[url] = await downloadImage(baseUrl, modName, url);
+    imageMap[url] = await downloadImage(baseUrl, url);
   }
 
   return imageMap;

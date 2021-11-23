@@ -7,19 +7,20 @@ type Props = {
   node: never;
 };
 
-export const ImageRenderer = (
-  externalImages: ImageMap
-): React.FunctionComponent<Props> => ({ src, alt, node, ...props }) => {
-  return externalImages[src] ? (
-    <Image
-      alt={alt}
-      src={externalImages[src] ?? src}
-      height={15}
-      width={60}
-      layout="responsive"
-      {...props}
-    />
-  ) : (
-    <img src={src} />
-  );
-};
+export const ImageRenderer =
+  (externalImages: ImageMap): React.FunctionComponent<Props> =>
+  ({ src, alt, node, ...props }) => {
+    return externalImages[src] ? (
+      <Image
+        alt={alt}
+        src={externalImages[src]?.url ?? src}
+        height={externalImages[src]?.height ?? 150}
+        width={externalImages[src]?.width ?? 600}
+        layout="intrinsic"
+        quality={50}
+        {...props}
+      />
+    ) : (
+      <img src={src} />
+    );
+  };
