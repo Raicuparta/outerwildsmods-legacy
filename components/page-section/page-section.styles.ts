@@ -25,12 +25,17 @@ export const Title = styled.h2`
 
 export const Line = styled.hr`
   flex: 1;
-  margin-left: ${spacing.large};
   margin-bottom: 13px;
   background-color: ${colors.light};
   height: 1px;
   border: none;
   opacity: 0.5;
+  :not(:first-child) {
+    margin-left: ${spacing.large};
+  }
+  :not(:last-child) {
+    margin-right: ${spacing.large};
+  }
 `;
 
 export const PageSectionColumns = styled.div`
@@ -65,11 +70,10 @@ export const SectionImageWrapper = styled.div<{ hideOnMobile: boolean }>(
         margin-top: ${spacing.large};
       }
     }
-    img,
-    amp-img {
+    img {
       object-fit: cover;
       object-position: top;
-      border-radius: ${borderRadius};
+      border-radius: ${borderRadius.small};
       border: 2px solid ${colors.dark};
       overflow: hidden;
       width: 100%;

@@ -8,7 +8,7 @@ const bulletSize = '30px';
 export const Wrapper = styled.span`
   display: flex;
   align-items: center;
-  border-radius: ${borderRadius};
+  border-radius: ${borderRadius.small};
   padding: ${spacing.medium};
   &:hover {
     background-color: ${colors.dark};
@@ -23,8 +23,7 @@ export const ImageWrapper = styled.div`
   min-height: ${imageSize};
   max-width: ${imageSize};
   max-height: ${imageSize};
-  img,
-  amp-img {
+  img {
     border-radius: 100%;
     width: 100%;
     height: 100%;

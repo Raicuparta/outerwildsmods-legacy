@@ -24,10 +24,11 @@ export const ModDescription: React.FunctionComponent<Props> = ({
       {readme && (
         <Markdown
           skipHtml
+          transformImageUri={(src) => externalImages[src] || src}
           renderers={{
             heading: HeadingRenderer,
             link: LinkRenderer(imageRenderer),
-            image: imageRenderer,
+            // image: imageRenderer,
           }}
           plugins={plugins}
         >
@@ -36,4 +37,4 @@ export const ModDescription: React.FunctionComponent<Props> = ({
       )}
     </Wrapper>
   );
-}
+};

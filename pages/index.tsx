@@ -95,8 +95,4 @@ const Home: React.FunctionComponent = () => (
   </PageLayout>
 );
 
-export const config: PageConfig = {
-  amp: 'hybrid',
-};
-
 export default Home;

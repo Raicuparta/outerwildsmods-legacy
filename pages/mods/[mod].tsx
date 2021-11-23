@@ -150,8 +150,4 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   };
 };
 
-export const config: PageConfig = {
-  amp: 'hybrid',
-};
-
 export default ModPage;

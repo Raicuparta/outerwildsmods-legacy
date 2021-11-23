@@ -1,64 +1,93 @@
 import { GetStaticProps, PageConfig } from 'next';
 import Head from 'next/head';
 
+import { PageSection, SmartLink, PageLayout } from '../../components';
+import { CardGridItem } from '../../components/card-grid';
+import { CardGrid } from '../../components/card-grid/card-grid';
 import {
-  ListItemCard,
-  PageSection,
-  SmartLink,
-  PageLayout,
-} from '../../components';
-import { ModDatabase, getModDatabase } from '../../services';
+  downloadAllImages,
+  getAllMarkdownImages,
+  getRawContentUrl,
+} from '../../helpers';
+import { getModDatabase, getModReadme, Mod } from '../../services';
 
 type Props = {
-  modDatabase?: ModDatabase;
+  mods: ModWithImage[];
 };
+
+interface ModWithImage extends Mod {
+  imageUrl: string | null;
+}
 
 export const getModPathName = (modName: string) =>
   modName.replace(/ /g, '').toLowerCase();
 
 const getModPath = (modName: string) => `/mods/${getModPathName(modName)}`;
 
-const Mods: React.FunctionComponent<Props> = ({ modDatabase }) => {
-  const mods = modDatabase?.releases;
-
-  return (
-    <PageLayout>
-      <Head>
-        <title>Outer Wilds Mods - Find all mods for Outer Wilds</title>
-        <meta
-          name="description"
-          content="Full list of mods for Outer Wilds. Including mods for VR, multiplayer, and cheats."
-        />
-      </Head>
-      <PageSection id="mod-manager">
-        Install these mods using the{' '}
-        <SmartLink href="/mod-manager">Outer Wilds Mod Manager</SmartLink>
-      </PageSection>
-      <PageSection title="Available mods" id="mods">
+const Mods: React.FunctionComponent<Props> = ({ mods }) => (
+  <PageLayout isWide>
+    <Head>
+      <title>Outer Wilds Mods - Find all mods for Outer Wilds</title>
+      <meta
+        name="description"
+        content="Full list of mods for Outer Wilds. Including mods for VR, multiplayer, and cheats."
+      />
+    </Head>
+    <PageSection title="Available mods" id="mods">
+      <CardGrid>
         {mods?.map((mod) => (
           <SmartLink
             key={mod.repo}
             href="/mods/[mod]"
             as={getModPath(mod.name)}
           >
-            <ListItemCard title={mod.name} description={mod.description} />
+            <CardGridItem
+              title={mod.name}
+              description={mod.description}
+              imageUrl={mod.imageUrl || undefined}
+            />
           </SmartLink>
         ))}
-      </PageSection>
-    </PageLayout>
-  );
-};
+      </CardGrid>
+    </PageSection>
+  </PageLayout>
+);
+
+// TODO dont repeat in [mod].tsx.
+const readmeNames = ['README.md', 'readme.md', 'Readme.md'];
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const modDatabase = await getModDatabase();
 
-  return {
-    props: { modDatabase },
-  };
-};
+  if (!modDatabase) {
+    return { props: { mods: [] } };
+  }
 
-export const config: PageConfig = {
-  amp: 'hybrid',
+  const mods: ModWithImage[] = await Promise.all(
+    modDatabase.releases.map(async (mod) => {
+      const rawContentUrl = getRawContentUrl(mod.repo);
+      const readmePaths = readmeNames.map(
+        (readmeName) => `${rawContentUrl}/${readmeName}`
+      );
+      const readme = await getModReadme(readmePaths);
+
+      const images = getAllMarkdownImages(readme);
+
+      const externalImages =
+        images.length > 0
+          ? await downloadAllImages(rawContentUrl, mod.name, [images[0]])
+          : {};
+
+      return {
+        ...mod,
+        imageUrl: Object.values(externalImages)[0] || images[0] || null,
+      };
+    })
+  );
+
+  return {
+    props: { mods },
+  };
 };
 
 export default Mods;

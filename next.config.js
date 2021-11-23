@@ -12,20 +12,12 @@ module.exports = (phase) => {
     trailingSlash: true,
     env,
     images: {
-      domains: ['github.com', 'raw.githubusercontent.com'],
-    },
-    amp: {
-      canonicalBase: 'https://outerwildsmods.com',
-    },
-    webpack: (config, { isServer }) => {
-      // Fixes npm packages that depend on `fs` module
-      if (!isServer) {
-        config.node = {
-          fs: 'empty',
-        };
-      }
-
-      return config;
+      domains: [
+        'github.com',
+        'raw.githubusercontent.com',
+        'user-images.githubusercontent.com',
+        'img.shields.io',
+      ],
     },
   };
 };

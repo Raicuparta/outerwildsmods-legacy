@@ -9,6 +9,7 @@ export const PageSectionTitle: React.FunctionComponent<Props> = ({
   id,
 }) => (
   <TitleWrapper>
+    <Line />
     <Title id={id}>{children}</Title>
     <Line />
   </TitleWrapper>

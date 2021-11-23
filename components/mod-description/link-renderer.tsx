@@ -1,7 +1,6 @@
-import { useAmp } from "next/amp";
-import { Children, ReactElement } from "react";
-import { TextLink } from "../smart-link";
-import { ImageRenderer } from "./image-renderer";
+import { Children, ReactElement } from 'react';
+import { TextLink } from '../smart-link';
+import { ImageRenderer } from './image-renderer';
 
 type Props = React.AnchorHTMLAttributes<HTMLAnchorElement>;
 
@@ -10,20 +9,23 @@ const youtubeHostNames = [
   'www.youtube.com',
   'youtu.be',
   'www.youtu.be',
-]
+];
 
-function getYoutubeId(url: string){
-  const urlParts = url.replace(/(>|<)/gi,'').split(/(vi\/|v=|\/v\/|youtu\.be\/|\/embed\/)/);
-  
-  if(urlParts[2] === undefined) {
+function getYoutubeId(url: string) {
+  const urlParts = url
+    .replace(/(>|<)/gi, '')
+    .split(/(vi\/|v=|\/v\/|youtu\.be\/|\/embed\/)/);
+
+  if (urlParts[2] === undefined) {
     return urlParts;
   }
-  
+
   return urlParts[2].split(/[^0-9a-z_\-]/i)[0];
 }
 
-export const LinkRenderer = (imageRenderer: ReturnType<typeof ImageRenderer>): React.FC<Props> => (props) => {
-  const isAmp = useAmp();
+export const LinkRenderer = (
+  imageRenderer: ReturnType<typeof ImageRenderer>
+): React.FC<Props> => (props) => {
   const { href, children } = props;
 
   const VideoFromImageLink = () => {
@@ -35,7 +37,8 @@ export const LinkRenderer = (imageRenderer: ReturnType<typeof ImageRenderer>): R
       if (!child) {
         return null;
       }
-      const isWrappingImage = child.type === imageRenderer || child.type === 'img';
+      const isWrappingImage =
+        child.type === imageRenderer || child.type === 'img';
       const hostName = new URL(href).hostname;
       if (!youtubeHostNames.includes(hostName) || !isWrappingImage) {
         return null;
@@ -46,14 +49,7 @@ export const LinkRenderer = (imageRenderer: ReturnType<typeof ImageRenderer>): R
 
     const youtubeId = getYoutubeId(href);
 
-    return isAmp ? (
-      <amp-youtube
-        data-videoid={youtubeId}
-        layout="responsive"
-        width="480"
-        height="270"
-      />
-    ) : (
+    return (
       <iframe
         width="100%"
         height="350"
@@ -64,7 +60,7 @@ export const LinkRenderer = (imageRenderer: ReturnType<typeof ImageRenderer>): R
         allowFullScreen
       />
     );
-  }
+  };
 
   return VideoFromImageLink() || <TextLink {...props} />;
 };

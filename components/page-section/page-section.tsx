@@ -1,5 +1,3 @@
-import { useAmp } from 'next/amp';
-
 import { PageSectionDescription, PageSectionImage } from '..';
 import { PageSectionTitle } from './page-section-title';
 import {
