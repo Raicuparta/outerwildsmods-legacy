@@ -5,7 +5,7 @@ import { PageSection, SmartLink, PageLayout } from '../../components';
 import { CardGridItem } from '../../components/card-grid';
 import { CardGrid } from '../../components/card-grid/card-grid';
 import {
-  downloadAllImages,
+  getImageMap,
   getAllMarkdownImages,
   getRawContentUrl,
 } from '../../helpers';
@@ -76,7 +76,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 
       const externalImages =
         images.length > 0
-          ? await downloadAllImages(rawContentUrl, mod.name, [images[0]])
+          ? await getImageMap(rawContentUrl, mod.name, [images[0]])
           : {};
 
       return {

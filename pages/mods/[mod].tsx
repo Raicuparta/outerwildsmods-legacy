@@ -9,7 +9,7 @@ import {
 } from '../../components';
 import { getModDatabase, Mod, getModReadme } from '../../services';
 import {
-  downloadAllImages,
+  getImageMap,
   getAllMarkdownImages,
   getRawContentUrl,
   ImageMap,
@@ -135,11 +135,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
 
   const images = getAllMarkdownImages(readme);
 
-  const externalImages = await downloadAllImages(
-    rawContentUrl,
-    mod.name,
-    images
-  );
+  const externalImages = await getImageMap(rawContentUrl, mod.name, images);
 
   return {
     props: {

@@ -28,7 +28,7 @@ export const getAllMarkdownImages = (markdown?: string): string[] => {
   return uniqueSrcList;
 };
 
-export const downloadImage = async (
+export const getImageData = async (
   baseUrl: string,
   url: string
 ): Promise<ImageData | null> => {
@@ -50,7 +50,7 @@ export const downloadImage = async (
   }
 };
 
-export const downloadAllImages = async (
+export const getImageMap = async (
   baseUrl: string,
   modName: string,
   imageUrls: string[]
@@ -58,7 +58,7 @@ export const downloadAllImages = async (
   const imageMap: ImageMap = {};
 
   for (let url of imageUrls) {
-    imageMap[url] = await downloadImage(baseUrl, url);
+    imageMap[url] = await getImageData(baseUrl, url);
   }
 
   return imageMap;
