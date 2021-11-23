@@ -30,6 +30,7 @@ export const ListItemCard: React.FunctionComponent<ListItemCardProps> = ({
           src={imageUrl}
           width="50"
           height="50"
+          priority
         />
       </ImageWrapper>
     )}
