@@ -34,7 +34,7 @@ const Home: React.FunctionComponent<Props> = ({ modManager }) => (
           imageUrl="/images/mod-manager.png"
           title="Outer Wilds Mod Manager"
           hideOnMobile={false}
-          height={200}
+          height={140}
         />
       </div>
       <LinkButton
