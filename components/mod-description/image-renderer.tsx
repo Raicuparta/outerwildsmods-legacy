@@ -14,10 +14,12 @@ export const ImageRenderer = (
     <Image
       alt={alt}
       src={externalImages[src] ?? src}
-      height={100}
-      width={1000}
+      height={15}
+      width={60}
       layout="responsive"
       {...props}
     />
-  ) : null;
+  ) : (
+    <img src={src} />
+  );
 };
