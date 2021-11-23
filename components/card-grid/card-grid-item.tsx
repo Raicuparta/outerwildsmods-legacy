@@ -51,7 +51,7 @@ export const CardGridItem: React.FunctionComponent<CardGridItemProps> = ({
         width={560}
         objectFit="cover"
         priority={index <= 6}
-        quality={50}
+        quality={imageUrl ? 50 : 100}
       />
     </ImageWrapper>
     <TextWrapper>
