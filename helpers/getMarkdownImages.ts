@@ -1,11 +1,6 @@
-import fs, { promises as fsp } from 'fs';
-import path from 'path';
 import { Parser } from 'commonmark';
 
 export type ImageMap = Record<string, string | null>;
-
-const getPath = (relativePath: string) =>
-  path.join(process.cwd(), relativePath);
 
 export const getAllMarkdownImages = (markdown?: string): string[] => {
   if (!markdown) return [];
