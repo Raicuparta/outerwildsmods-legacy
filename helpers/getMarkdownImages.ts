@@ -1,11 +1,6 @@
-import fs, { promises as fsp } from 'fs';
-import path from 'path';
 import { Parser } from 'commonmark';
 
 export type ImageMap = Record<string, string | null>;
-
-const getPath = (relativePath: string) =>
-  path.join(process.cwd(), relativePath);
 
 export const getAllMarkdownImages = (markdown?: string): string[] => {
   if (!markdown) return [];
@@ -35,20 +30,9 @@ export const downloadImage = async (
 
   if (!response.ok) {
     return null;
+  } else {
+    return `${baseUrl}/${imageUrl}`;
   }
-
-  const image = await response.arrayBuffer();
-  const filePath = `/images/external/${modName}/${imageUrl}`;
-  const publicPath = `public${filePath}`;
-
-  const publicDirectory = path.dirname(publicPath);
-  if (!fs.existsSync(publicDirectory)) {
-    await fsp.mkdir(publicDirectory, { recursive: true });
-  }
-
-  await fsp.writeFile(getPath(publicPath), Buffer.from(image));
-
-  return filePath;
 };
 
 export const downloadAllImages = async (

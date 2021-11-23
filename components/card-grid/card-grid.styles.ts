@@ -30,9 +30,8 @@ export const ImageWrapper = styled.div<{ hue?: number }>(
     width: 100%;
     height: 100px;
     position: relative;
-    filter: hue-rotate(${hue}turn);
-    img,
-    amp-img {
+    filter: hue-rotate(${hue}deg);
+    img {
       width: 100%;
       height: 100px;
       object-fit: cover;
