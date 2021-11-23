@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import { GetStaticProps, PageConfig } from 'next';
 
 import {
   PageSection,
@@ -10,16 +9,13 @@ import {
   WindowsIcon,
   SmartLink,
 } from '../components';
-import { getModDatabase, ModManager } from '../services';
 
-const modManagerDefaultDownloadUrl =
-  'https://github.com/Raicuparta/ow-mod-manager/releases/latest';
+const repoUrl = 'https://github.com/Raicuparta/ow-mod-manager';
+const downloadUrl = `${repoUrl}/releases/latest/download`;
+const installerDownloadUrl = `${downloadUrl}/OuterWildsModManager-Installer.exe`;
+const portableDownloadUrl = `${downloadUrl}/OuterWildsModManager-Portable.zip`;
 
-type Props = {
-  modManager?: ModManager;
-};
-
-const Home: React.FunctionComponent<Props> = ({ modManager }) => (
+const ModManagerPage = () => (
   <PageLayout>
     <Head>
       <title>Outer Wilds Mod Manager - Download Windows app</title>
@@ -38,28 +34,19 @@ const Home: React.FunctionComponent<Props> = ({ modManager }) => (
         />
       </div>
       <LinkButton
-        href={modManager?.installerDownloadUrl ?? modManagerDefaultDownloadUrl}
-        target={modManager?.installerDownloadUrl ? undefined : '_blank'}
+        href={installerDownloadUrl}
         rel="noopener noreferrer"
         variant="main-download"
       >
         <WindowsIcon />
         Download the Outer Wilds Mod Manager for Windows
       </LinkButton>
-      {modManager?.zipDownloadUrl && (
-        <p>
-          or{' '}
-          <TextLink href={modManager.zipDownloadUrl}>
-            download the portable version instead
-          </TextLink>
-        </p>
-      )}
-      {modManager?.downloadCount && (
-        <p>
-          The Mod Manager has been downloaded{' '}
-          <strong>{modManager.downloadCount}</strong> times.
-        </p>
-      )}
+      <p>
+        or{' '}
+        <TextLink href={portableDownloadUrl} rel="noopener noreferrer">
+          download the portable version instead
+        </TextLink>
+      </p>
       <p>For all your modding needs! With access to features such as:</p>
       <ul>
         <li>Downloading mods;</li>
@@ -107,32 +94,15 @@ const Home: React.FunctionComponent<Props> = ({ modManager }) => (
     <PageSection title="More information" id="more-info">
       <p>
         For more information, check the{' '}
-        <TextLink href="https://github.com/Raicuparta/ow-mod-manager#outer-wilds-mod-manager">
+        <SmartLink
+          isExternal
+          href="https://github.com/Raicuparta/ow-mod-manager#readme"
+        >
           readme on GitHub
-        </TextLink>
+        </SmartLink>
       </p>
     </PageSection>
   </PageLayout>
 );
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
-  const modDatabase = await getModDatabase();
-
-  const downloadUrl = modDatabase?.modManager?.installerDownloadUrl;
-
-  if (!downloadUrl) {
-    throw new Error(
-      `Could not retrieve mod manager installer download URL from database. \n${JSON.stringify(
-        modDatabase?.modManager
-      )}\n`
-    );
-  }
-
-  return {
-    props: {
-      modManager: modDatabase?.modManager,
-    },
-  };
-};
-
-export default Home;
+export default ModManagerPage;
