@@ -1,6 +1,5 @@
-const fs = require('fs');
-
-const globby = require('globby');
+import { writeFileSync } from 'fs';
+import { globby } from 'globby';
 
 const urlBase = 'https://outerwildsmods.com';
 
@@ -16,6 +15,6 @@ const urlBase = 'https://outerwildsmods.com';
 
   const sitemap = `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${pageUrls}\n</urlset>`;
 
-  fs.writeFileSync('public/sitemap.xml', sitemap);
-  fs.writeFileSync('out/sitemap.xml', sitemap);
+  writeFileSync('public/sitemap.xml', sitemap);
+  writeFileSync('out/sitemap.xml', sitemap);
 })();

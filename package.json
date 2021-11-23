@@ -8,7 +8,7 @@
     "run-build": "npm run build && next start",
     "deploy": "npm run build && gh-pages -t -d out",
     "build": "next build && next export && npm run generate-sitemap && npm run create-404",
-    "generate-sitemap": "node generate-sitemap",
+    "generate-sitemap": "node generate-sitemap.mjs",
     "create-404": "move-file out/404/index.html out/404.html",
     "prettier": "prettier --write ."
   },
