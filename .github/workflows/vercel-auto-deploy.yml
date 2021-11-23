@@ -1,0 +1,13 @@
+name: Vercel Auto Deploy
+on:
+  push:
+    branches: [master]
+  schedule:
+    - cron: '0 * * * *'
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send POST to Vercel build URL
+        run: curl -X POST ${{ secrets.VERCEL_DEPLOY_URL }}
