@@ -25,11 +25,11 @@ export const CardGridItem: React.FunctionComponent<CardGridItemProps> = ({
     <ImageWrapper hue={imageUrl ? 0 : Math.random()}>
       {!imageUrl && <PlaceholderText>{title}</PlaceholderText>}
       <Image
-        layout="responsive"
+        layout="intrinsic"
         alt={title}
         src={imageUrl || '/images/placeholder.jpg'}
-        height={100}
-        width={280}
+        height={200}
+        width={560}
       />
     </ImageWrapper>
     <TextWrapper>
