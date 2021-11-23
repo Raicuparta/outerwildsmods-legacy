@@ -70,8 +70,7 @@ export const SectionImageWrapper = styled.div<{ hideOnMobile: boolean }>(
         margin-top: ${spacing.large};
       }
     }
-    img,
-    amp-img {
+    img {
       object-fit: cover;
       object-position: top;
       border-radius: ${borderRadius.small};

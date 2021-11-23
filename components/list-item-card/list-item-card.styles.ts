@@ -23,8 +23,7 @@ export const ImageWrapper = styled.div`
   min-height: ${imageSize};
   max-width: ${imageSize};
   max-height: ${imageSize};
-  img,
-  amp-img {
+  img {
     border-radius: 100%;
     width: 100%;
     height: 100%;

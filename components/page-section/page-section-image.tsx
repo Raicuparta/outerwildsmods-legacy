@@ -1,4 +1,4 @@
-import { SmartImage } from '../smart-image';
+import Image from 'next/image';
 import { SectionImageWrapper } from './page-section.styles';
 
 type Props = {
@@ -15,7 +15,7 @@ export const PageSectionImage: React.FunctionComponent<Props> = ({
   height = 140,
 }) => (
   <SectionImageWrapper hideOnMobile={hideOnMobile}>
-    <SmartImage
+    <Image
       src={imageUrl}
       alt={title}
       height={height}

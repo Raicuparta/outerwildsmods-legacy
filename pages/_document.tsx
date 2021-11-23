@@ -7,7 +7,7 @@ import Document, {
 } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
-import { Analytics, AmpAnalytics } from '../components';
+import { Analytics } from '../components';
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -47,7 +47,6 @@ class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
-          <AmpAnalytics id={id} />
         </body>
       </Html>
     );

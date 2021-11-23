@@ -1,4 +1,4 @@
-import { SmartImage } from '../smart-image';
+import Image from 'next/image';
 
 import {
   ItemWrapper,
@@ -24,7 +24,7 @@ export const CardGridItem: React.FunctionComponent<CardGridItemProps> = ({
   <ItemWrapper>
     <ImageWrapper hue={imageUrl ? 0 : Math.random()}>
       {!imageUrl && <PlaceholderText>{title}</PlaceholderText>}
-      <SmartImage
+      <Image
         layout="fixed"
         alt={title}
         src={imageUrl || '/images/placeholder.jpg'}

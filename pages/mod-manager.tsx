@@ -48,8 +48,7 @@ const Home: React.FunctionComponent<Props> = ({ modManager }) => (
       </LinkButton>
       {modManager?.zipDownloadUrl && (
         <p>
-          or
-          {' '}
+          or{' '}
           <TextLink href={modManager.zipDownloadUrl}>
             download the portable version instead
           </TextLink>
@@ -57,7 +56,8 @@ const Home: React.FunctionComponent<Props> = ({ modManager }) => (
       )}
       {modManager?.downloadCount && (
         <p>
-          The Mod Manager has been downloaded <strong>{modManager.downloadCount}</strong> times.
+          The Mod Manager has been downloaded{' '}
+          <strong>{modManager.downloadCount}</strong> times.
         </p>
       )}
       <p>For all your modding needs! With access to features such as:</p>
@@ -133,10 +133,6 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       modManager: modDatabase?.modManager,
     },
   };
-};
-
-export const config: PageConfig = {
-  amp: 'hybrid',
 };
 
 export default Home;

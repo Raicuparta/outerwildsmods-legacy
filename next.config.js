@@ -12,10 +12,12 @@ module.exports = (phase) => {
     trailingSlash: true,
     env,
     images: {
-      domains: ['github.com', 'raw.githubusercontent.com'],
-    },
-    amp: {
-      canonicalBase: 'https://outerwildsmods.com',
+      domains: [
+        'github.com',
+        'raw.githubusercontent.com',
+        'user-images.githubusercontent.com',
+        'img.shields.io',
+      ],
     },
     webpack: (config, { isServer }) => {
       // Fixes npm packages that depend on `fs` module

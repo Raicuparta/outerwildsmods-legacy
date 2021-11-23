@@ -1,4 +1,4 @@
-import { SmartImage } from '../smart-image';
+import Image from 'next/image';
 
 import {
   Wrapper,
@@ -24,7 +24,7 @@ export const ListItemCard: React.FunctionComponent<ListItemCardProps> = ({
   <Wrapper>
     {imageUrl && (
       <ImageWrapper>
-        <SmartImage
+        <Image
           layout="fixed"
           alt={title}
           src={imageUrl}
