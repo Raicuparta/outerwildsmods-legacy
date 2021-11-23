@@ -30,7 +30,7 @@ const stringToNumber = function (str: string, seed = 3) {
   h2 =
     Math.imul(h2 ^ (h2 >>> 16), 2246822507) ^
     Math.imul(h1 ^ (h1 >>> 13), 3266489909);
-  return 4294967296 * (2097151 & h2) + (h1 >>> 0);
+  return (4294967296 * (2097151 & h2) + (h1 >>> 0)) % 360;
 };
 
 export const CardGridItem: React.FunctionComponent<CardGridItemProps> = ({
