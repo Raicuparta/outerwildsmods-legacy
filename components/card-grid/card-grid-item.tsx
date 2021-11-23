@@ -49,6 +49,7 @@ export const CardGridItem: React.FunctionComponent<CardGridItemProps> = ({
         src={imageUrl || '/images/placeholder.jpg'}
         height={200}
         width={560}
+        objectFit="cover"
         priority={index <= 6}
       />
     </ImageWrapper>

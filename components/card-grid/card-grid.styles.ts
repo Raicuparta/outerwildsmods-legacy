@@ -11,7 +11,7 @@ export const GridWrapper = styled.div`
 export const ItemWrapper = styled.span`
   display: flex;
   flex-direction: column;
-  width: 280px;
+  max-width: 280px;
   height: calc(100% - 2 * ${spacing.small});
   border-radius: ${borderRadius.medium};
   margin: ${spacing.small};
@@ -27,15 +27,7 @@ export const ItemWrapper = styled.span`
 
 export const ImageWrapper = styled.div<{ hue?: number }>(
   ({ hue = 0 }) => css`
-    width: 100%;
-    height: 100px;
-    position: relative;
     filter: hue-rotate(${hue}deg);
-    img {
-      width: 100%;
-      height: 100px;
-      object-fit: cover;
-    }
   `
 );
 
