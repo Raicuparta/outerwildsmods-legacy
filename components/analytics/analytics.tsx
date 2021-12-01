@@ -8,16 +8,14 @@ export const Analytics: React.FunctionComponent = () => (
       strategy="afterInteractive"
       src={`https://www.googletagmanager.com/gtag/js?id=${analyticsId}`}
     />
-    <Script
-      strategy="afterInteractive"
-      dangerouslySetInnerHTML={{
-        __html: `
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', '${analyticsId}');
-        `,
-      }}
-    />
+    <Script id="google-analytics" strategy="afterInteractive">
+      {`
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){window.dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', '${analyticsId}');
+      `}
+    </Script>
   </>
 );
