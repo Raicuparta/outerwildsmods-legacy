@@ -37,12 +37,11 @@ class MyDocument extends Document {
   }
 
   render() {
-    const id = process.env.analyticsId ?? '';
     return (
       <Html lang="en">
         <Head>
           <meta name="theme-color" content="#1f1f1f" />
-          <Analytics id={id} />
+          <Analytics />
         </Head>
         <body>
           <Main />
