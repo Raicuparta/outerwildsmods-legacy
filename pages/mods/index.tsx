@@ -56,6 +56,7 @@ const Mods: React.FunctionComponent<Props> = ({ mods }) => (
 
 // TODO dont repeat in [mod].tsx.
 const readmeNames = ['README.md', 'readme.md', 'Readme.md'];
+const supportedTypes = ['png', 'jpg', 'jpeg', 'gif', 'ico', 'bmp', 'webp'];
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const modDatabase = await getModDatabase();
@@ -76,12 +77,16 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 
       const externalImages =
         images.length > 0
-          ? await getImageMap(rawContentUrl, mod.name, [images[0]])
+          ? await getImageMap(rawContentUrl, mod.name, images)
           : {};
+
+      const firstExternalImage = Object.values(externalImages).filter(
+        (image) => image && supportedTypes.includes(image.type)
+      )[0];
 
       return {
         ...mod,
-        imageUrl: Object.values(externalImages)[0]?.url || images[0] || null,
+        imageUrl: firstExternalImage?.url || null,
       };
     })
   );

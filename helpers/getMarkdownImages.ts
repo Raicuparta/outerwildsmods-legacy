@@ -5,6 +5,7 @@ type ImageData = {
   width: number;
   height: number;
   url: string;
+  type: string;
 };
 
 export type ImageMap = Record<string, ImageData | null>;
@@ -34,11 +35,12 @@ export const getImageData = async (
 ): Promise<ImageData | null> => {
   const fullUrl = url.startsWith('http') ? url : `${baseUrl}/${url}`;
   try {
-    const { height, width } = await probe(fullUrl);
+    const { height, width, type } = await probe(fullUrl);
 
     return {
       height,
       width,
+      type,
       url: fullUrl,
     };
   } catch (exception) {
