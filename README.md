@@ -1,5 +1,3 @@
-# [Outer Wilds Mods](https://outerwildsmods.com/)
+# Legacy Outer Wilds mods website
 
-Simple page for aggregating info related to mods for the game Outer Wilds. Built with [Next.js](https://nextjs.org/).
-
-The mod pages in this website are automatically generated from the [Outer Wilds Mod Database](https://github.com/Raicuparta/ow-mod-db). The main content of each mod page (for example, [outerwildsmods.com/mods/nomaivr](https://outerwildsmods.com/mods/nomaivr/)) is taken from that mod's `README.md` (from the master branch).
+This was the old version of the webside, build with [Next.js](https://nextjs.org/). For the current version build with Svelte, see [Raicuparta/outerwildsmods.com](https://github.com/Raicuparta/outerwildsmods.com).
